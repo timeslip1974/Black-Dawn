@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://c7janr5s5j2xh"]
+
+[ext_resource type="Script" uid="uid://djdrb6cs0pbjb" path="res://Maps/Scripts/map_builder.gd" id="1_2no3x"]
+[ext_resource type="MeshLibrary" uid="uid://cugrhfnjm112" path="res://Models/Walls/Walls1.meshlib" id="1_po4nh"]
+[ext_resource type="PackedScene" uid="uid://b6u52ps5ecwfn" path="res://Player/player.tscn" id="3_4a63d"]
+[ext_resource type="Texture2D" uid="uid://ceia73gf8owe" path="res://Maps/maptiles.png" id="4_e8v5q"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_d1bjv"]
+
+[sub_resource type="Sky" id="Sky_r1x0r"]
+sky_material = SubResource("ProceduralSkyMaterial_d1bjv")
+
+[sub_resource type="Environment" id="Environment_b41lk"]
+background_mode = 2
+sky = SubResource("Sky_r1x0r")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_b41lk"]
+size = Vector2(400, 400)
+center_offset = Vector3(0, -1, 0)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ys38l"]
+texture = ExtResource("4_e8v5q")
+1:0/0 = 0
+2:0/0 = 0
+0:0/0 = 0
+31:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_r1x0r"]
+sources/0 = SubResource("TileSetAtlasSource_ys38l")
+
+[node name="MapBuilder" type="Node3D" unique_id=500081513]
+script = ExtResource("1_2no3x")
+
+[node name="GridMap" type="GridMap" parent="." unique_id=244829542]
+mesh_library = ExtResource("1_po4nh")
+cell_size = Vector3(1, 1, 1)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="GridMap" unique_id=67408717]
+environment = SubResource("Environment_b41lk")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1928978039]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.200645, 0)
+shadow_enabled = true
+
+[node name="Player" parent="." unique_id=1156010410 instance=ExtResource("3_4a63d")]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1454682668]
+mesh = SubResource("PlaneMesh_b41lk")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=280895352]
+tile_set = SubResource("TileSet_r1x0r")
