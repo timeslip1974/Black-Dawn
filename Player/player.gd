@@ -1,6 +1,10 @@
 extends Node3D
 
+const MOVESPEED=0.25
+
 var direction=1
+var moving
+var tween
 
 
 # Called when the node enters the scene tree for the first time.
@@ -10,22 +14,41 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	move()
+	
+func move():
+	if tween is Tween and tween.is_running():
+		return
+	
 	if Input.is_action_just_pressed("Forward"):
-		match direction:
-			1:
-				position+=Vector3(0,0,-1)
-			2:
-				position+=Vector3(1,0,0)
-			3:
-				position+=Vector3(0,0,1)
-			4:
-				position+=Vector3(-1,0,0)
-				
+		Forward()
+	if Input.is_action_just_pressed("Back"):
+		Back()
+	if Input.is_action_just_pressed("Left"):
+		Left()
+	if Input.is_action_just_pressed("Right"):
+		Right()
 	if Input.is_action_just_pressed("RotateL"):
-		direction-=1
-		if direction==0:direction=4
-		self.rotate_y(deg_to_rad(90))
+		RotL()
 	if Input.is_action_just_pressed("RotateR"):
-		direction+=1
-		if direction==5:direction=1
-		self.rotate_y(deg_to_rad(-90))
+		RotR()
+		
+		
+func Forward():
+	tween = create_tween().set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+	tween.tween_property(self, "position", position + Vector3.FORWARD.rotated(Vector3.UP, rotation.y) , MOVESPEED)
+func Back():
+	tween = create_tween().set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+	tween.tween_property(self, "position", position + Vector3.BACK.rotated(Vector3.UP, rotation.y) , MOVESPEED)
+func Left():
+	tween = create_tween().set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+	tween.tween_property(self, "position", position + Vector3.LEFT.rotated(Vector3.UP, rotation.y) , MOVESPEED)
+func Right():
+	tween = create_tween().set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+	tween.tween_property(self, "position", position + Vector3.RIGHT.rotated(Vector3.UP, rotation.y), MOVESPEED)
+func RotL():
+	tween = create_tween().set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+	tween.tween_property(self, "rotation:y", rotation.y - (-PI / 2.0), MOVESPEED)	
+func RotR():
+	tween = create_tween().set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+	tween.tween_property(self, "rotation:y", rotation.y - (PI / 2.0), MOVESPEED)	
