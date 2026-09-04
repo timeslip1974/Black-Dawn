@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://b4d2f7vr0nwam"]
+
+[ext_resource type="Script" uid="uid://b5gdbtkqtof8t" path="res://Maps/Scripts/map_converter.gd" id="1_s3myg"]
+[ext_resource type="MeshLibrary" uid="uid://cugrhfnjm112" path="res://Models/Walls/Walls1.meshlib" id="2_sqou4"]
+[ext_resource type="Texture2D" uid="uid://ceia73gf8owe" path="res://Maps/maptiles.png" id="3_i6i47"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jr835"]
+texture = ExtResource("3_i6i47")
+1:0/0 = 0
+2:0/0 = 0
+0:0/0 = 0
+31:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_0mmus"]
+sources/0 = SubResource("TileSetAtlasSource_jr835")
+
+[node name="MapConverter" type="Node3D" unique_id=394384009]
+script = ExtResource("1_s3myg")
+
+[node name="GridMap" type="GridMap" parent="." unique_id=313954616]
+mesh_library = ExtResource("2_sqou4")
+cell_size = Vector3(1, 1, 1)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1114343286]
+tile_set = SubResource("TileSet_0mmus")
