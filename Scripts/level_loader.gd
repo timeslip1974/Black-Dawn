@@ -43,15 +43,18 @@ func load_level() -> void:
 	# Replace "GridMap" with the exact name of the node inside that saved file
 	var saved_gridmap = temporary_root.get_node_or_null("GridMap")
 	var saved_tilemap=temporary_root.get_node_or_null("TileMapLayer")
+	var saved_lights=temporary_root.get_node_or_null("Lights")
 	
 	if saved_gridmap:
 		# 5. Detach the GridMap from the temporary background scene root
 		temporary_root.remove_child(saved_gridmap)
 		temporary_root.remove_child(saved_tilemap)
+		temporary_root.remove_child(saved_lights)
 		
 		# 6. Add it cleanly into your CURRENT active scene tree layout
 		add_child(saved_gridmap)
 		add_child(saved_tilemap)
+		add_child(saved_lights)
 		
 		# Optional: Adjust its 3D position or alignment if necessary
 		# saved_gridmap.global_position = Vector3.ZERO

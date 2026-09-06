@@ -4,13 +4,20 @@
 [ext_resource type="PackedScene" uid="uid://b6u52ps5ecwfn" path="res://Player/player.tscn" id="2_r3dyv"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_n2r1a"]
+sky_top_color = Color(0, 0, 0, 1)
+sky_horizon_color = Color(1, 0, 1, 1)
+sky_curve = 0.08038314
+sky_energy_multiplier = 0.5
 
-[sub_resource type="Sky" id="Sky_uhnqy"]
+[sub_resource type="Sky" id="Sky_jf4yp"]
 sky_material = SubResource("ProceduralSkyMaterial_n2r1a")
 
 [sub_resource type="Environment" id="Environment_b41lk"]
 background_mode = 2
-sky = SubResource("Sky_uhnqy")
+sky = SubResource("Sky_jf4yp")
+ambient_light_source = 3
+ambient_light_color = Color(1, 0, 1, 1)
+reflected_light_source = 2
 
 [node name="LevelLoader" type="Node3D" unique_id=1341354293]
 script = ExtResource("1_jf4yp")

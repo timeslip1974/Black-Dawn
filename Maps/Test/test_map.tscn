@@ -1,8 +1,8 @@
-[gd_scene format=4]
+[gd_scene format=4 uid="uid://yntx4rgpdeeu"]
 
-[ext_resource type="MeshLibrary" path="res://Models/Walls/Walls1.meshlib" id="1_s3813"]
-[ext_resource type="Script" path="res://Maps/Scripts/map_converter.gd" id="1_uhnqy"]
-[ext_resource type="Texture2D" path="res://Maps/maptiles.png" id="2_uhnqy"]
+[ext_resource type="MeshLibrary" uid="uid://cugrhfnjm112" path="res://Models/Walls/Walls1.meshlib" id="1_s3813"]
+[ext_resource type="Script" uid="uid://b5gdbtkqtof8t" path="res://Maps/Scripts/map_converter.gd" id="1_uhnqy"]
+[ext_resource type="Texture2D" uid="uid://ceia73gf8owe" path="res://Maps/maptiles.png" id="2_uhnqy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n2r1a"]
 texture = ExtResource("2_uhnqy")
@@ -17,6 +17,22 @@ custom_data_layer_0/name = "floor"
 custom_data_layer_0/type = 1
 sources/0 = SubResource("TileSetAtlasSource_n2r1a")
 
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_uhnqy"]
+sky_top_color = Color(0, 0, 0, 1)
+sky_horizon_color = Color(1, 0, 1, 1)
+sky_curve = 0.08038314
+sky_energy_multiplier = 0.5
+
+[sub_resource type="Sky" id="Sky_uhnqy"]
+sky_material = SubResource("ProceduralSkyMaterial_uhnqy")
+
+[sub_resource type="Environment" id="Environment_n2r1a"]
+background_mode = 2
+sky = SubResource("Sky_uhnqy")
+ambient_light_source = 3
+ambient_light_color = Color(1, 0, 1, 1)
+reflected_light_source = 2
+
 [node name="0" type="Node3D" unique_id=1838919953]
 script = ExtResource("1_uhnqy")
 
@@ -29,3 +45,22 @@ data = {
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=2003932816]
 tile_map_data = PackedByteArray("AAAFAAcAAAAAAAAAAAAFAAgAAAAAAAAAAAAFAAkAAAACAAAAAAAGAAcAAAAAAAAAAAAGAAgAAAAAAAAAAAAGAAkAAAAAAAAAAAAHAAgAAAAAAAAAAAAIAAgAAAAAAAAAAAAJAAcAAAAAAAAAAAAJAAgAAAAAAAAAAAAKAAcAAAAAAAAAAAAKAAgAAAAAAAAAAAAKAAwAAAAAAAAAAAALAAgAAAAAAAAAAAALAAsAAAAAAAAAAAALAAwAAAAAAAAAAAAMAAgAAAAAAAAAAAAMAAsAAAAAAAAAAAAMAAwAAAAAAAAAAAANAAgAAAAAAAAAAAANAAwAAAAAAAAAAAAOAAgAAAAAAAAAAAAOAAkAAAAAAAAAAAAOAAoAAAAAAAAAAAAOAAsAAAAAAAAAAAAOAAwAAAAAAAAAAAAPAAkAAAAAAAAAAAAPAAsAAAAAAAAAAAAQAAkAAAAAAAAAAAAQAAsAAAAAAAAAAAARAAkAAAAAAAAAAAARAAsAAAAAAAAAAAASAAkAAAAAAAAAAAASAAoAAAAAAAAAAAASAAsAAAAAAAAAAAAGAAoAAAAAAAAAAAAHAAoAAAAAAAAAAAAIAAoAAAAAAAAAAAAIAAsAAAAAAAAAAAAIAAwAAAAAAAAAAAAIAA0AAAAAAAAAAAAHAA0AAAAAAAAAAAAGAA0AAAAAAAAAAAAFAA0AAAAAAAAAAAAFAAwAAAAAAAAAAAAFAAsAAAAAAAAAAAAFAAoAAAAAAAAAAAAHAAsAAAAAAAAAAAAHAAwAAAAAAAAAAAAGAAwAAAAAAAAAAAAGAAsAAAAAAAAAAAAJAA0AAAAAAAAAAAAKAA0AAAAAAAAAAAAKAA4AAAAAAAAAAAAKAA8AAAAAAAAAAAAJAA8AAAAAAAAAAAALAA8AAAAAAAAAAAALABAAAAAAAAAAAAALABEAAAAAAAAAAAAKABEAAAAAAAAAAAAJABEAAAAAAAAAAAAJABAAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_alkci")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1369592229]
+environment = SubResource("Environment_n2r1a")
+
+[node name="Lights" type="Node3D" parent="." unique_id=1194574503]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Lights" unique_id=484313152]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 1, 16)
+light_color = Color(1, 1, 0, 1)
+shadow_enabled = true
+distance_fade_enabled = true
+omni_range = 2.5
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Lights" unique_id=1036924158]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 1, 27)
+light_color = Color(1, 0.28235295, 0, 1)
+shadow_enabled = true
+distance_fade_enabled = true
+omni_range = 2.5

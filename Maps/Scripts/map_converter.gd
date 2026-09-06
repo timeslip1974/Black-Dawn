@@ -35,9 +35,6 @@ const WALLS = {
 	14: 1       # Open East + South + West  -> ID 1: 01-ESW
 }
 
-# Explicitly target only your path tile coordinate in your 2D TileMap atlas sheet
-const GRAY_FLOOR_ATLAS_COORDS = Vector2i(0, 0)
-
 @export var map_w: int = 40
 @export var map_h: int = 40
 
