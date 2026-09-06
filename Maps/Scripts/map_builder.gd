@@ -9,18 +9,18 @@ func map_load():
 	Global.player=$Player
 	Global.map=$TileMapLayer
 	var data=0
-	var filename="res://Maps/test"
+	var filename="res://Maps/test/test"
 	var file_as_text
 	var map
 	
-	var packed_scene = load(filename+".tscn") as PackedScene
+	var packed_scene = load(filename+"grid.tscn") as PackedScene
 	
 	if packed_scene:
 		print("GRIDMAP")
 		var gridmap = packed_scene.instantiate()
 		self.add_child(gridmap)
 	
-	file_as_text=FileAccess.get_file_as_string(filename+".json")
+	file_as_text=FileAccess.get_file_as_string(filename+"map.json")
 	map=JSON.parse_string(file_as_text)
 	if map.layers[data].has("data"):
 		

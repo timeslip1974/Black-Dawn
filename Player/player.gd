@@ -51,7 +51,7 @@ func collision_check(dir):
 			nextpos=self.position + Vector3.LEFT.rotated(Vector3.UP, rotation.y)
 		4:
 			nextpos=self.position + Vector3.RIGHT.rotated(Vector3.UP, rotation.y)
-	nextpos-=Vector3(.5,0,.5)
+	nextpos-=Vector3(.4,0,.4)
 	
 	if Global.map.get_cell_atlas_coords(Vector2i(nextpos.x,nextpos.z))==Vector2i(0,0):return true
 	else:return false

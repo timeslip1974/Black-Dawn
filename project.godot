@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Black Dawn"
-run/main_scene="uid://c7janr5s5j2xh"
+run/main_scene="uid://dv73r38nvq2dd"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -23,6 +23,10 @@ Global="*uid://b1bccymkw8ys7"
 
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
+
+[filesystem]
+
+import/blender/enabled=false
 
 [input]
 
@@ -64,5 +68,4 @@ RotateR={
 [rendering]
 
 rendering_device/driver.windows="d3d12"
-renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"

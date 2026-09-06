@@ -1,57 +1,79 @@
 extends Node3D
 
-var filename="res://Maps/test"
-# Called when the node enters the scene tree for the first time.
+# 4-Bit Cardinal weights representing OPEN PATHS in your 2D TileMap
+const N = 1  # 0001
+const E = 2  # 0010
+const S = 4  # 0100
+const W = 8  # 1000
+
+# LOOKUP MATRIX: Testing ONLY your 3-way open path configurations (Tiles 1-4)
+const WALLS = {
+	# --- THREE-WAY T-JUNCTIONS (TILES 1 TO 4) ---
+	7:  4,      # Open North + East + South -> ID 4 (04-NES)
+	11: 3,      # Open North + East + West  -> ID 3 (03-NEW)
+	13: 2,      # Open North + South + West -> ID 2 (02-NSW)
+	14: 1,      # Open East + South + West  -> ID 1 (01-ESW)
+	
+	# --- TEMPORARY FALLBACKS ---
+	# Everything else outputs ID 0 so we can isolate exactly what tiles 1-4 are doing
+	0:  0,
+	1:  0, 2: 0, 4: 0, 8: 0,   # Dead ends -> solid block fallback
+	5:  0, 10: 0,              # Straights -> solid block fallback
+	3:  0, 9: 0, 6: 0, 12: 0,  # Corners -> solid block fallback
+	15: -1                     # 4-Way Crossroad -> Clear space
+}
+
+const GRAY_FLOOR_ATLAS_COORDS = Vector2i(0, 0)
+
+@export var map_w: int = 40
+@export var map_h: int = 40
+
+var map: TileMapLayer
+var gridmap: GridMap
+
 func _ready() -> void:
+	map = $TileMapLayer
+	gridmap = $GridMap
+	gridmap.clear() 
 	map_load()
 
+func map_load() -> void:
+	for h in range(0, map_h):
+		for w in range(0, map_w):
+			var current_coord = Vector2i(w, h)
+			var tile = map.get_cell_atlas_coords(current_coord)
+			
+			if tile == GRAY_FLOOR_ATLAS_COORDS:
+				calculate_and_place_3d_wall(current_coord)
+				
+	overwrite_current_scene()
 
-
-func map_load():
-	Global.map=$TileMapLayer
-	var data=0
+func calculate_and_place_3d_wall(pos: Vector2i) -> void:
+	var mask = 0
 	
-	var file_as_text
-	var map
-	file_as_text=FileAccess.get_file_as_string(filename+".json")
-	map=JSON.parse_string(file_as_text)
-	if map.layers[data].has("data"):
-		
+	if map.get_cell_atlas_coords(pos + Vector2i(0, -1)) == GRAY_FLOOR_ATLAS_COORDS: mask |= N
+	if map.get_cell_atlas_coords(pos + Vector2i(1, 0))  == GRAY_FLOOR_ATLAS_COORDS: mask |= E
+	if map.get_cell_atlas_coords(pos + Vector2i(0, 1))  == GRAY_FLOOR_ATLAS_COORDS: mask |= S
+	if map.get_cell_atlas_coords(pos + Vector2i(-1, 0)) == GRAY_FLOOR_ATLAS_COORDS: mask |= W
 
-		var count=0
-		for h in range (0,map.layers[data].height):
-			for w in range (0,map.layers[data].width):
-				$TileMapLayer.set_cell(Vector2(w,h),0,Vector2i(0,0))
-				var tile=int(map.layers[data].data[count])
-				var mappos=Vector2i()
-				mappos.y=int(tile/32)
-				mappos.x=int(tile-(mappos.y*32))-1
-
-
-				if tile>0:$TileMapLayer.set_cell(Vector2(w,h),0,mappos)
-				if tile==2:
-					$GridMap.set_cell_item(Vector3(w,0,h),1,0)
-				if tile==3:
-					print(w,h)
-					$TileMapLayer.set_cell(Vector2(w,h),0,Vector2(0,0))
-				count+=1
-	save_gridmap_to_scene()
-func save_gridmap_to_scene() -> void:
-	# 1. Create a new PackedScene instance
-	var packed_scene = PackedScene.new()
-	
-	# 2. Pack the GridMap node into the PackedScene
-	# Note: If the GridMap has child nodes you want to save, 
-	# you must set their 'owner' to gridmap_node before packing.
-	var result = packed_scene.pack($GridMap)
-	
-	if result == OK:
-		# 3. Save the PackedScene resource to the disk
-		var save_error = ResourceSaver.save(packed_scene, filename+".tscn")
-		
-		if save_error == OK:
-			print("GridMap successfully saved to: ", filename+".tscn")
+	if WALLS.has(mask):
+		var target_mesh_id = WALLS[mask]
+		if target_mesh_id == -1:
+			gridmap.set_cell_item(Vector3i(pos.x, 0, pos.y), GridMap.INVALID_CELL_ITEM)
 		else:
-			push_error("Failed to save the scene file. Error code: ", save_error)
+			gridmap.set_cell_item(Vector3i(pos.x, 0, pos.y), target_mesh_id, 0)
 	else:
-		push_error("Failed to pack the GridMap node. Error code: ")
+		gridmap.set_cell_item(Vector3i(pos.x, 0, pos.y), 0, 0)
+
+func overwrite_current_scene() -> void:
+	_set_owner_recursive(self, self)
+	var packed_scene = PackedScene.new()
+	if packed_scene.pack(self) == OK:
+		ResourceSaver.save(packed_scene, scene_file_path)
+		print("🎉 Tiles 1-4 diagnostic pass generated successfully!")
+
+func _set_owner_recursive(node: Node, root_node: Node) -> void:
+	if node != root_node:
+		node.owner = root_node
+	for child in node.get_children():
+		_set_owner_recursive(child, root_node)

@@ -1,0 +1,27 @@
+[gd_scene format=4 uid="uid://d204sxvyupm6j"]
+
+[ext_resource type="MeshLibrary" uid="uid://cugrhfnjm112" path="res://Models/Walls/Walls1.meshlib" id="1_s3813"]
+[ext_resource type="Script" uid="uid://b5gdbtkqtof8t" path="res://Maps/Scripts/map_converter.gd" id="1_uhnqy"]
+[ext_resource type="Texture2D" uid="uid://ceia73gf8owe" path="res://Maps/maptiles.png" id="2_uhnqy"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n2r1a"]
+texture = ExtResource("2_uhnqy")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_alkci"]
+sources/0 = SubResource("TileSetAtlasSource_n2r1a")
+
+[node name="TestMap" type="Node3D" unique_id=1838919953]
+script = ExtResource("1_uhnqy")
+
+[node name="GridMap" type="GridMap" parent="." unique_id=716409860]
+mesh_library = ExtResource("1_s3813")
+data = {
+"cells": PackedInt32Array(5, 7, 0, 6, 7, 0, 9, 7, 0, 10, 7, 0, 5, 8, 0, 7, 8, 0, 8, 8, 0, 9, 8, 3, 10, 8, 3, 11, 8, 0, 12, 8, 0, 13, 8, 0, 14, 8, 0, 6, 9, 0, 14, 9, 4, 15, 9, 0, 16, 9, 0, 17, 9, 0, 18, 9, 0, 14, 10, 0, 18, 10, 0, 11, 11, 0, 12, 11, 0, 14, 11, 4, 15, 11, 0, 16, 11, 0, 17, 11, 0, 18, 11, 0, 10, 12, 0, 11, 12, 3, 12, 12, 3, 13, 12, 0, 14, 12, 0, 6, 21, 0, 7, 21, 0, 8, 21, 0, 9, 21, 0, 10, 23, 2, 9, 23, 2, 8, 23, 2, 7, 23, 2, 6, 23, 2, 10, 22, 2, 10, 21, 2, 11, 21, 5, 11, 22, 1, 11, 23, 1, 11, 24, 1, 14, 20, 9, 14, 21, 14, 14, 22, 14, 15, 23, 13, 13, 23, 13, 12, 23, 11)
+}
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=2003932816]
+tile_map_data = PackedByteArray("AAAFAAcAAAAAAAAAAAAFAAgAAAAAAAAAAAAFAAkAAAACAAAAAAAGAAcAAAAAAAAAAAAGAAgAAAAAAAAAAAAGAAkAAAAAAAAAAAAHAAgAAAAAAAAAAAAIAAgAAAAAAAAAAAAJAAcAAAAAAAAAAAAJAAgAAAAAAAAAAAAKAAcAAAAAAAAAAAAKAAgAAAAAAAAAAAAKAAwAAAAAAAAAAAALAAgAAAAAAAAAAAALAAsAAAAAAAAAAAALAAwAAAAAAAAAAAAMAAgAAAAAAAAAAAAMAAsAAAAAAAAAAAAMAAwAAAAAAAAAAAANAAgAAAAAAAAAAAANAAwAAAAAAAAAAAAOAAgAAAAAAAAAAAAOAAkAAAAAAAAAAAAOAAoAAAAAAAAAAAAOAAsAAAAAAAAAAAAOAAwAAAAAAAAAAAAPAAkAAAAAAAAAAAAPAAsAAAAAAAAAAAAQAAkAAAAAAAAAAAAQAAsAAAAAAAAAAAARAAkAAAAAAAAAAAARAAsAAAAAAAAAAAASAAkAAAAAAAAAAAASAAoAAAAAAAAAAAASAAsAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_alkci")

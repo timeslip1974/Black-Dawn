@@ -1,0 +1,15 @@
+0 - not open
+1- open E,S,W
+2- OPEN N,S,W
+3- OPEN N,E,W
+4- OPEN N,E,S
+5- OPEN S,W
+6- OPEN E,S
+7- OPEN N,W
+8- OPEN N,E
+9- OPEN W
+10- OPEN S
+11-OPEN E
+12 -OPEN N
+13 -OPEN N,S
+14 - OPEN E,W
