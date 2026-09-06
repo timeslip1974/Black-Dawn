@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Black Dawn"
-run/main_scene="uid://dv73r38nvq2dd"
+run/main_scene="uid://bjrfrenfcljp7"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -27,6 +27,19 @@ window/stretch/aspect="expand"
 [filesystem]
 
 import/blender/enabled=false
+
+[importer_defaults]
+
+wavefront_obj={
+"force_disable_mesh_compression": false,
+"generate_lightmap_uv2": false,
+"generate_lightmap_uv2_texel_size": 0.2,
+"generate_lods": true,
+"generate_shadow_mesh": true,
+"generate_tangents": true,
+"offset_mesh": Vector3(0, 0, 0),
+"scale_mesh": Vector3(1, 1, 1)
+}
 
 [input]
 
@@ -67,5 +80,7 @@ RotateR={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method.mobile="gl_compatibility"
+textures/default_filters/use_nearest_mipmap_filter=true

@@ -1,0 +1,12 @@
+# Blender 5.2.0 LTS MTL File: 'Wall1.blend'
+# www.blender.org
+
+newmtl m_9a67e170-a429-6e0b-c13d-136cc56454c0
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd WallTexture.png

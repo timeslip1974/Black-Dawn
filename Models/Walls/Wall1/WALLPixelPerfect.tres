@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dp8cpohx4ssl3"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_c87qu"]
+load_path = "res://.godot/imported/ALL_WallTexture.png-f1278bc27c2ede9de5c7f27f4c5929c8.s3tc.ctex"
+
+[resource]
+albedo_texture = SubResource("CompressedTexture2D_c87qu")
+texture_filter = 0
