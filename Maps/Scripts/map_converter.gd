@@ -9,8 +9,8 @@ const W = 8  # 1000
 # 1-to-1 Explicit asset lookup matching your exact architecture specifications
 const WALLS = {
 	# Mask value (Bit Sum of open paths): MeshLib ID -> Asset Name
-	0:  0,      # Isolated tile (No open paths)  -> ID 0: 00-NONE
-	15: 15,     # 4-Way Crossroad (Open all sides) -> Clear cell space
+	0:  -1,      # Isolated tile (No open paths)  -> ID 0: 00-NONE
+	15: -1,     # 4-Way Crossroad (Open all sides) -> Clear cell space
 	
 	# --- SINGLE OPEN PATH CONNECTIONS (DEAD ENDS) ---
 	1:  12,     # Open North only -> ID 12: 12-N
@@ -45,6 +45,7 @@ func _ready() -> void:
 	map = $TileMapLayer
 	gridmap = $GridMap
 	gridmap.clear() 
+	$RoofFloors.clear()
 	map_load()
 
 func map_load() -> void:
@@ -75,12 +76,9 @@ func calculate_and_place_3d_wall(pos: Vector2i) -> void:
 	
 	if WALLS.has(mask):
 		var target_mesh_id = WALLS[mask]
-		if target_mesh_id == -1:
-			gridmap.set_cell_item(Vector3i(pos.x, 0, pos.y), GridMap.INVALID_CELL_ITEM)
-		else:
+		if target_mesh_id != -1:
 			gridmap.set_cell_item(Vector3i(pos.x, 0, pos.y), target_mesh_id, 0)
-	else:
-		gridmap.set_cell_item(Vector3i(pos.x, 0, pos.y), 0, 0)
+	$RoofFloors.set_cell_item(Vector3i(pos.x, 0, pos.y), randi_range(0,2), 0)
 
 func overwrite_current_scene() -> void:
 	_set_owner_recursive(self, self)

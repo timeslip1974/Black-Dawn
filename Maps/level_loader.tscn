@@ -17,7 +17,11 @@ background_mode = 2
 sky = SubResource("Sky_jf4yp")
 ambient_light_source = 3
 ambient_light_color = Color(1, 0, 1, 1)
-reflected_light_source = 2
+sdfgi_enabled = true
+sdfgi_min_cell_size = 0.009765625
+adjustment_enabled = true
+adjustment_contrast = 1.025
+adjustment_saturation = 1.48
 
 [node name="LevelLoader" type="Node3D" unique_id=1341354293]
 script = ExtResource("1_jf4yp")

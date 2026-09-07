@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bnuf1qwqy60mq"
+path="res://.godot/imported/FloorRoof3.obj-77b6ce67733771a5396ca56344e9745d.mesh"
+
+[deps]
+
+files=["res://.godot/imported/FloorRoof3.obj-77b6ce67733771a5396ca56344e9745d.mesh"]
+
+source_file="res://Models/Walls/Wall1/FloorRoof3.obj"
+dest_files=["res://.godot/imported/FloorRoof3.obj-77b6ce67733771a5396ca56344e9745d.mesh", "res://.godot/imported/FloorRoof3.obj-77b6ce67733771a5396ca56344e9745d.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

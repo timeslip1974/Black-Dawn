@@ -1,6 +1,6 @@
 @tool
 extends Node3D
-@export var new_material = load("res://Models/Walls/Wall1/WALLPixelPerfect.tres")
+@export var new_material = load("res://Models/Walls/Wall1/WallTexture1.tres")
 
 
 func _ready() -> void:
