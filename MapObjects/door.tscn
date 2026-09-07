@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://kqgbouisdbqt"]
+
+[ext_resource type="ArrayMesh" uid="uid://boj1x5jgt4e3o" path="res://MapObjects/door.obj" id="1_058si"]
+
+[node name="Door" type="Node3D" unique_id=1840790086]
+
+[node name="Door" type="MeshInstance3D" parent="." unique_id=1204701356]
+mesh = ExtResource("1_058si")

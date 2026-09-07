@@ -1,5 +1,7 @@
 extends Node3D
 
+const DOOR=preload("res://MapObjects/door.tscn")
+
 # 4-Bit Cardinal weights representing OPEN PATHS in your 2D TileMap
 const N = 1  # 0001
 const E = 2  # 0010

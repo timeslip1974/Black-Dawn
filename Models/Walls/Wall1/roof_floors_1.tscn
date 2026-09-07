@@ -1,28 +1,31 @@
 [gd_scene format=3 uid="uid://bgytijckggjbb"]
 
-[ext_resource type="Script" uid="uid://df00r3rqnxt1o" path="res://Models/texturereplace.gd" id="1_yw4yv"]
+[ext_resource type="Script" uid="uid://diirt0keb0f3f" path="res://Models/texturereplaceRoofFloor.gd" id="1_a6mje"]
 [ext_resource type="Material" uid="uid://dp8cpohx4ssl3" path="res://Models/Walls/Wall1/WallTexture1.tres" id="2_a6mje"]
 [ext_resource type="ArrayMesh" uid="uid://d0d0e7lan31jk" path="res://Models/Walls/Wall1/FloorRoof1.obj" id="3_h5822"]
+[ext_resource type="Material" uid="uid://xbdtticwaxts" path="res://Models/Walls/Wall1/RoofFloorTexture1.tres" id="4_h5822"]
 [ext_resource type="ArrayMesh" uid="uid://b6pd10673dyo4" path="res://Models/Walls/Wall1/FloorRoof2.obj" id="4_quaoe"]
 [ext_resource type="ArrayMesh" uid="uid://bnuf1qwqy60mq" path="res://Models/Walls/Wall1/FloorRoof3.obj" id="5_ototf"]
 
 [node name="RoofFloors1" type="Node3D" unique_id=907900813]
-script = ExtResource("1_yw4yv")
+script = ExtResource("1_a6mje")
 new_material = ExtResource("2_a6mje")
 
 [node name="FloorRoof3" type="MeshInstance3D" parent="." unique_id=1707871957]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.098979, 0.005014658, -0.057193995)
 mesh = ExtResource("5_ototf")
-surface_material_override/0 = ExtResource("2_a6mje")
-surface_material_override/1 = ExtResource("2_a6mje")
+surface_material_override/0 = ExtResource("4_h5822")
+surface_material_override/1 = ExtResource("4_h5822")
+surface_material_override/2 = ExtResource("4_h5822")
 
 [node name="FloorRoof2" type="MeshInstance3D" parent="." unique_id=1836329704]
-visible = false
 mesh = ExtResource("4_quaoe")
-surface_material_override/0 = ExtResource("2_a6mje")
-surface_material_override/1 = ExtResource("2_a6mje")
+surface_material_override/0 = ExtResource("4_h5822")
+surface_material_override/1 = ExtResource("4_h5822")
+surface_material_override/2 = ExtResource("4_h5822")
 
 [node name="FloorRoof1" type="MeshInstance3D" parent="." unique_id=1968078318]
-visible = false
 mesh = ExtResource("3_h5822")
-surface_material_override/0 = ExtResource("2_a6mje")
-surface_material_override/1 = ExtResource("2_a6mje")
+surface_material_override/0 = ExtResource("4_h5822")
+surface_material_override/1 = ExtResource("4_h5822")
+surface_material_override/2 = ExtResource("4_h5822")

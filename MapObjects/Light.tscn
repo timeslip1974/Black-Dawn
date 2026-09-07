@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bkyivl46yahia"]
+
+[ext_resource type="Script" uid="uid://cem5j363wyol6" path="res://MapObjects/light.gd" id="1_j1g00"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b41lk"]
+emission_enabled = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_g0q07"]
+material = SubResource("StandardMaterial3D_b41lk")
+size = Vector2(2.16, 2.2)
+
+[node name="Light" type="Node3D" unique_id=1682209190]
+transform = Transform3D(0.6, 0, 0, 0, -0.6, 5.2453668e-08, 0, -5.2453668e-08, -0.6, 0, 0, 0)
+script = ExtResource("1_j1g00")
+
+[node name="Light" type="MeshInstance3D" parent="." unique_id=1093047782]
+transform = Transform3D(-1, 8.742278e-08, 0, 8.742278e-08, 1, -8.742278e-08, -7.642742e-15, -8.742278e-08, -1, -0.006, 1.37, 0)
+mesh = SubResource("PlaneMesh_g0q07")
+
+[node name="AreaLight3D" type="AreaLight3D" parent="." unique_id=667211192]
+transform = Transform3D(1.6666665, 0, 0, 0, -7.285229e-08, -1.6666665, 0, 1.6666665, -7.285229e-08, 0.09897899, 1.6768088, -0.057194225)
+shadow_enabled = true
