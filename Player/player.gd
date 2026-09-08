@@ -5,8 +5,8 @@ const MOVESPEED=0.25
 var direction=1
 var moving
 var tween
-var pos:Vector2
-var oldpos:Vector2
+var pos:Vector2i
+var oldpos:Vector2i
 
 func set_player(mappos) -> void:
 	pos=mappos
@@ -57,7 +57,7 @@ func collision_check(dir):
 			nextpos=self.position/2 + Vector3.RIGHT.rotated(Vector3.UP, rotation.y)
 	nextpos-=Vector3(.4,0,.4)
 	
-	if Global.map.get_cell_atlas_coords(Vector2i(nextpos.x,nextpos.z))==Vector2i(0,0):
+	if Global.map.get_cell_tile_data(Vector2i(nextpos.x,nextpos.z)).get_custom_data("walkable") == true:
 		pos=Vector2i(nextpos.x,nextpos.z)
 		return true
 	else:
@@ -81,13 +81,19 @@ func Right():
 	tween = create_tween().set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 	tween.tween_property(self, "position", position + Vector3.RIGHT.rotated(Vector3.UP, rotation.y)*2, MOVESPEED)
 func RotL():
-	print("ROTL")
 	tween = create_tween().set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
-	tween.tween_property(self, "rotation:y", rotation.y - (-PI / 2.0), MOVESPEED)	
+	var target_rotation = rotation.y + (PI / 2.0)
+	tween.tween_property(self, "rotation:y", target_rotation, MOVESPEED)	
+	tween.tween_callback(snap_rotation)
 func RotR():
-	print("ROTR")
 	tween = create_tween().set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
-	tween.tween_property(self, "rotation:y", rotation.y - (PI / 2.0), MOVESPEED)	
+	var target_rotation = rotation.y - (PI / 2.0)
+	tween.tween_property(self, "rotation:y", target_rotation, MOVESPEED)	
+	tween.tween_callback(snap_rotation)
+	
+func snap_rotation():
+	# Eliminates minor floating-point inaccuracies from the tween
+	rotation.y = snappedf(rotation.y, PI / 2.0)
 
 
 func _on_timer_timeout() -> void:

@@ -1,4 +1,12 @@
-# Made in Blockbench 5.1.6
-newmtl m_0422d38b-c7fb-b271-022b-3cf8733d69d2
-map_Kd texture.png
-newmtl none
+# Blender 5.2.0 LTS MTL File: 'Pillar.blend'
+# www.blender.org
+
+newmtl m_4e98ccbe-df97-8876-7048-e04e855229dd
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd PillarTexture.png

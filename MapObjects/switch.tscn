@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bstiwba1utgcj"]
+
+[ext_resource type="Script" uid="uid://yj5fuur4ok4w" path="res://MapObjects/switch.gd" id="1_31w6q"]
+[ext_resource type="PackedScene" uid="uid://dhwfrqm7qt0t" path="res://MapObjects/Switch.glb" id="1_rgsn7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_b41lk"]
+size = Vector3(0.10406494, 0.28485107, 0.048583984)
+
+[node name="Switch" type="Node3D" unique_id=1921786840]
+script = ExtResource("1_31w6q")
+
+[node name="Switch2" parent="." unique_id=650845056 instance=ExtResource("1_rgsn7")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=490812245]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1080049020]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00039672852, -0.0026550293, -0.957003)
+shape = SubResource("BoxShape3D_b41lk")
+
+[connection signal="input_event" from="StaticBody3D" to="." method="_on_static_body_3d_input_event"]

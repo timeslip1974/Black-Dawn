@@ -1,24 +1,48 @@
 @tool
 extends Node3D
-@export var new_material = load("res://Models/Walls/Wall1/WallTexture1.tres")
 
+@export var new_material = load("res://Models/Walls/Wall1/WallTexture1.tres")
+@export var new_material2 = load("res://Models/Walls/Wall1/WallTexture2.tres")
+@export var new_material3 = load("res://Models/Walls/Wall1/WallTexture3.tres")
+
+# BYPASS FIX: An export checkbox that triggers a function, acting exactly like a button
+@export var Click_To_Swap_Materials: bool = false:
+	set(value):
+		if value == true:
+			apply_materials()
 
 func _ready() -> void:
-	# Load your custom pixel-perfect material
-	#var new_material = load("res://Models/Walls/Wall1/WALLPixelPerfect.tres")
+	pass
+
+func apply_materials() -> void:
+	var count = 0
+	print("--- Starting Material Override Swap ---")
 	
-	# Loop through every child node in the scene
 	for child in get_children():
 		if child is MeshInstance3D:
-			# Find out how many surface override slots this specific mesh has
+			# Get the actual number of active slots
 			var surface_count = child.get_surface_override_material_count()
-			
-			# If the override array is empty, fall back to checking the raw mesh data
 			if surface_count == 0 and child.mesh:
 				surface_count = child.mesh.get_surface_count()
 			
-			# Set every single slot to your pixel-perfect material
+			# Apply materials based on structural count blocks
 			for i in range(surface_count):
-				child.set_surface_override_material(i, new_material)
-				
-			print("Fully replaced all surface overrides for: ", child.name)
+				if count >= 0 and count < 15:
+					child.set_surface_override_material(i, new_material)
+				elif count >= 15 and count < 31:
+					child.set_surface_override_material(i, new_material2)
+				else:
+					child.set_surface_override_material(i, new_material3)
+					
+			var active_mat = child.get_surface_override_material(0)
+			if active_mat:
+				print("Swapped: ", child.name, " | Index: ", count, " | Material: ", active_mat.resource_path.get_file())
+			else:
+				print("Swapped: ", child.name, " | Index: ", count, " | Material: None")
+			
+			# Increment ONLY for actual mesh nodes
+			count += 1
+			
+	# Automatically reset the checkbox back to false in the inspector
+	Click_To_Swap_Materials = false
+	notify_property_list_changed()
