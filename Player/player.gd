@@ -85,11 +85,14 @@ func RotL():
 	var target_rotation = rotation.y + (PI / 2.0)
 	tween.tween_property(self, "rotation:y", target_rotation, MOVESPEED)	
 	tween.tween_callback(snap_rotation)
+	direction=wrapi(direction - 1, 1, 5)
 func RotR():
 	tween = create_tween().set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 	var target_rotation = rotation.y - (PI / 2.0)
 	tween.tween_property(self, "rotation:y", target_rotation, MOVESPEED)	
 	tween.tween_callback(snap_rotation)
+	direction=wrapi(direction + 1, 1, 5)
+
 	
 func snap_rotation():
 	# Eliminates minor floating-point inaccuracies from the tween
@@ -99,3 +102,11 @@ func snap_rotation():
 func _on_timer_timeout() -> void:
 	Global.map.set_cell(oldpos,0,Vector2i(0,0))
 	Global.map.set_cell(pos,0,Vector2i(2,0))
+	ProcessMonsters()
+	
+func ProcessMonsters():
+	var rnd=RandomNumberGenerator.new()
+	for monster in get_tree().get_nodes_in_group("enemy"):
+		print(monster)
+		var Random=rnd.randi_range(1,2)
+		monster.move_monster()

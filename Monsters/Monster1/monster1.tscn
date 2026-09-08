@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b8dc2i0oup5jp"]
 
 [ext_resource type="Texture2D" uid="uid://d1nlpfk42h7ub" path="res://Monsters/Monster1/EnemyDroid.png" id="1_elpg1"]
+[ext_resource type="Script" uid="uid://ogkn4snigeox" path="res://Monsters/Monster1/monster_1.gd" id="1_pmlos"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_b41lk"]
 size = Vector3(2, 2, 2)
@@ -43,10 +44,11 @@ _data = {
 &"idle": SubResource("Animation_vkwjj")
 }
 
-[node name="Monster" type="Node3D" unique_id=362774689]
+[node name="Monster" type="Node3D" unique_id=362774689 groups=["enemy"]]
+script = ExtResource("1_pmlos")
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=533494229]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, -0.60616636, 0)
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, -0.49066412, 0)
 billboard = 1
 shaded = true
 texture_filter = 0
