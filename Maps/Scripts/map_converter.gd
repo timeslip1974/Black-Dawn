@@ -85,14 +85,14 @@ func _ready() -> void:
 	# Only execute full generation and bakes when playing the actual game
 	if not Engine.is_editor_hint():
 		gridmap.clear() 
-		$RoofFloors.clear()
+		$Floor.clear()
 		for child in $Elements.get_children():
 			child.free()
 		map_load()
 
 func map_load() -> void:
 	$Elements.owner = self
-	
+	floor_and_roof()
 	# Loop through all populated tile coordinates directly
 	for coord in map.get_used_cells(): # Replace 0 with your TileMap layer index if needed
 		var tile = map.get_cell_atlas_coords(coord)
@@ -113,6 +113,7 @@ func map_load() -> void:
 		if scene_to_instantiate:
 			_spawn_element(scene_to_instantiate, name_prefix, coord)
 
+
 	overwrite_current_scene()
 
 func _spawn_element(scene: PackedScene, prefix: String, coord: Vector2i) -> void:
@@ -126,6 +127,14 @@ func _spawn_element(scene: PackedScene, prefix: String, coord: Vector2i) -> void
 	# Call setup if the node script supports it
 	if instance.has_method("setup"):
 		instance.setup(coord)
+		
+func floor_and_roof():
+	for y in range(0, map_h):
+		for x in range(0, map_w):
+			if map.get_cell_atlas_coords(Vector2i(x,y))!=Vector2i(-1,-1):
+				print("CHJECL")
+				if map.get_cell_tile_data(Vector2i(x,y)).get_custom_data("add_floor") == true:
+					$Floor.set_cell_item(Vector3i(x, 0, y), randi_range(0,2), 0)
 
 func calculate_and_place_3d_wall(pos: Vector2i) -> void:
 	var mask = 0
@@ -145,11 +154,11 @@ func calculate_and_place_3d_wall(pos: Vector2i) -> void:
 				if randi_range(0,1)==1:target_mesh_id+=15
 				else:target_mesh_id+=30
 			gridmap.set_cell_item(Vector3i(pos.x, 0, pos.y), target_mesh_id, 0)
-	$RoofFloors.set_cell_item(Vector3i(pos.x, 0, pos.y), randi_range(0,2), 0)
+
 
 func overwrite_current_scene() -> void:
 	$GridMap.owner = self
-	$RoofFloors.owner = self
+	$Floor.owner = self
 	
 	# --- ADD THIS LINE TO SECURE THE ARRAY ---
 	# This forces the engine to remember the resource modifications you did in the inspector

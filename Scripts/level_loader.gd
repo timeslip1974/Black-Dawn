@@ -47,7 +47,7 @@ func load_level() -> void:
 	var saved_gridmap = temporary_root.get_node_or_null("GridMap")
 	var saved_tilemap=temporary_root.get_node_or_null("TileMapLayer")
 	var saved_lights=temporary_root.get_node_or_null("Lights")
-	var saved_rooffloors=temporary_root.get_node_or_null("RoofFloors")
+	var saved_floor=temporary_root.get_node_or_null("Floor")
 	var saved_elements=temporary_root.get_node_or_null("Elements")
 	Global.level_actions = temporary_root.level_actions.duplicate()
 	
@@ -56,14 +56,14 @@ func load_level() -> void:
 		temporary_root.remove_child(saved_gridmap)
 		temporary_root.remove_child(saved_tilemap)
 		temporary_root.remove_child(saved_lights)
-		temporary_root.remove_child(saved_rooffloors)
+		temporary_root.remove_child(saved_floor)
 		temporary_root.remove_child(saved_elements)
 		
 		# 6. Add it cleanly into your CURRENT active scene tree layout
 		add_child(saved_gridmap)
 		add_child(saved_tilemap)
 		add_child(saved_lights)
-		add_child(saved_rooffloors)
+		add_child(saved_floor)
 		add_child(saved_elements)
 		
 		# Optional: Adjust its 3D position or alignment if necessary
