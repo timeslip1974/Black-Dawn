@@ -2,9 +2,23 @@
 extends Node3D
 
 const DOOR=preload("res://MapObjects/door.tscn")
-const MON1=preload("res://Monsters/Monster1/monster1.tscn")
+const MON=preload("res://Monsters/monster.tscn")
 const PILLAR=preload("res://MapObjects/pillar.tscn")
+const TUBE=preload("res://MapObjects/Tube/pillar_2.tscn")
 const SWITCH=preload("res://MapObjects/switch.tscn")
+const SPINLIGHT=preload("res://MapObjects/SpinningLight/spinning_light.tscn")
+const TRAPDOOR=preload("res://MapObjects/trapdoor.tscn")
+const FLOORSWITCH=preload("res://MapObjects/FloorSwitch/floor_switch.tscn")
+
+const TILE_SCENE_MAP: Dictionary = {
+	Vector2i(3, 0): {"scene": DOOR, "prefix": "Door_"},
+	Vector2i(7, 0): {"scene": SPINLIGHT, "prefix": "spinlight1_"},
+	Vector2i(9, 0): {"scene": FLOORSWITCH, "prefix": "floorswitch_"},
+	Vector2i(8, 0): {"scene": TRAPDOOR, "prefix": "trap1_"},
+	Vector2i(0, 1): {"scene": MON, "prefix": "mon1_"},
+	Vector2i(1, 0): {"scene": SWITCH, "prefix": "switch_"},
+	Vector2i(5, 0): {"scene": PILLAR, "prefix": "switch_"},
+}
 
 # 4-Bit Cardinal weights representing OPEN PATHS in your 2D TileMap
 const N = 1  # 0001
@@ -79,58 +93,39 @@ func _ready() -> void:
 func map_load() -> void:
 	$Elements.owner = self
 	
-	for h in range(0, map_h):
-		for w in range(0, map_w):
-			var current_coord = Vector2i(w, h)
-			var tile = map.get_cell_atlas_coords(current_coord)
-			
-			if tile == Vector2i(3, 0): # Door
-				var door = DOOR.instantiate()
-				door.name = "Door_" + str(w) + "_" + str(h)
-				$Elements.add_child(door)
-				door.position = Vector3(w * 2, 1, h * 2) - Vector3(-1, 0, -1)
-				
-				door.add_to_group("activatables")
-				door.setup(Vector2i(w,h))
-				door.owner = self 
-			
-			if tile == Vector2i(0, 1): # Monster
-				var t = MON1.instantiate()
-				t.name = "mon1_" + str(w) + "_" + str(h)
-				$Elements.add_child(t)
-				t.position = Vector3(w * 2, 1, h * 2) - Vector3(-1, 0, -1)
-				
-				t.add_to_group("activatables")
-				if t.has_method("setup"):
-					t.setup(Vector2i(w,h))
-				t.owner = self 
-				
-			if tile == Vector2i(5, 0): # Pillar
-				var t = PILLAR.instantiate()
-				t.name = "pillar_" + str(w) + "_" + str(h)
-				$Elements.add_child(t)
-				t.position = Vector3(w * 2, 1, h * 2) - Vector3(-1, 0, -1)
-				
-				t.add_to_group("activatables")
-				if t.has_method("setup"):
-					t.setup(Vector2i(w,h))
-				t.owner = self 
-			if tile == Vector2i(1, 0): # Switch
-				var t = SWITCH.instantiate()
-				t.name = "switch_" + str(w) + "_" + str(h)
-				$Elements.add_child(t)
-				t.position = Vector3(w * 2, 1, h * 2) - Vector3(-1, 0, -1)
-				t.setup(Vector2i(w,h))
-				t.add_to_group("activatables")
-				if t.has_method("setup"):
-					t.setup(Vector2i(w,h))
-				t.owner = self 
-			
-			if tile != Vector2i(-1, -1):
-				calculate_and_place_3d_wall(current_coord)
-				
+	# Loop through all populated tile coordinates directly
+	for coord in map.get_used_cells(): # Replace 0 with your TileMap layer index if needed
+		var tile = map.get_cell_atlas_coords(coord)
+		
+		# Handle walls for non-empty tiles
+		if tile != Vector2i(-1, -1):
+			calculate_and_place_3d_wall(coord)
+		
+		# Handle element spawning
+		var scene_to_instantiate: PackedScene = null
+		var name_prefix := ""
+		
+		if tile in TILE_SCENE_MAP:
+			scene_to_instantiate = TILE_SCENE_MAP[tile]["scene"]
+			name_prefix = TILE_SCENE_MAP[tile]["prefix"]
+
+		# Spawn and configure the object if matched
+		if scene_to_instantiate:
+			_spawn_element(scene_to_instantiate, name_prefix, coord)
+
 	overwrite_current_scene()
 
+func _spawn_element(scene: PackedScene, prefix: String, coord: Vector2i) -> void:
+	var instance := scene.instantiate()
+	instance.name = "%s_%d_%d" % [prefix, coord.x, coord.y]
+	
+	$Elements.add_child(instance)
+	instance.position = Vector3(coord.x * 2 + 1, 1, coord.y * 2 + 1)
+	instance.owner = self
+	
+	# Call setup if the node script supports it
+	if instance.has_method("setup"):
+		instance.setup(coord)
 
 func calculate_and_place_3d_wall(pos: Vector2i) -> void:
 	var mask = 0
@@ -171,9 +166,7 @@ func _process(_delta: float) -> void:
 	if Engine.is_editor_hint() and is_instance_valid(map):
 		map.queue_redraw()
 
-# ==========================================
-#      VISUAL ARRAY DRAWING ENGINE      
-# ==========================================
+
 
 func _on_tilemap_draw() -> void:
 	if not Engine.is_editor_hint() or not map or not map.tile_set:

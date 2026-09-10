@@ -19,6 +19,7 @@
 [ext_resource type="ArrayMesh" uid="uid://c0fwrrklpg328" path="res://Models/Walls/Wall1/N.obj" id="13_x0tu8"]
 [ext_resource type="ArrayMesh" uid="uid://hyfgcghgjogl" path="res://Models/Walls/Wall1/NS.obj" id="14_m4y5q"]
 [ext_resource type="ArrayMesh" uid="uid://d2ejo158ar4yq" path="res://Models/Walls/Wall1/EW.obj" id="15_60s6i"]
+[ext_resource type="PackedScene" uid="uid://b0bjai7sgwui7" path="res://MapObjects/Fan/Fan.gltf" id="20_qnm63"]
 
 [node name="Walls1" type="Node3D" unique_id=1674587072]
 script = ExtResource("1_sgcr4")
@@ -300,3 +301,5 @@ visible = false
 mesh = ExtResource("15_60s6i")
 surface_material_override/0 = ExtResource("4_341am")
 surface_material_override/1 = ExtResource("4_341am")
+
+[node name="blockbench_export" parent="." unique_id=488522565 instance=ExtResource("20_qnm63")]

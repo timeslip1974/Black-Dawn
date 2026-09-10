@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://duqf3qmuitrr8"]
+
+[ext_resource type="Texture2D" uid="uid://d2sw12nesx37r" path="res://MapObjects/Trapdoor/trapdoortexture.png" id="1_hudje"]
+
+[resource]
+albedo_texture = ExtResource("1_hudje")
+metallic = 0.64
+texture_filter = 0

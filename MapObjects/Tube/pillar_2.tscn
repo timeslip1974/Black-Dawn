@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://ecdnrfo4ulaq"]
+
+[ext_resource type="PackedScene" uid="uid://d3iy1edb13gl6" path="res://MapObjects/Tube/Tube.gltf" id="1_0gkrv"]
+
+[node name="Pillar2" type="Node3D" unique_id=1578734571]
+
+[node name="blockbench_export" parent="." unique_id=865437841 instance=ExtResource("1_0gkrv")]

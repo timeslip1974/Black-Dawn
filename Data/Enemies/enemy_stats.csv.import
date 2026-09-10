@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://cfrtk7m0e1ws4"
+
+[deps]
+
+files=["res://Data/Enemies/enemy_stats.Name.translation", "res://Data/Enemies/enemy_stats.Speed.translation", "res://Data/Enemies/enemy_stats.Health.translation", "res://Data/Enemies/enemy_stats.Hit Chance.translation", "res://Data/Enemies/enemy_stats.Ranged Attack.translation", "res://Data/Enemies/enemy_stats.Damage.translation", "res://Data/Enemies/enemy_stats.Attack Timer.translation", "res://Data/Enemies/enemy_stats.SpriteSheet.translation", "res://Data/Enemies/enemy_stats.RangeType.translation"]
+
+source_file="res://Data/Enemies/enemy_stats.csv"
+dest_files=["res://Data/Enemies/enemy_stats.Name.translation", "res://Data/Enemies/enemy_stats.Speed.translation", "res://Data/Enemies/enemy_stats.Health.translation", "res://Data/Enemies/enemy_stats.Hit Chance.translation", "res://Data/Enemies/enemy_stats.Ranged Attack.translation", "res://Data/Enemies/enemy_stats.Damage.translation", "res://Data/Enemies/enemy_stats.Attack Timer.translation", "res://Data/Enemies/enemy_stats.SpriteSheet.translation", "res://Data/Enemies/enemy_stats.RangeType.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

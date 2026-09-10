@@ -1,0 +1,2 @@
+FileName,Name,Speed,Health,Hit Chance,Ranged Attack,Damage,Attack Timer,SpriteSheet,RangeType
+robot,Robot,6,10,5,n,10,6,res://Monsters/Monster1/EnemyDroid.png,0

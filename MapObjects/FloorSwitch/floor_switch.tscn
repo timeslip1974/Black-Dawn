@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bqaq3c3ul257p"]
+
+[ext_resource type="Script" uid="uid://chrn546o22b07" path="res://MapObjects/FloorSwitch/floor_switch.gd" id="1_40nov"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_b41lk"]
+size = Vector3(1, 2, 1)
+
+[node name="FloorSwitch" type="Node3D" unique_id=967057673]
+script = ExtResource("1_40nov")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1357649808]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=565345057]
+shape = SubResource("BoxShape3D_b41lk")
+
+[connection signal="area_shape_entered" from="Area3D" to="." method="_on_area_3d_area_shape_entered"]
+[connection signal="area_shape_exited" from="Area3D" to="." method="_on_area_3d_area_shape_exited"]

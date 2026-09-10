@@ -1,0 +1,224 @@
+[gd_scene format=4 uid="uid://dvh044ice2h1n"]
+
+[ext_resource type="Script" uid="uid://dostx7kphdfeq" path="res://MapObjects/Trapdoor/trapdoor.gd" id="1_saxy8"]
+[ext_resource type="Texture2D" uid="uid://dxjneaa25daq3" path="res://MapObjects/Trapdoor/Trapdoor_Image_0.png" id="2_saxy8"]
+[ext_resource type="Material" uid="uid://duqf3qmuitrr8" path="res://MapObjects/Trapdoor/TrapdoorMat.tres" id="3_ugmib"]
+
+[sub_resource type="Animation" id="Animation_w31qd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("blockbench_export/Left:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.03, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("blockbench_export/Right:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.03, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_lhbbk"]
+resource_name = "close"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("blockbench_export/Left:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-1, 0.03, 0), Vector3(0, 0.03, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("blockbench_export/Right:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(1, 0.03, 0), Vector3(0, 0.03, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_p00ll"]
+resource_name = "open"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("blockbench_export/Left:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0.03, 0), Vector3(-1, 0.03, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("blockbench_export/Right:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0.03, 0), Vector3(1, 0.03, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1rfmi"]
+_data = {
+&"RESET": SubResource("Animation_w31qd"),
+&"close": SubResource("Animation_lhbbk"),
+&"open": SubResource("Animation_p00ll")
+}
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3mtoy"]
+resource_name = "Material_0"
+transparency = 2
+alpha_scissor_threshold = 0.05
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_texture = ExtResource("2_saxy8")
+texture_filter = 2
+texture_repeat = false
+metadata/_gltf_primary_texture_coord = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_7m1hw"]
+_surfaces = [{
+"aabb": AABB(-1, -1.2, -1, 1, 0.20000005, 2),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAwACAAEAAAAEAAEAAwAFAAIABQAAAAIABgAEAAAABQAGAAAABwABAAQABwADAAEABgAHAAQABQADAAcABQAHAAYA"),
+"name": "Material_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("/////wAAAAAAAP////8AAAAA//8AAAAAAAAAAP//AAD///////8AAAAAAAAAAAAA//8AAAAAAAD//wAA//8AAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_7jl1o"]
+resource_name = "Trapdoor_Mesh_0"
+_surfaces = [{
+"aabb": AABB(-1, -1.2, -1, 1, 0.20000005, 2),
+"attribute_data": PackedByteArray("/x//QQAA/4EAAP9B/x//gf+D/yX/Y/8f/4P/H/9j/yX/o/8F/2MAAP+jAAD/Y/8F/0H/P/9hAAD/Yf8//0EAAP+j/w3/Y/8H/6P/B/9j/w3/g/8t/2P/J/+D/yf/Y/8t"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
+"material": SubResource("StandardMaterial3D_3mtoy"),
+"name": "Material_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("/////wAA/78AAP//////vwAA//8AAP+//////////7///wAA//8AgAAA/////wCA////////AIAAAAAA//8AgAAAAAD///+/AAD//wAA/78AAP//////vwAAAAAAAP+/AAAAAAAA/7///wAA////v///AAAAAP+/AAAAAP///7///wAAAAD/v/////////+//////wAA/7///wAA////vwAAAAAAAP///////wAA//8AAP//AAD/////AAAAAP//////f////3////9/////f/9/////f////3////9/////f////3////9/////f///AAD/fwAA/38AAP9/AAD/f/9/AAD/fwAA/38AAP9/AAD/f////3////9/////f///")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_7m1hw")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_h3c5d"]
+_surfaces = [{
+"aabb": AABB(-1, -1.2, -1, 2, 1e-05, 2),
+"format": 34896613377,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
+"name": "Material_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("AAAAAP//AAD//wAAAAAAAP//AAD//wAAAAAAAAAAAAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_fns28"]
+resource_name = "Trapdoor_Mesh_2"
+_surfaces = [{
+"aabb": AABB(-1, -1.2, -1, 2, 1e-05, 2),
+"attribute_data": PackedByteArray("AAD/P/8/AAD/P/8/AAAAAA=="),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
+"material": SubResource("StandardMaterial3D_3mtoy"),
+"name": "Material_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("AAAAAP///7///wAAAAD/v///AAD///+/AAAAAAAA/7////9/////f////3////9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_h3c5d")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_oppy1"]
+_surfaces = [{
+"aabb": AABB(0, -1.2, -1, 1, 0.20000005, 2),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAwACAAEAAAAEAAEAAwAFAAIABQAAAAIABgAEAAAABQAGAAAABwABAAQABwADAAEABgAHAAQABQADAAcABQAHAAYA"),
+"name": "Material_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("/////wAAAAAAAP////8AAAAA//8AAAAAAAAAAP//AAD///////8AAAAAAAAAAAAA//8AAAAAAAD//wAA//8AAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_im44j"]
+resource_name = "Trapdoor_Mesh_1"
+_surfaces = [{
+"aabb": AABB(0, -1.2, -1, 1, 0.20000005, 2),
+"attribute_data": PackedByteArray("/0H/Qf8h/4H/If9B/0H/gf+D/zX/Y/8v/4P/L/9j/zX/o/8V/2P/D/+j/w//Y/8V/0P/gf9j/0H/Y/+B/0P/Qf+j/x3/Y/8X/6P/F/9j/x3/g/89/2P/N/+D/zf/Y/89"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
+"material": SubResource("StandardMaterial3D_3mtoy"),
+"name": "Material_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("/////wAA/78AAP//////vwAA//8AAP+//////////7///wAA//8AgAAA/////wCA////////AIAAAAAA//8AgAAAAAD///+/AAD//wAA/78AAP//////vwAAAAAAAP+/AAAAAAAA/7///wAA////v///AAAAAP+/AAAAAP///7///wAAAAD/v/////////+//////wAA/7///wAA////vwAAAAAAAP///////wAA//8AAP//AAD/////AAAAAP//////f////3////9/////f/9/////f////3////9/////f////3////9/////f///AAD/fwAA/38AAP9/AAD/f/9/AAD/fwAA/38AAP9/AAD/f////3////9/////f///")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_oppy1")
+
+[node name="Trapdoor" type="Node3D" unique_id=749586305]
+script = ExtResource("1_saxy8")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=625380969]
+libraries/ = SubResource("AnimationLibrary_1rfmi")
+
+[node name="blockbench_export" type="Node3D" parent="." unique_id=616694286]
+
+[node name="Left" type="MeshInstance3D" parent="blockbench_export" unique_id=567414003]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.03, 0)
+mesh = SubResource("ArrayMesh_7jl1o")
+surface_material_override/0 = ExtResource("3_ugmib")
+
+[node name="Plane" type="MeshInstance3D" parent="blockbench_export" unique_id=1001194231]
+transform = Transform3D(-1, 1.2246469e-16, 0, -1.2246469e-16, -1, 0, 0, 0, 1, 0, -2.19, 0)
+mesh = SubResource("ArrayMesh_fns28")
+
+[node name="Right" type="MeshInstance3D" parent="blockbench_export" unique_id=29914199]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.03, 0)
+mesh = SubResource("ArrayMesh_im44j")
+surface_material_override/0 = ExtResource("3_ugmib")

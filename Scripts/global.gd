@@ -2,6 +2,7 @@ extends Node
 
 var player
 var map
+var mon_list
 var level_actions: Array[TileAction] = []
 
 func trigger_tile_action(action_coord: Vector2i):

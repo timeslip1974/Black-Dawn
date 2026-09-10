@@ -7,10 +7,15 @@ var moving
 var tween
 var pos:Vector2i
 var oldpos:Vector2i
+var pos_map_data:Vector2i
+
+func _ready() -> void:
+	await get_tree().process_frame
+	update_mappos()
 
 func set_player(mappos) -> void:
 	pos=mappos
-	position=Vector3(mappos.x*2,0,mappos.y*2)+Vector3(1,0,1)
+	position=Vector3(mappos.x*2,.5,mappos.y*2)+Vector3(1,0,1)
 	rotation=Vector3(0,0,0)
 	print("playerSet")
 
@@ -35,8 +40,6 @@ func check_input():
 		RotR()
 		
 func move(dir):
-#	pos=Vector2(position.x,position.z)-Vector2(0.5,0.5)
-	oldpos=pos
 	if collision_check(dir):
 		match dir:
 			1: Forward()
@@ -55,29 +58,31 @@ func collision_check(dir):
 			nextpos=self.position/2 + Vector3.LEFT.rotated(Vector3.UP, rotation.y)
 		4:
 			nextpos=self.position/2 + Vector3.RIGHT.rotated(Vector3.UP, rotation.y)
-	nextpos-=Vector3(.4,0,.4)
+	#nextpos-=Vector3(.4,0,.4)
 	
-	if Global.map.get_cell_tile_data(Vector2i(nextpos.x,nextpos.z)).get_custom_data("walkable") == true:
-		pos=Vector2i(nextpos.x,nextpos.z)
-		return true
-	else:
-		pos=oldpos
-		return false
+	if Global.map.get_cell_atlas_coords(Vector2i(nextpos.x,nextpos.z))!=Vector2i(-1,-1):
+		if Global.map.get_cell_tile_data(Vector2i(nextpos.x,nextpos.z)).get_custom_data("walkable") == true:
+			oldpos=pos
+			pos=Vector2i(nextpos.x,nextpos.z)
+			return true
+		else:
+			return false
+	else:return false
 	
 func Forward():
-	$Timer.start()
+	update_mappos()
 	tween = create_tween().set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 	tween.tween_property(self, "position", position + Vector3.FORWARD.rotated(Vector3.UP, rotation.y) *2, MOVESPEED)
 func Back():
-	$Timer.start()
+	update_mappos()
 	tween = create_tween().set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 	tween.tween_property(self, "position", position + Vector3.BACK.rotated(Vector3.UP, rotation.y)*2 , MOVESPEED)
 func Left():
-	$Timer.start()
+	update_mappos()
 	tween = create_tween().set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 	tween.tween_property(self, "position", position + Vector3.LEFT.rotated(Vector3.UP, rotation.y)*2 , MOVESPEED)
 func Right():
-	$Timer.start()
+	update_mappos()
 	tween = create_tween().set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 	tween.tween_property(self, "position", position + Vector3.RIGHT.rotated(Vector3.UP, rotation.y)*2, MOVESPEED)
 func RotL():
@@ -99,14 +104,7 @@ func snap_rotation():
 	rotation.y = snappedf(rotation.y, PI / 2.0)
 
 
-func _on_timer_timeout() -> void:
-	Global.map.set_cell(oldpos,0,Vector2i(0,0))
+func update_mappos() -> void:
+	Global.map.set_cell(oldpos,0,pos_map_data)
+	pos_map_data=Global.map.get_cell_atlas_coords(pos)
 	Global.map.set_cell(pos,0,Vector2i(2,0))
-	ProcessMonsters()
-	
-func ProcessMonsters():
-	var rnd=RandomNumberGenerator.new()
-	for monster in get_tree().get_nodes_in_group("enemy"):
-		print(monster)
-		var Random=rnd.randi_range(1,2)
-		monster.move_monster()

@@ -1,15 +1,24 @@
-[gd_scene format=4 uid="uid://c5o7lpvl472ew"]
+[gd_scene format=4]
 
-[ext_resource type="MeshLibrary" uid="uid://cugrhfnjm112" path="res://Models/Walls/Walls1.meshlib" id="1_s3813"]
-[ext_resource type="Script" uid="uid://b5gdbtkqtof8t" path="res://Maps/Scripts/map_converter.gd" id="1_uhnqy"]
-[ext_resource type="Script" uid="uid://3u3t6u20eoal" path="res://Scripts/tileaction.gd" id="2_ikvej"]
-[ext_resource type="Texture2D" uid="uid://ceia73gf8owe" path="res://Maps/maptiles.png" id="2_uhnqy"]
-[ext_resource type="MeshLibrary" uid="uid://dg57hu66mm8k1" path="res://Models/Walls/RoofFloor1.meshlib" id="3_n2r1a"]
-[ext_resource type="PackedScene" uid="uid://bkyivl46yahia" path="res://MapObjects/Light.tscn" id="5_dqm6q"]
-[ext_resource type="PackedScene" uid="uid://kqgbouisdbqt" path="res://MapObjects/door.tscn" id="7_ikvej"]
-[ext_resource type="PackedScene" uid="uid://bstiwba1utgcj" path="res://MapObjects/switch.tscn" id="8_lonte"]
-[ext_resource type="PackedScene" uid="uid://b8dc2i0oup5jp" path="res://Monsters/Monster1/monster1.tscn" id="9_ga0ak"]
-[ext_resource type="PackedScene" uid="uid://cagfi456vocj7" path="res://MapObjects/pillar.tscn" id="9_lonte"]
+[ext_resource type="MeshLibrary" path="res://Models/Walls/Walls1.meshlib" id="1_s3813"]
+[ext_resource type="Script" path="res://Maps/Scripts/map_converter.gd" id="1_uhnqy"]
+[ext_resource type="Script" path="res://Scripts/tileaction.gd" id="2_ikvej"]
+[ext_resource type="Texture2D" path="res://Maps/maptiles.png" id="2_uhnqy"]
+[ext_resource type="MeshLibrary" path="res://Models/Walls/RoofFloor1.meshlib" id="3_n2r1a"]
+[ext_resource type="PackedScene" path="res://MapObjects/Light.tscn" id="5_dqm6q"]
+[ext_resource type="Script" path="res://MapObjects/light.gd" id="7_dnvp1"]
+[ext_resource type="PackedScene" path="res://MapObjects/door.tscn" id="7_ikvej"]
+[ext_resource type="PackedScene" path="res://MapObjects/switch.tscn" id="8_lonte"]
+[ext_resource type="Script" path="res://MapObjects/switch.gd" id="9_tjpn8"]
+[ext_resource type="PackedScene" path="res://MapObjects/SpinningLight/spinning_light.tscn" id="10_dceye"]
+[ext_resource type="Script" path="res://MapObjects/door.gd" id="12_xcu0y"]
+[ext_resource type="PackedScene" path="res://MapObjects/trapdoor.tscn" id="13_tjpn8"]
+[ext_resource type="PackedScene" path="res://Monsters/monster.tscn" id="13_vyx6i"]
+[ext_resource type="Script" path="res://MapObjects/Trapdoor/trapdoor.gd" id="14_xevhy"]
+[ext_resource type="PackedScene" path="res://MapObjects/pillar.tscn" id="15_nrbxg"]
+[ext_resource type="PackedScene" path="res://MapObjects/FloorSwitch/floor_switch.tscn" id="15_xevhy"]
+[ext_resource type="Script" path="res://MapObjects/FloorSwitch/floor_switch.gd" id="16_amjyb"]
+[ext_resource type="Script" path="res://Monsters/monster.gd" id="20_puhhk"]
 
 [sub_resource type="Resource" id="Resource_548t5"]
 script = ExtResource("2_ikvej")
@@ -21,6 +30,12 @@ metadata/_custom_type_script = "uid://3u3t6u20eoal"
 script = ExtResource("2_ikvej")
 trigger_coord = Vector2i(14, 10)
 target_coords = Array[Vector2i]([Vector2i(15, 9), Vector2i(15, 11)])
+metadata/_custom_type_script = "uid://3u3t6u20eoal"
+
+[sub_resource type="Resource" id="Resource_40nov"]
+script = ExtResource("2_ikvej")
+trigger_coord = Vector2i(5, 10)
+target_coords = Array[Vector2i]([Vector2i(5, 9)])
 metadata/_custom_type_script = "uid://3u3t6u20eoal"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n2r1a"]
@@ -43,6 +58,14 @@ texture = ExtResource("2_uhnqy")
 5:0/0 = 0
 5:0/0/custom_data_0 = true
 6:0/0 = 0
+7:0/0 = 0
+7:0/0/custom_data_0 = true
+8:0/0 = 0
+8:0/0/custom_data_0 = true
+8:0/0/custom_data_1 = true
+9:0/0 = 0
+9:0/0/custom_data_0 = true
+9:0/0/custom_data_1 = true
 
 [sub_resource type="TileSet" id="TileSet_alkci"]
 custom_data_layer_0/name = "add_walls"
@@ -69,24 +92,23 @@ reflected_light_source = 2
 
 [node name="0" type="Node3D" unique_id=1838919953]
 script = ExtResource("1_uhnqy")
-level_actions = Array[ExtResource("2_ikvej")]([SubResource("Resource_548t5"), SubResource("Resource_rjwrj")])
+level_actions = Array[ExtResource("2_ikvej")]([SubResource("Resource_548t5"), SubResource("Resource_rjwrj"), SubResource("Resource_40nov")])
 
 [node name="GridMap" type="GridMap" parent="." unique_id=716409860]
 mesh_library = ExtResource("1_s3813")
 data = {
-"cells": PackedInt32Array(5, 7, 6, 6, 7, 5, 9, 7, 6, 10, 7, 5, 5, 8, 4, 7, 8, 14, 8, 8, 14, 9, 8, 3, 10, 8, 3, 11, 8, 14, 12, 8, 14, 13, 8, 14, 14, 8, 5, 5, 9, 4, 6, 9, 2, 14, 9, 4, 15, 9, 14, 16, 9, 1, 17, 9, 14, 18, 9, 5, 5, 10, 4, 7, 10, 1, 8, 10, 20, 14, 10, 13, 16, 10, 13, 18, 10, 13, 5, 11, 4, 8, 11, 2, 11, 11, 6, 12, 11, 5, 14, 11, 4, 15, 11, 14, 16, 11, 3, 17, 11, 14, 18, 11, 7, 5, 12, 4, 8, 12, 2, 10, 12, 6, 11, 12, 3, 12, 12, 33, 13, 12, 14, 14, 12, 7, 5, 13, 8, 6, 13, 33, 7, 13, 3, 8, 13, 3, 9, 13, 14, 10, 13, 2, 10, 14, 43, 9, 15, 6, 11, 15, 5, 9, 16, 34, 11, 16, 2, 9, 17, 8, 10, 17, 3, 11, 17, 7)
+"cells": PackedInt32Array(5, 7, 6, 5, 8, 19, 5, 9, 4, 6, 7, 5, 6, 9, 2, 7, 8, 14, 8, 8, 14, 9, 7, 6, 9, 8, 3, 10, 7, 5, 10, 8, 33, 10, 12, 6, 11, 8, 14, 11, 11, 6, 11, 12, 3, 12, 8, 14, 12, 11, 5, 12, 12, 3, 13, 8, 14, 13, 12, 14, 14, 8, 5, 14, 9, 34, 14, 10, 13, 14, 11, 4, 14, 12, 7, 15, 9, 14, 15, 11, 14, 16, 9, 1, 16, 11, 3, 17, 9, 14, 17, 11, 14, 18, 9, 5, 18, 10, 13, 18, 11, 7, 7, 10, 1, 8, 10, 35, 8, 11, 2, 8, 12, 2, 8, 13, 3, 7, 13, 3, 6, 13, 3, 5, 13, 23, 5, 12, 4, 5, 11, 19, 5, 10, 4, 9, 13, 14, 10, 13, 2, 10, 14, 28, 9, 15, 6, 11, 15, 5, 11, 16, 2, 11, 17, 7, 10, 17, 18, 9, 17, 8, 9, 16, 4, 16, 10, 13)
 }
 
 [node name="RoofFloors" type="GridMap" parent="." unique_id=300519107]
-visible = false
 mesh_library = ExtResource("3_n2r1a")
 data = {
-"cells": PackedInt32Array(5, 7, 2, 6, 7, 1, 9, 7, 0, 10, 7, 1, 5, 8, 0, 6, 8, 2, 7, 8, 1, 8, 8, 1, 9, 8, 2, 10, 8, 2, 11, 8, 2, 12, 8, 1, 13, 8, 2, 14, 8, 1, 5, 9, 1, 6, 9, 1, 14, 9, 1, 15, 9, 2, 16, 9, 2, 17, 9, 0, 18, 9, 2, 5, 10, 0, 6, 10, 2, 7, 10, 0, 8, 10, 1, 14, 10, 2, 16, 10, 2, 18, 10, 0, 5, 11, 1, 6, 11, 2, 7, 11, 0, 8, 11, 2, 11, 11, 2, 12, 11, 2, 14, 11, 2, 15, 11, 1, 16, 11, 1, 17, 11, 0, 18, 11, 2, 5, 12, 2, 6, 12, 1, 7, 12, 2, 8, 12, 2, 10, 12, 2, 11, 12, 1, 12, 12, 1, 13, 12, 1, 14, 12, 0, 5, 13, 0, 6, 13, 1, 7, 13, 0, 8, 13, 1, 9, 13, 0, 10, 13, 1, 10, 14, 2, 9, 15, 1, 10, 15, 2, 11, 15, 0, 9, 16, 1, 10, 16, 2, 11, 16, 0, 9, 17, 1, 10, 17, 2, 11, 17, 2)
+"cells": PackedInt32Array(5, 7, 0, 5, 8, 2, 5, 9, 1, 6, 7, 2, 6, 8, 0, 6, 9, 0, 7, 8, 2, 8, 8, 0, 9, 7, 2, 9, 8, 2, 10, 7, 0, 10, 8, 1, 10, 12, 1, 11, 8, 2, 11, 11, 2, 11, 12, 1, 12, 8, 0, 12, 11, 1, 12, 12, 1, 13, 8, 2, 13, 12, 2, 14, 8, 2, 14, 9, 2, 14, 10, 0, 14, 11, 2, 14, 12, 0, 15, 9, 1, 15, 11, 0, 16, 9, 2, 16, 11, 1, 17, 9, 2, 17, 11, 0, 18, 9, 0, 18, 10, 1, 18, 11, 0, 6, 10, 2, 7, 10, 2, 8, 10, 2, 8, 11, 0, 8, 12, 2, 8, 13, 0, 7, 13, 1, 6, 13, 0, 5, 13, 0, 5, 12, 1, 5, 11, 2, 5, 10, 2, 7, 11, 0, 7, 12, 2, 6, 12, 1, 6, 11, 1, 9, 13, 0, 10, 13, 2, 10, 14, 1, 10, 15, 2, 9, 15, 2, 11, 15, 1, 11, 16, 2, 11, 17, 2, 10, 17, 2, 9, 17, 0, 9, 16, 1, 10, 16, 0, 16, 10, 1)
 }
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=2003932816]
 modulate = Color(1, 1, 1, 0.2627451)
-tile_map_data = PackedByteArray("AAAFAAcAAAABAAAAAAAFAAgAAAAAAAAAAAAFAAkAAAAAAAAAAAAGAAcAAAAAAAAAAAAGAAgAAAAAAAAAAAAGAAkAAAAAAAAAAAAHAAgAAAADAAAAAAAIAAgAAAAAAAAAAAAJAAcAAAAAAAAAAAAJAAgAAAAAAAAAAAAKAAcAAAAAAAAAAAAKAAgAAAAAAAAAAAAKAAwAAAAAAAAAAAALAAgAAAAAAAAAAAALAAsAAAAFAAAAAAALAAwAAAAAAAAAAAAMAAgAAAAAAAAAAAAMAAsAAAAAAAAAAAAMAAwAAAAAAAAAAAANAAgAAAAAAAAAAAANAAwAAAAAAAAAAAAOAAgAAAAAAAAAAAAOAAkAAAAAAAAAAAAOAAoAAAABAAAAAAAOAAsAAAAAAAAAAAAOAAwAAAAAAAAAAAAPAAkAAAADAAAAAAAPAAsAAAADAAAAAAAQAAkAAAAAAAAAAAAQAAsAAAAAAAAAAAARAAkAAAAAAAAAAAARAAsAAAAAAAAAAAASAAkAAAAAAAAAAAASAAoAAAAAAAAAAAASAAsAAAAAAAAAAAAGAAoAAAAAAAAAAAAHAAoAAAAAAAAAAAAIAAoAAAAAAAAAAAAIAAsAAAAAAAAAAAAIAAwAAAAAAAAAAAAIAA0AAAAAAAAAAAAHAA0AAAAAAAEAAAAGAA0AAAAAAAAAAAAFAA0AAAAAAAAAAAAFAAwAAAACAAAAAAAFAAsAAAAAAAAAAAAFAAoAAAAAAAAAAAAHAAsAAAAAAAAAAAAHAAwAAAAAAAAAAAAGAAwAAAAAAAAAAAAGAAsAAAAFAAAAAAAJAA0AAAAAAAAAAAAKAA0AAAAAAAAAAAAKAA4AAAAAAAAAAAAKAA8AAAAAAAAAAAAJAA8AAAAAAAAAAAALAA8AAAAAAAAAAAALABAAAAAAAAAAAAALABEAAAAAAAAAAAAKABEAAAAAAAAAAAAJABEAAAAAAAAAAAAJABAAAAAAAAAAAAAKABAAAAAFAAAAAAAQAAoAAAAFAAAAAAA=")
+tile_map_data = PackedByteArray("AAAFAAcAAAABAAAAAAAFAAgAAAAAAAAAAAAFAAkAAAAIAAAAAAAGAAcAAAAAAAAAAAAGAAgAAAAAAAAAAAAGAAkAAAAAAAAAAAAHAAgAAAADAAAAAAAIAAgAAAAAAAAAAAAJAAcAAAAAAAAAAAAJAAgAAAAAAAAAAAAKAAcAAAAHAAAAAAAKAAgAAAAAAAAAAAAKAAwAAAAAAAAAAAALAAgAAAAAAAAAAAALAAsAAAAFAAAAAAALAAwAAAAAAAAAAAAMAAgAAAAAAAAAAAAMAAsAAAAAAAAAAAAMAAwAAAAAAAAAAAANAAgAAAAAAAAAAAANAAwAAAAAAAAAAAAOAAgAAAAAAAAAAAAOAAkAAAAAAAAAAAAOAAoAAAABAAAAAAAOAAsAAAAAAAAAAAAOAAwAAAAAAAAAAAAPAAkAAAADAAAAAAAPAAsAAAADAAAAAAAQAAkAAAAAAAAAAAAQAAsAAAAAAAAAAAARAAkAAAAAAAAAAAARAAsAAAAAAAAAAAASAAkAAAAAAAAAAAASAAoAAAAAAAAAAAASAAsAAAAAAAAAAAAGAAoAAAAAAAAAAAAHAAoAAAAAAAAAAAAIAAoAAAAHAAAAAAAIAAsAAAAAAAAAAAAIAAwAAAAAAAAAAAAIAA0AAAAAAAAAAAAHAA0AAAAAAAEAAAAGAA0AAAAAAAAAAAAFAA0AAAAAAAAAAAAFAAwAAAACAAAAAAAFAAsAAAAAAAAAAAAFAAoAAAAJAAAAAAAHAAsAAAAAAAAAAAAHAAwAAAAAAAAAAAAGAAwAAAAAAAAAAAAGAAsAAAAFAAAAAAAJAA0AAAAAAAAAAAAKAA0AAAAAAAAAAAAKAA4AAAAAAAAAAAAKAA8AAAAAAAAAAAAJAA8AAAAAAAAAAAALAA8AAAAAAAAAAAALABAAAAAAAAAAAAALABEAAAAAAAAAAAAKABEAAAAAAAAAAAAJABEAAAAAAAAAAAAJABAAAAAAAAAAAAAKABAAAAAFAAAAAAAQAAoAAAAFAAAAAAA=")
 tile_set = SubResource("TileSet_alkci")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1369592229]
@@ -94,56 +116,81 @@ environment = SubResource("Environment_n2r1a")
 
 [node name="Lights" type="Node3D" parent="." unique_id=1194574503]
 
-[node name="Light" parent="Lights" unique_id=1682209190 instance=ExtResource("5_dqm6q")]
+[node name="Light" type="Node3D" parent="Lights" unique_id=1682209190 instance=ExtResource("5_dqm6q")]
 transform = Transform3D(0.6, 0, 0, 0, -0.6, 5.2453668e-08, 0, -5.2453668e-08, -0.6, 13.014, 3.171837, 16.969)
+script = ExtResource("7_dnvp1")
 light_col = Color(1, 0.4117647, 0, 1)
 
-[node name="Light2" parent="Lights" unique_id=1901892543 instance=ExtResource("5_dqm6q")]
+[node name="Light2" type="Node3D" parent="Lights" unique_id=1901892543 instance=ExtResource("5_dqm6q")]
 transform = Transform3D(0.6, 0, 0, 0, -0.6, 5.2453668e-08, 0, -5.2453668e-08, -0.6, 21.005856, 3.171837, 16.969)
+script = ExtResource("7_dnvp1")
 light_col = Color(0, 1, 0, 1)
 
-[node name="Light3" parent="Lights" unique_id=1473181977 instance=ExtResource("5_dqm6q")]
+[node name="Light3" type="Node3D" parent="Lights" unique_id=1473181977 instance=ExtResource("5_dqm6q")]
 transform = Transform3D(0.6, 0, 0, 0, -0.6, 5.2453668e-08, 0, -5.2453668e-08, -0.6, 13.014, 3.171837, 24.995106)
+script = ExtResource("7_dnvp1")
 light_col = Color(1, 0, 0, 1)
 
-[node name="Light4" parent="Lights" unique_id=1681573426 instance=ExtResource("5_dqm6q")]
+[node name="Light4" type="Node3D" parent="Lights" unique_id=1681573426 instance=ExtResource("5_dqm6q")]
 transform = Transform3D(0.6, 0, 0, 0, -0.6, 5.2453668e-08, 0, -5.2453668e-08, -0.6, 21.075428, 3.171837, 31.010485)
+script = ExtResource("7_dnvp1")
 light_col = Color(1, 0, 1, 1)
 
-[node name="Light6" parent="Lights" unique_id=1869876788 instance=ExtResource("5_dqm6q")]
+[node name="Light6" type="Node3D" parent="Lights" unique_id=1869876788 instance=ExtResource("5_dqm6q")]
 transform = Transform3D(0.6, 0, 0, 0, -0.6, 5.2453668e-08, 0, -5.2453668e-08, -0.6, 28.997066, 3.171837, 20.94535)
+script = ExtResource("7_dnvp1")
 light_col = Color(0, 0.4117647, 1, 1)
 
 [node name="Elements" type="Node3D" parent="." unique_id=595750941]
 
-[node name="switch_5_7" parent="Elements" unique_id=1921786840 instance=ExtResource("8_lonte")]
+[node name="switch__5_7" type="Node3D" parent="Elements" unique_id=1921786840 instance=ExtResource("8_lonte")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 1, 15)
+script = ExtResource("9_tjpn8")
 
-[node name="Door_7_8" parent="Elements" unique_id=1840790086 instance=ExtResource("7_ikvej")]
+[node name="trap1__5_9" type="Node3D" parent="Elements" unique_id=749586305 instance=ExtResource("13_tjpn8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 1, 19)
+script = ExtResource("14_xevhy")
+
+[node name="Door__7_8" type="Node3D" parent="Elements" unique_id=1840790086 instance=ExtResource("7_ikvej")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 15, 1, 17)
+script = ExtResource("12_xcu0y")
 
-[node name="Door_15_9" parent="Elements" unique_id=1854737275 instance=ExtResource("7_ikvej")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 31, 1, 19)
+[node name="spinlight1__10_7" type="Node3D" parent="Elements" unique_id=1459078865 instance=ExtResource("10_dceye")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 1, 15)
 
-[node name="switch_14_10" parent="Elements" unique_id=938895453 instance=ExtResource("8_lonte")]
-transform = Transform3D(1.1924881e-08, 0, -1, 0, 1, 0, 1, 0, 1.1924881e-08, 29, 1, 21)
-
-[node name="pillar_16_10" parent="Elements" unique_id=1353397427 instance=ExtResource("9_lonte")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33, 1, 21)
-
-[node name="pillar_6_11" parent="Elements" unique_id=387970770 instance=ExtResource("9_lonte")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 1, 23)
-
-[node name="pillar_11_11" parent="Elements" unique_id=2015805042 instance=ExtResource("9_lonte")]
+[node name="switch__11_11" type="Node3D" parent="Elements" unique_id=1353397427 instance=ExtResource("15_nrbxg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23, 1, 23)
 
-[node name="Door_15_11" parent="Elements" unique_id=1639389003 instance=ExtResource("7_ikvej")]
+[node name="switch__14_10" type="Node3D" parent="Elements" unique_id=1294125650 instance=ExtResource("8_lonte")]
+transform = Transform3D(1.1924881e-08, 0, -1, 0, 1, 0, 1, 0, 1.1924881e-08, 29, 1, 21)
+script = ExtResource("9_tjpn8")
+
+[node name="Door__15_9" type="Node3D" parent="Elements" unique_id=851429202 instance=ExtResource("7_ikvej")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 31, 1, 19)
+script = ExtResource("12_xcu0y")
+
+[node name="Door__15_11" type="Node3D" parent="Elements" unique_id=1901896760 instance=ExtResource("7_ikvej")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 31, 1, 23)
+script = ExtResource("12_xcu0y")
 
-[node name="mon1_7_13" parent="Elements" unique_id=362774689 instance=ExtResource("9_ga0ak")]
+[node name="spinlight1__8_10" type="Node3D" parent="Elements" unique_id=2110768115 instance=ExtResource("10_dceye")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 1, 21)
+
+[node name="mon1__7_13" type="Node3D" parent="Elements" unique_id=362774689 groups=["enemy"] instance=ExtResource("13_vyx6i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 1, 27)
+script = ExtResource("20_puhhk")
 
-[node name="pillar_10_16" parent="Elements" unique_id=232178219 instance=ExtResource("9_lonte")]
+[node name="floorswitch__5_10" type="Node3D" parent="Elements" unique_id=967057673 instance=ExtResource("15_xevhy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 1, 21)
+script = ExtResource("16_amjyb")
+
+[node name="switch__6_11" type="Node3D" parent="Elements" unique_id=482744048 instance=ExtResource("15_nrbxg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 1, 23)
+
+[node name="switch__10_16" type="Node3D" parent="Elements" unique_id=1254638685 instance=ExtResource("15_nrbxg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 1, 33)
+
+[node name="switch__16_10" type="Node3D" parent="Elements" unique_id=947392264 instance=ExtResource("15_nrbxg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33, 1, 21)
 
 [node name="InterationManager" type="Node3D" parent="." unique_id=29437531]
