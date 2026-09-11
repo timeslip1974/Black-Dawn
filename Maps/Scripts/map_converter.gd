@@ -30,7 +30,7 @@ const W = 8  # 1000
 const WALLS = {
 	# Mask value (Bit Sum of open paths): MeshLib ID -> Asset Name
 	0:  -1,      # Isolated tile (No open paths)  -> ID 0: 00-NONE
-	15: -1,     # 4-Way Crossroad (Open all sides) -> Clear cell space
+	15: 15,     # 4-Way Crossroad (Open all sides) -> Clear cell space
 	
 	# --- SINGLE OPEN PATH CONNECTIONS (DEAD ENDS) ---
 	1:  12,     # Open North only -> ID 12: 12-N
