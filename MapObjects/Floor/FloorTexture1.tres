@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://xbdtticwaxts"]
+
+[ext_resource type="Texture2D" uid="uid://vg3ld4ftka0u" path="res://MapObjects/Floor/Set1/FloorTextures1.png" id="1_5axoq"]
+
+[resource]
+albedo_texture = ExtResource("1_5axoq")
+metallic = 0.85
+texture_filter = 0

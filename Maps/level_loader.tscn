@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b0c5jt07h8jnb" path="res://Scripts/level_loader.gd" id="1_jf4yp"]
 [ext_resource type="PackedScene" uid="uid://b6u52ps5ecwfn" path="res://Player/player.tscn" id="2_r3dyv"]
+[ext_resource type="PackedScene" uid="uid://ccak70hsyrty8" path="res://UI/ui.tscn" id="3_r3dyv"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_n2r1a"]
 sky_top_color = Color(0, 0, 0, 1)
@@ -18,7 +19,6 @@ sky = SubResource("Sky_jf4yp")
 ambient_light_source = 1
 ambient_light_color = Color(1, 0, 1, 1)
 reflected_light_source = 1
-sdfgi_enabled = true
 sdfgi_min_cell_size = 0.009765625
 adjustment_contrast = 1.025
 adjustment_saturation = 1.48
@@ -31,3 +31,5 @@ transform = Transform3D(-0.5075384, 0, -0.8616291, 0, 1, 0, 0.8616291, 0, -0.507
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=340290775]
 environment = SubResource("Environment_b41lk")
+
+[node name="UI" parent="." unique_id=551842505 instance=ExtResource("3_r3dyv")]

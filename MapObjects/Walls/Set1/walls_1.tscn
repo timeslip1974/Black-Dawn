@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://by3tsp6824xgb"]
+
+[ext_resource type="Script" uid="uid://df00r3rqnxt1o" path="res://Models/texturereplace.gd" id="1_sgcr4"]
+[ext_resource type="Material" uid="uid://bq2yd8263lkul" path="res://MapObjects/Roof/rooftexture.material" id="2_vgpdo"]
+[ext_resource type="Material" uid="uid://b7ox6tcx3bc5b" path="res://MapObjects/Walls/Set1/WallTexture2.tres" id="3_sgcr4"]
+[ext_resource type="Material" uid="uid://c0kmaljghdfq0" path="res://MapObjects/Walls/Set1/WallTexture3.tres" id="4_341am"]
+[ext_resource type="PackedScene" uid="uid://b6x68pna44ahm" path="res://MapObjects/Walls/Set1/000-None.glb" id="5_cfwis"]
+[ext_resource type="PackedScene" uid="uid://b8sucuex5lmop" path="res://MapObjects/Walls/Set1/001-ESW.glb" id="6_08axw"]
+[ext_resource type="PackedScene" uid="uid://chyuiq4g247ld" path="res://MapObjects/Walls/Set1/002-NSW.glb" id="7_f7vk3"]
+[ext_resource type="PackedScene" uid="uid://btdeorcw3dkxr" path="res://MapObjects/Walls/Set1/003-NEW.glb" id="8_b802g"]
+[ext_resource type="PackedScene" uid="uid://bxh8csd6acjqf" path="res://MapObjects/Walls/Set1/004-NES.glb" id="9_25hor"]
+[ext_resource type="PackedScene" uid="uid://xp5uw77drdf8" path="res://MapObjects/Walls/Set1/005-SW.glb" id="10_gtfx2"]
+[ext_resource type="PackedScene" uid="uid://b1sleetk2pfwk" path="res://MapObjects/Walls/Set1/006-SE.glb" id="11_1e3q7"]
+[ext_resource type="PackedScene" uid="uid://cvru73jev7ewb" path="res://MapObjects/Walls/Set1/007-NW.glb" id="12_clwtb"]
+[ext_resource type="PackedScene" uid="uid://che7vea1y58qw" path="res://MapObjects/Walls/Set1/008-NE.glb" id="13_1huwa"]
+[ext_resource type="PackedScene" uid="uid://ceegjaj167sqe" path="res://MapObjects/Walls/Set1/009-W.glb" id="14_0whtq"]
+[ext_resource type="PackedScene" uid="uid://bvd6q0ls4qnnf" path="res://MapObjects/Walls/Set1/010-S.glb" id="15_6yj8g"]
+[ext_resource type="PackedScene" uid="uid://1x28sxidhktl" path="res://MapObjects/Walls/Set1/011-E.glb" id="16_e2cxq"]
+[ext_resource type="PackedScene" uid="uid://dluklv4ux4xp0" path="res://MapObjects/Walls/Set1/012-N.glb" id="17_mtjhe"]
+[ext_resource type="PackedScene" uid="uid://doqf84mrrj7qx" path="res://MapObjects/Walls/Set1/013-NS.glb" id="18_at5qg"]
+[ext_resource type="PackedScene" uid="uid://bl8q3g3u3a01d" path="res://MapObjects/Walls/Set1/014-EW.glb" id="19_c7bhv"]
+[ext_resource type="PackedScene" uid="uid://c0scncav26hty" path="res://MapObjects/Walls/Set1/015-ALL.glb" id="20_ql5ob"]
+
+[node name="Walls1" type="Node3D" unique_id=1674587072]
+script = ExtResource("1_sgcr4")
+new_material = ExtResource("2_vgpdo")
+new_material2 = ExtResource("3_sgcr4")
+new_material3 = ExtResource("4_341am")
+
+[node name="000-None" parent="." unique_id=1977156457 instance=ExtResource("5_cfwis")]
+
+[node name="001-ESW" parent="." unique_id=170853636 instance=ExtResource("6_08axw")]
+
+[node name="002-NSW" parent="." unique_id=1857278336 instance=ExtResource("7_f7vk3")]
+
+[node name="003-NEW" parent="." unique_id=999382462 instance=ExtResource("8_b802g")]
+
+[node name="004-NES" parent="." unique_id=1691516164 instance=ExtResource("9_25hor")]
+
+[node name="005-SW" parent="." unique_id=989315020 instance=ExtResource("10_gtfx2")]
+
+[node name="006-SE" parent="." unique_id=1544930213 instance=ExtResource("11_1e3q7")]
+
+[node name="007-NW" parent="." unique_id=642940572 instance=ExtResource("12_clwtb")]
+
+[node name="008-NE" parent="." unique_id=1976312453 instance=ExtResource("13_1huwa")]
+
+[node name="009-W" parent="." unique_id=357772878 instance=ExtResource("14_0whtq")]
+
+[node name="010-S" parent="." unique_id=1777846230 instance=ExtResource("15_6yj8g")]
+
+[node name="011-E" parent="." unique_id=1568223213 instance=ExtResource("16_e2cxq")]
+
+[node name="012-N" parent="." unique_id=1028617263 instance=ExtResource("17_mtjhe")]
+
+[node name="013-NS" parent="." unique_id=1589844918 instance=ExtResource("18_at5qg")]
+
+[node name="014-EW" parent="." unique_id=1640161789 instance=ExtResource("19_c7bhv")]
+
+[node name="015-ALL" parent="." unique_id=1384486142 instance=ExtResource("20_ql5ob")]

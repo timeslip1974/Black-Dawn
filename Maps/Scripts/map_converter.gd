@@ -70,6 +70,7 @@ var map: TileMapLayer
 var gridmap: GridMap
 
 func _ready() -> void:
+	Global.mon_list=preload("res://Data/mon_list.tres")
 	map = $TileMapLayer
 	gridmap = $GridMap
 	
@@ -84,7 +85,7 @@ func _ready() -> void:
 	
 	# Only execute full generation and bakes when playing the actual game
 	if not Engine.is_editor_hint():
-		gridmap.clear() 
+		$Map.clear() 
 		$Floor.clear()
 		for child in $Elements.get_children():
 			child.free()
@@ -150,14 +151,14 @@ func calculate_and_place_3d_wall(pos: Vector2i) -> void:
 	if WALLS.has(mask):
 		var target_mesh_id = WALLS[mask]
 		if target_mesh_id != -1:
-			if randi_range(0,8)==1:
-				if randi_range(0,1)==1:target_mesh_id+=15
-				else:target_mesh_id+=30
-			gridmap.set_cell_item(Vector3i(pos.x, 0, pos.y), target_mesh_id, 0)
+			#if randi_range(0,8)==1:
+				#if randi_range(0,1)==1:target_mesh_id+=15
+				#else:target_mesh_id+=30
+			$Map.set_cell_item(Vector3i(pos.x, 0, pos.y), target_mesh_id, 0)
 
 
 func overwrite_current_scene() -> void:
-	$GridMap.owner = self
+	$Map.owner = self
 	$Floor.owner = self
 	
 	# --- ADD THIS LINE TO SECURE THE ARRAY ---

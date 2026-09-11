@@ -37,6 +37,7 @@ func setup_vars():
 	damage=Global.mon_list.Slots[monster_no].damage
 
 func _physics_process(_delta):
+	if Global.level_ready==false:return
 	var flip=randi_range(0,1000)
 	if flip>995:
 		FlipSprite()

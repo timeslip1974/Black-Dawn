@@ -1,9 +1,9 @@
 @tool
 extends Node3D
 
-@export var new_material = load("res://Models/Walls/Wall1/WallTexture1.tres")
-@export var new_material2 = load("res://Models/Walls/Wall1/WallTexture2.tres")
-@export var new_material3 = load("res://Models/Walls/Wall1/WallTexture3.tres")
+@export var new_material = load("res://MapObjects/Walls/Set1/WallTexture1.png")
+@export var new_material2 = load("res://MapObjects/Walls/Set1/WallTexture2.png")
+@export var new_material3 = load("res://MapObjects/Walls/Set1/WallTexture3.png")
 
 # BYPASS FIX: An export checkbox that triggers a function, acting exactly like a button
 @export var Click_To_Swap_Materials: bool = false:

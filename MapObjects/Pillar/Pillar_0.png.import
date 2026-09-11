@@ -2,10 +2,13 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://caokw24uoa1oc"
+uid="uid://dsy78544k2twy"
 path="res://.godot/imported/Pillar_0.png-67b4e8e83c2161ac3962fe0619eff839.ctex"
 metadata={
 "vram_texture": false
+}
+generator_parameters={
+"md5": "aa6dab295f15d01e4b3b4e3a780b6b4e"
 }
 
 [deps]

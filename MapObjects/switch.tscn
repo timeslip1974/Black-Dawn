@@ -1,20 +1,141 @@
-[gd_scene format=3 uid="uid://bstiwba1utgcj"]
+[gd_scene format=4 uid="uid://bstiwba1utgcj"]
 
 [ext_resource type="Script" uid="uid://yj5fuur4ok4w" path="res://MapObjects/switch.gd" id="1_31w6q"]
-[ext_resource type="PackedScene" uid="uid://dhwfrqm7qt0t" path="res://MapObjects/Switch.glb" id="1_rgsn7"]
+[ext_resource type="Texture2D" uid="uid://bgc6q32cy2mip" path="res://MapObjects/Switch/Switch_0.png" id="2_31w6q"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_b41lk"]
 size = Vector3(0.10406494, 0.28485107, 0.048583984)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0r5k6"]
+resource_name = "material_0"
+transparency = 2
+alpha_scissor_threshold = 0.05
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_texture = ExtResource("2_31w6q")
+texture_filter = 0
+texture_repeat = false
+metadata/_gltf_primary_texture_coord = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_f26v3"]
+_surfaces = [{
+"aabb": AABB(-0.1, -0.2, -1, 0.2, 0.4, 0.01999998),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAACAAEAAwAEAAEABQAAAAIAAwAAAAUABAAGAAIABQACAAYAAwAHAAQAAwAFAAcABwAGAAQABwAFAAYA"),
+"name": "material_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAP//AAAAAP//AAAAAAAA/////wAAAAAAAAAAAAD/////AAAAAP//AAD//wAA////////AAD//wAAAAAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_dytf3"]
+resource_name = "blockbench_export_mesh"
+_surfaces = [{
+"aabb": AABB(-0.1, -0.2, -1, 0.2, 0.4, 0.01999998),
+"attribute_data": PackedByteArray("/2//z/9f/2//b/9v/1//z/8v/18AAAAA/y8AAAAA/1//j/9f/38AAP+PAAD/f/9f/2//X/8/AAD/bwAA/z//X/+f/1//z/9P/8//X/+f/0//z/9v/5//f/+f/2//z/9/"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
+"material": SubResource("StandardMaterial3D_0r5k6"),
+"name": "material_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AAAAAP///78AAP//AAD/vwAA//////+/AAAAAAAA/78AAAAAAAD///////8AAP//AAD//wAA/////wAAAAD/////AAAAAP+//////////7//////AAD/v///AAD///+///8AAP//AIAAAP////8AgP///////wCAAAAAAP//AIAAAAAAAAD/v///AAD///+///8AAAAA/78AAAAA////v/////8AAP+/AAD//////78AAP//AAD/v/////////+//3////9/////f////3////9/////f////3////9/////fwAA/38AAP9/AAD/fwAA/3////9/////f////3///wAA/38AAP9/AAD/fwAA/3////9/////f////3////9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_f26v3")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_jnfek"]
+_surfaces = [{
+"aabb": AABB(-0.05, -0.14, -1, 0.1, 0.28, 0.060000002),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAACAAEAAwAEAAEABQAAAAIAAwAAAAUABAAGAAIABQACAAYAAwAHAAQAAwAFAAcABwAGAAQABwAFAAYA"),
+"name": "material_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("//8AAAAAAAD///////8AAP////8AAAAA//8AAP//AAAAAP////8AAAAAAAAAAAAAAAD//wAAAAAAAAAA//8AAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_rhr0j"]
+resource_name = "blockbench_export_mesh2"
+_surfaces = [{
+"aabb": AABB(-0.05, -0.14, -1, 0.1, 0.28, 0.060000002),
+"attribute_data": PackedByteArray("/4//r/9//2//j/9v/3//r/8f/68AAP9v/x//bwAA/6//r/8//58AAP+vAAD/n/8//0//r/8v/2//T/9v/y//r/+//4//n/+f/5//j/+//5//n/+//7//r/+//7//n/+v"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
+"material": SubResource("StandardMaterial3D_0r5k6"),
+"name": "material_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("//8AAAAA/7//////////v/////8AAP+///8AAP///7///wAA//8AgAAA/////wCA////////AIAAAAAA//8AgAAAAAD///+/AAD//wAA/78AAP//////vwAAAAAAAP+/AAAAAAAA////////AAD//wAA//8AAP////8AAAAA/////wAA////vwAAAAAAAP+/AAAAAP///7///wAAAAD/vwAA//////+//////wAA/7//////////vwAA//8AAP+//38AAP9/AAD/fwAA/38AAP9/////f////3////9/////f////3////9/////f////3////9/////f////3///wAA/38AAP9/AAD/fwAA/3////9/////f////3////9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_jnfek")
+
+[sub_resource type="Animation" id="Animation_pejff"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_6rynm"]
+resource_name = "press"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, -0.04), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dssjh"]
+_data = {
+&"RESET": SubResource("Animation_pejff"),
+&"press": SubResource("Animation_6rynm")
+}
+
 [node name="Switch" type="Node3D" unique_id=1921786840]
 script = ExtResource("1_31w6q")
-
-[node name="Switch2" parent="." unique_id=650845056 instance=ExtResource("1_rgsn7")]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=490812245]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1080049020]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00039672852, -0.0026550293, -0.957003)
 shape = SubResource("BoxShape3D_b41lk")
+
+[node name="blockbench_export" type="Node3D" parent="." unique_id=1236036871]
+
+[node name="SwitchBase" type="MeshInstance3D" parent="blockbench_export" unique_id=2084956123]
+mesh = SubResource("ArrayMesh_dytf3")
+
+[node name="Switch" type="MeshInstance3D" parent="blockbench_export" unique_id=1450827728]
+mesh = SubResource("ArrayMesh_rhr0j")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=773001318]
+root_node = NodePath("../blockbench_export/Switch")
+libraries/ = SubResource("AnimationLibrary_dssjh")
 
 [connection signal="input_event" from="StaticBody3D" to="." method="_on_static_body_3d_input_event"]

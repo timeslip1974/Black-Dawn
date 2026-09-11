@@ -44,7 +44,7 @@ func load_level() -> void:
 	
 	# 4. Find the specific element node you want to copy (e.g., your GridMap)
 	# Replace "GridMap" with the exact name of the node inside that saved file
-	var saved_gridmap = temporary_root.get_node_or_null("GridMap")
+	var saved_gridmap = temporary_root.get_node_or_null("Map")
 	var saved_tilemap=temporary_root.get_node_or_null("TileMapLayer")
 	var saved_lights=temporary_root.get_node_or_null("Lights")
 	var saved_floor=temporary_root.get_node_or_null("Floor")
@@ -58,6 +58,7 @@ func load_level() -> void:
 		temporary_root.remove_child(saved_lights)
 		temporary_root.remove_child(saved_floor)
 		temporary_root.remove_child(saved_elements)
+
 		
 		# 6. Add it cleanly into your CURRENT active scene tree layout
 		add_child(saved_gridmap)
@@ -65,6 +66,7 @@ func load_level() -> void:
 		add_child(saved_lights)
 		add_child(saved_floor)
 		add_child(saved_elements)
+
 		
 		# Optional: Adjust its 3D position or alignment if necessary
 		# saved_gridmap.global_position = Vector3.ZERO

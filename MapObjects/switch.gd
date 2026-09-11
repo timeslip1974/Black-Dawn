@@ -24,8 +24,7 @@ func setup(pos):
 #Make sire to connect the Staticbody of the switch to the main switch in Signals for it to work
 func _on_static_body_3d_input_event(camera: Node, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		if grid_pos==Global.player.pos:
-			print("🎉 Mouse click registered on Switch at grid: ", grid_pos)
+		$AnimationPlayer.play("press")
 		
 		# 2. Tell the Global system to trigger whatever is linked to this tile coordinate!
 		Global.trigger_tile_action(grid_pos)

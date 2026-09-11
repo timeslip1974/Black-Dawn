@@ -4,6 +4,9 @@ var player
 var map
 var mon_list
 var level_actions: Array[TileAction] = []
+var level_ready=false
+
+
 
 func trigger_tile_action(action_coord: Vector2i):
 	var scene=get_tree().current_scene
