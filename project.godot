@@ -25,12 +25,6 @@ config/icon="res://icon.svg"
 
 Global="*uid://b1bccymkw8ys7"
 
-[display]
-
-window/stretch/mode="canvas_items"
-window/stretch/aspect="expand"
-window/vsync/vsync_mode=0
-
 [filesystem]
 
 import/blender/enabled=false
@@ -116,8 +110,4 @@ RotateR={
 
 [rendering]
 
-textures/canvas_textures/default_texture_filter=0
-rendering_device/driver.windows="d3d12"
 renderer/rendering_method="gl_compatibility"
-renderer/rendering_method.mobile="gl_compatibility"
-textures/default_filters/use_nearest_mipmap_filter=true

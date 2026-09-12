@@ -14,11 +14,8 @@ sky_energy_multiplier = 0.5
 sky_material = SubResource("ProceduralSkyMaterial_n2r1a")
 
 [sub_resource type="Environment" id="Environment_b41lk"]
-background_mode = 1
 sky = SubResource("Sky_jf4yp")
 ambient_light_source = 1
-ambient_light_color = Color(1, 0, 1, 1)
-reflected_light_source = 1
 sdfgi_min_cell_size = 0.009765625
 adjustment_contrast = 1.025
 adjustment_saturation = 1.48
