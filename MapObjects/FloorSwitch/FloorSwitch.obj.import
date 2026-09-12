@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dswf1pcpwlbp0"
+path="res://.godot/imported/FloorSwitch.obj-9be37b505c7865578b17819547838613.mesh"
+
+[deps]
+
+files=["res://.godot/imported/FloorSwitch.obj-9be37b505c7865578b17819547838613.mesh"]
+
+source_file="res://MapObjects/FloorSwitch/FloorSwitch.obj"
+dest_files=["res://.godot/imported/FloorSwitch.obj-9be37b505c7865578b17819547838613.mesh", "res://.godot/imported/FloorSwitch.obj-9be37b505c7865578b17819547838613.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

@@ -1,9 +1,9 @@
 @tool # 👈 Keeps the visual lines drawing live in the editor
 extends Node3D
 
-const DOOR=preload("res://MapObjects/door.tscn")
+const DOOR=preload("res://MapObjects/Door/door.tscn")
 const MON=preload("res://Monsters/monster.tscn")
-const PILLAR=preload("res://MapObjects/pillar.tscn")
+const PILLAR=preload("res://MapObjects/Pillar/pillar.tscn")
 const TUBE=preload("res://MapObjects/Tube/pillar_2.tscn")
 const SWITCH=preload("res://MapObjects/switch.tscn")
 const SPINLIGHT=preload("res://MapObjects/SpinningLight/spinning_light.tscn")
@@ -13,8 +13,12 @@ const FLOORSWITCH=preload("res://MapObjects/FloorSwitch/floor_switch.tscn")
 const TILE_SCENE_MAP: Dictionary = {
 	Vector2i(3, 0): {"scene": DOOR, "prefix": "Door_"},
 	Vector2i(7, 0): {"scene": SPINLIGHT, "prefix": "spinlight1_"},
-	Vector2i(9, 0): {"scene": FLOORSWITCH, "prefix": "floorswitch_"},
+	Vector2i(9, 0): {"scene": FLOORSWITCH, "prefix": "floorswitch_","setup_val": 1},
+	Vector2i(10, 0): {"scene": FLOORSWITCH, "prefix": "floorswitch_","setup_val": 2},
+	Vector2i(11, 0): {"scene": FLOORSWITCH, "prefix": "floorswitch_","setup_val": 3},
+	Vector2i(12, 0): {"scene": FLOORSWITCH, "prefix": "floorswitch_","setup_val": 4},
 	Vector2i(8, 0): {"scene": TRAPDOOR, "prefix": "trap1_"},
+	Vector2i(13, 0): {"scene": TRAPDOOR, "prefix": "trap1_"},
 	Vector2i(0, 1): {"scene": MON, "prefix": "mon1_"},
 	Vector2i(1, 0): {"scene": SWITCH, "prefix": "switch_"},
 	Vector2i(5, 0): {"scene": PILLAR, "prefix": "switch_"},
@@ -68,6 +72,7 @@ const WALLS = {
 
 var map: TileMapLayer
 var gridmap: GridMap
+var setup_val
 
 func _ready() -> void:
 	Global.mon_list=preload("res://Data/mon_list.tres")
@@ -109,6 +114,8 @@ func map_load() -> void:
 		if tile in TILE_SCENE_MAP:
 			scene_to_instantiate = TILE_SCENE_MAP[tile]["scene"]
 			name_prefix = TILE_SCENE_MAP[tile]["prefix"]
+			# Safely get setup_val if it exists, otherwise fall back to null
+			setup_val = TILE_SCENE_MAP[tile].get("setup_val", null)
 
 		# Spawn and configure the object if matched
 		if scene_to_instantiate:
@@ -127,13 +134,15 @@ func _spawn_element(scene: PackedScene, prefix: String, coord: Vector2i) -> void
 	
 	# Call setup if the node script supports it
 	if instance.has_method("setup"):
-		instance.setup(coord)
+		if setup_val != null:
+			instance.setup(setup_val)
+		else:
+			instance.setup(coord)
 		
 func floor_and_roof():
 	for y in range(0, map_h):
 		for x in range(0, map_w):
 			if map.get_cell_atlas_coords(Vector2i(x,y))!=Vector2i(-1,-1):
-				print("CHJECL")
 				if map.get_cell_tile_data(Vector2i(x,y)).get_custom_data("add_floor") == true:
 					$Floor.set_cell_item(Vector3i(x, 0, y), randi_range(0,2), 0)
 

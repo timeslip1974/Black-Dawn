@@ -1,16 +1,22 @@
-@tool
+#@tool
 extends Node
 
 ## Material assigned to Surface Material Override 0
-@export var slot_0_material: Material:
+@export var roof_material: Material:
 	set(value):
-		slot_0_material = value
+		roof_material = value
 		request_update()
 
-## Material assigned to all other open slots (1, 2, 3, 4...)
-@export var remaining_slots_material: Material:
+## Material assigned to slots 1 through 4
+@export var pillar_material: Material:
 	set(value):
-		remaining_slots_material = value
+		pillar_material = value
+		request_update()
+
+## Material assigned to all remaining slots (5 and above)
+@export var walls_material: Material:
+	set(value):
+		walls_material = value
 		request_update()
 
 var needs_update: bool = false
@@ -29,20 +35,21 @@ func _process(_delta: float) -> void:
 
 func apply_materials(node: Node) -> void:
 	if node is MeshInstance3D:
-		# Ensure global override is clear so surface overrides take effect
+		# Clear global override so individual surface overrides take effect
 		node.material_override = null
 		
-		# Get total surface overrides array size directly from node or mesh
 		var count = node.get_surface_override_material_count()
 		if count == 0 and node.mesh:
 			count = node.mesh.get_surface_count()
 
-		# Apply materials to each slot
+		# Apply materials based on slot index
 		for i in range(count):
-			if i == 0 and slot_0_material:
-				node.set_surface_override_material(0, slot_0_material)
-			elif i > 0 and remaining_slots_material:
-				node.set_surface_override_material(i, remaining_slots_material)
+			if i == 0 and roof_material:
+				node.set_surface_override_material(0, roof_material)
+			elif i in range(1, 5) and pillar_material:
+				node.set_surface_override_material(i, pillar_material)
+			elif i >= 5 and walls_material:
+				node.set_surface_override_material(i, walls_material)
 				
 		node.notify_property_list_changed()
 

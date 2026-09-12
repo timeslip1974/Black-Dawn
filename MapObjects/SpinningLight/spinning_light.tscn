@@ -242,6 +242,7 @@ emission = Color(1, 1, 0, 1)
 [node name="AreaLight3D" type="AreaLight3D" parent="." unique_id=1873951473]
 transform = Transform3D(0.06975657, 0, -0.997564, 0, 1, 0, 0.997564, 0, 0.06975657, 0.915, 0, 0)
 light_color = Color(1, 1, 0, 1)
+light_bake_mode = 0
 area_range = 10.393
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1554675674]

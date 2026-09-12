@@ -2,19 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ctmtoluchpe3t"
-path="res://.godot/imported/Switch_texture.png-0d5c3e2f9f9a68e30b2997545ab17b53.ctex"
+uid="uid://hkjig6cegqep"
+path="res://.godot/imported/PillarTexture1.png-6f1d117bc62d45768baaefd7db0196cc.ctex"
 metadata={
 "vram_texture": false
-}
-generator_parameters={
-"md5": "3168ec3c447004c2d3e527d929c6dd95"
 }
 
 [deps]
 
-source_file="res://MapObjects/Switch_texture.png"
-dest_files=["res://.godot/imported/Switch_texture.png-0d5c3e2f9f9a68e30b2997545ab17b53.ctex"]
+source_file="res://MapObjects/Walls/Set1/PillarTexture1.png"
+dest_files=["res://.godot/imported/PillarTexture1.png-6f1d117bc62d45768baaefd7db0196cc.ctex"]
 
 [params]
 

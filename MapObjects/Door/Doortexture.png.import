@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cnfqo5tisfdbj"
-path="res://.godot/imported/PillarTexture.png-0cb70b7239133e15f69a9bc8279cfcc2.ctex"
+uid="uid://rnkv64cvbhij"
+path="res://.godot/imported/Doortexture.png-859ec49037f67a7ee46179e9da967f64.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://MapObjects/PillarTexture.png"
-dest_files=["res://.godot/imported/PillarTexture.png-0cb70b7239133e15f69a9bc8279cfcc2.ctex"]
+source_file="res://MapObjects/Door/Doortexture.png"
+dest_files=["res://.godot/imported/Doortexture.png-859ec49037f67a7ee46179e9da967f64.ctex"]
 
 [params]
 

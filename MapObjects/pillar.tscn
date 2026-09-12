@@ -1,7 +1,0 @@
-[gd_scene format=3 uid="uid://cagfi456vocj7"]
-
-[ext_resource type="PackedScene" uid="uid://ckxgvalornluo" path="res://MapObjects/Pillar/Pillar.glb" id="1_wqrwk"]
-
-[node name="Pillar" type="Node3D" unique_id=1353397427]
-
-[node name="Pillar" parent="." unique_id=1633189050 instance=ExtResource("1_wqrwk")]

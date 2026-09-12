@@ -1,8 +1,7 @@
 [gd_resource type="StandardMaterial3D" format=3 uid="uid://bncl7md5fagow"]
 
-[ext_resource type="Texture2D" uid="uid://d2sw12nesx37r" path="res://MapObjects/Trapdoor/trapdoortexture.png" id="1_2yoc4"]
+[ext_resource type="Texture2D" uid="uid://bbj2irkx88bkj" path="res://MapObjects/FloorSwitch/FloorSwitchTexture.png" id="1_2yoc4"]
 
 [resource]
 albedo_texture = ExtResource("1_2yoc4")
-metallic = 0.64
 texture_filter = 0

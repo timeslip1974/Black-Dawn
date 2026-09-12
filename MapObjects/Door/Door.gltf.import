@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dhwfrqm7qt0t"
-path="res://.godot/imported/Switch.glb-4616734c148ddf5b467a90f593091ded.scn"
+uid="uid://dxbkdok4q6goj"
+path="res://.godot/imported/Door.gltf-7a530126b7e6b2f5ec4fb3a3e64df5ef.scn"
 
 [deps]
 
-source_file="res://MapObjects/Switch.glb"
-dest_files=["res://.godot/imported/Switch.glb-4616734c148ddf5b467a90f593091ded.scn"]
+source_file="res://MapObjects/Door/Door.gltf"
+dest_files=["res://.godot/imported/Door.gltf-7a530126b7e6b2f5ec4fb3a3e64df5ef.scn"]
 
 [params]
 

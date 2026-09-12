@@ -2,24 +2,23 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bom374eid8gjo"
-path.s3tc="res://.godot/imported/Door_DoorTexture.png-29f4aba4701e484528a768ab61bd9b24.s3tc.ctex"
+uid="uid://l5a0523erstb"
+path="res://.godot/imported/Door_0.png-f0008fd4332c5e27c701cf9c28ae04ff.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 generator_parameters={
-"md5": "c9445491d6eb1da827250366b1f00a28"
+"md5": "45db5e6b7d7a09a6215ddb227e720da7"
 }
 
 [deps]
 
-source_file="res://MapObjects/Door_DoorTexture.png"
-dest_files=["res://.godot/imported/Door_DoorTexture.png-29f4aba4701e484528a768ab61bd9b24.s3tc.ctex"]
+source_file="res://MapObjects/Door/Door_0.png"
+dest_files=["res://.godot/imported/Door_0.png-f0008fd4332c5e27c701cf9c28ae04ff.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

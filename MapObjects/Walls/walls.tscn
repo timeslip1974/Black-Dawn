@@ -6,10 +6,12 @@
 [ext_resource type="Material" uid="uid://b180nyftlw7it" path="res://MapObjects/Walls/Set1/WallText1.material" id="2_ksr3y"]
 [ext_resource type="ArrayMesh" uid="uid://d0ise4gkwpsrk" path="res://MapObjects/Walls/Set1/002-NSW.obj" id="3_2geq7"]
 [ext_resource type="Material" uid="uid://200y3m0o6ppt" path="res://MapObjects/Walls/Set1/Roof1.material" id="3_2hypj"]
+[ext_resource type="Material" uid="uid://ck0l586tg055c" path="res://MapObjects/Walls/Set1/Pillar.material" id="3_ksr3y"]
 [ext_resource type="ArrayMesh" uid="uid://dsm512m7525jb" path="res://MapObjects/Walls/Set1/003-NEW.obj" id="4_wmagr"]
 [ext_resource type="ArrayMesh" uid="uid://bmg7kmtr2a7jp" path="res://MapObjects/Walls/Set1/004-NES.obj" id="5_ksr3y"]
 [ext_resource type="ArrayMesh" uid="uid://cbvfsqpfubuvi" path="res://MapObjects/Walls/Set1/005-SW.obj" id="6_2hypj"]
 [ext_resource type="ArrayMesh" uid="uid://sebym737ipdd" path="res://MapObjects/Walls/Set1/006-SE.obj" id="7_0giim"]
+[ext_resource type="Texture2D" uid="uid://hkjig6cegqep" path="res://MapObjects/Walls/Set1/PillarTexture1.png" id="7_2hypj"]
 [ext_resource type="ArrayMesh" uid="uid://y4wditvih86f" path="res://MapObjects/Walls/Set1/007-NW.obj" id="8_lq7cu"]
 [ext_resource type="ArrayMesh" uid="uid://cyi4cdfr1lf3n" path="res://MapObjects/Walls/Set1/008-NE.obj" id="9_gwnjh"]
 [ext_resource type="ArrayMesh" uid="uid://4e1oexsx18s0" path="res://MapObjects/Walls/Set1/009-W.obj" id="10_yhsss"]
@@ -20,116 +22,170 @@
 [ext_resource type="ArrayMesh" uid="uid://bnq304lbhan82" path="res://MapObjects/Walls/Set1/014-EW.obj" id="15_gskxv"]
 [ext_resource type="ArrayMesh" uid="uid://cvck16ndw84je" path="res://MapObjects/Walls/Set1/015-ALL.obj" id="16_wga1v"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qppda"]
+albedo_texture = ExtResource("7_2hypj")
+metallic = 1.0
+texture_filter = 0
+
 [node name="Walls" type="Node3D" unique_id=1353126617]
 script = ExtResource("1_wmagr")
-slot_0_material = ExtResource("3_2hypj")
-remaining_slots_material = ExtResource("2_ksr3y")
+roof_material = ExtResource("3_2hypj")
+pillar_material = ExtResource("3_ksr3y")
+walls_material = ExtResource("2_ksr3y")
 
 [node name="000None" type="MeshInstance3D" parent="." unique_id=818700080]
 mesh = ExtResource("1_eyn74")
 surface_material_override/0 = ExtResource("3_2hypj")
-surface_material_override/1 = ExtResource("2_ksr3y")
-surface_material_override/2 = ExtResource("2_ksr3y")
-surface_material_override/3 = ExtResource("2_ksr3y")
-surface_material_override/4 = ExtResource("2_ksr3y")
+surface_material_override/1 = ExtResource("3_ksr3y")
+surface_material_override/2 = ExtResource("3_ksr3y")
+surface_material_override/3 = ExtResource("3_ksr3y")
+surface_material_override/4 = ExtResource("3_ksr3y")
+surface_material_override/5 = ExtResource("2_ksr3y")
+surface_material_override/6 = ExtResource("2_ksr3y")
+surface_material_override/7 = ExtResource("2_ksr3y")
+surface_material_override/8 = ExtResource("2_ksr3y")
 
 [node name="001Esw" type="MeshInstance3D" parent="." unique_id=380670049]
 visible = false
 mesh = ExtResource("2_4277d")
 surface_material_override/0 = ExtResource("3_2hypj")
-surface_material_override/1 = ExtResource("2_ksr3y")
+surface_material_override/1 = SubResource("StandardMaterial3D_qppda")
+surface_material_override/2 = ExtResource("3_ksr3y")
+surface_material_override/3 = ExtResource("2_ksr3y")
 
 [node name="002Nsw" type="MeshInstance3D" parent="." unique_id=95528071]
 visible = false
 mesh = ExtResource("3_2geq7")
 surface_material_override/0 = ExtResource("3_2hypj")
-surface_material_override/1 = ExtResource("2_ksr3y")
+surface_material_override/1 = ExtResource("3_ksr3y")
+surface_material_override/2 = ExtResource("3_ksr3y")
+surface_material_override/3 = ExtResource("2_ksr3y")
 
 [node name="003New" type="MeshInstance3D" parent="." unique_id=1472974818]
 visible = false
 mesh = ExtResource("4_wmagr")
 surface_material_override/0 = ExtResource("3_2hypj")
 surface_material_override/1 = ExtResource("2_ksr3y")
+surface_material_override/2 = ExtResource("3_ksr3y")
+surface_material_override/3 = ExtResource("3_ksr3y")
 
 [node name="004Nes" type="MeshInstance3D" parent="." unique_id=404379470]
 visible = false
 mesh = ExtResource("5_ksr3y")
 surface_material_override/0 = ExtResource("3_2hypj")
-surface_material_override/1 = ExtResource("2_ksr3y")
+surface_material_override/1 = ExtResource("3_ksr3y")
+surface_material_override/2 = ExtResource("3_ksr3y")
+surface_material_override/3 = ExtResource("2_ksr3y")
 
 [node name="005Sw" type="MeshInstance3D" parent="." unique_id=1892262398]
 visible = false
 mesh = ExtResource("6_2hypj")
 surface_material_override/0 = ExtResource("3_2hypj")
-surface_material_override/1 = ExtResource("2_ksr3y")
-surface_material_override/2 = ExtResource("2_ksr3y")
+surface_material_override/1 = ExtResource("3_ksr3y")
+surface_material_override/2 = ExtResource("3_ksr3y")
+surface_material_override/3 = ExtResource("3_ksr3y")
+surface_material_override/4 = ExtResource("2_ksr3y")
+surface_material_override/5 = ExtResource("2_ksr3y")
 
 [node name="006Se" type="MeshInstance3D" parent="." unique_id=1078776695]
 visible = false
 mesh = ExtResource("7_0giim")
 surface_material_override/0 = ExtResource("3_2hypj")
-surface_material_override/1 = ExtResource("2_ksr3y")
-surface_material_override/2 = ExtResource("2_ksr3y")
+surface_material_override/1 = ExtResource("3_ksr3y")
+surface_material_override/2 = ExtResource("3_ksr3y")
+surface_material_override/3 = ExtResource("2_ksr3y")
+surface_material_override/4 = ExtResource("2_ksr3y")
+surface_material_override/5 = ExtResource("3_ksr3y")
 
 [node name="007Nw" type="MeshInstance3D" parent="." unique_id=243239521]
 visible = false
 mesh = ExtResource("8_lq7cu")
 surface_material_override/0 = ExtResource("3_2hypj")
-surface_material_override/1 = ExtResource("2_ksr3y")
-surface_material_override/2 = ExtResource("2_ksr3y")
+surface_material_override/1 = ExtResource("3_ksr3y")
+surface_material_override/2 = ExtResource("3_ksr3y")
+surface_material_override/3 = ExtResource("3_ksr3y")
+surface_material_override/4 = ExtResource("2_ksr3y")
+surface_material_override/5 = ExtResource("2_ksr3y")
 
 [node name="008Ne" type="MeshInstance3D" parent="." unique_id=1503202921]
 visible = false
 mesh = ExtResource("9_gwnjh")
 surface_material_override/0 = ExtResource("3_2hypj")
-surface_material_override/1 = ExtResource("2_ksr3y")
+surface_material_override/1 = ExtResource("3_ksr3y")
 surface_material_override/2 = ExtResource("2_ksr3y")
+surface_material_override/3 = ExtResource("3_ksr3y")
+surface_material_override/4 = ExtResource("2_ksr3y")
+surface_material_override/5 = ExtResource("3_ksr3y")
 
 [node name="009W" type="MeshInstance3D" parent="." unique_id=288695054]
 visible = false
 mesh = ExtResource("10_yhsss")
 surface_material_override/0 = ExtResource("3_2hypj")
-surface_material_override/1 = ExtResource("2_ksr3y")
+surface_material_override/1 = ExtResource("3_ksr3y")
 surface_material_override/2 = ExtResource("2_ksr3y")
-surface_material_override/3 = ExtResource("2_ksr3y")
+surface_material_override/3 = ExtResource("3_ksr3y")
+surface_material_override/4 = ExtResource("3_ksr3y")
+surface_material_override/5 = ExtResource("3_ksr3y")
+surface_material_override/6 = ExtResource("2_ksr3y")
+surface_material_override/7 = ExtResource("2_ksr3y")
 
 [node name="010S" type="MeshInstance3D" parent="." unique_id=678654535]
 visible = false
 mesh = ExtResource("11_ilipq")
 surface_material_override/0 = ExtResource("3_2hypj")
-surface_material_override/1 = ExtResource("2_ksr3y")
-surface_material_override/2 = ExtResource("2_ksr3y")
-surface_material_override/3 = ExtResource("2_ksr3y")
+surface_material_override/1 = ExtResource("3_ksr3y")
+surface_material_override/2 = ExtResource("3_ksr3y")
+surface_material_override/3 = ExtResource("3_ksr3y")
+surface_material_override/4 = ExtResource("3_ksr3y")
+surface_material_override/5 = ExtResource("2_ksr3y")
+surface_material_override/6 = ExtResource("2_ksr3y")
+surface_material_override/7 = ExtResource("2_ksr3y")
 
 [node name="011E" type="MeshInstance3D" parent="." unique_id=1039752742]
 visible = false
 mesh = ExtResource("12_b0p2m")
 surface_material_override/0 = ExtResource("3_2hypj")
-surface_material_override/1 = ExtResource("2_ksr3y")
-surface_material_override/2 = ExtResource("2_ksr3y")
-surface_material_override/3 = ExtResource("2_ksr3y")
+surface_material_override/1 = ExtResource("3_ksr3y")
+surface_material_override/2 = ExtResource("3_ksr3y")
+surface_material_override/3 = ExtResource("3_ksr3y")
+surface_material_override/4 = ExtResource("3_ksr3y")
+surface_material_override/5 = ExtResource("2_ksr3y")
+surface_material_override/6 = ExtResource("2_ksr3y")
+surface_material_override/7 = ExtResource("2_ksr3y")
 
 [node name="012N" type="MeshInstance3D" parent="." unique_id=1280361919]
 visible = false
 mesh = ExtResource("13_w2gy8")
 surface_material_override/0 = ExtResource("3_2hypj")
-surface_material_override/1 = ExtResource("2_ksr3y")
-surface_material_override/2 = ExtResource("2_ksr3y")
-surface_material_override/3 = ExtResource("2_ksr3y")
+surface_material_override/1 = ExtResource("3_ksr3y")
+surface_material_override/2 = ExtResource("3_ksr3y")
+surface_material_override/3 = ExtResource("3_ksr3y")
+surface_material_override/4 = ExtResource("3_ksr3y")
+surface_material_override/5 = ExtResource("2_ksr3y")
+surface_material_override/6 = ExtResource("2_ksr3y")
+surface_material_override/7 = ExtResource("2_ksr3y")
 
 [node name="013Ns" type="MeshInstance3D" parent="." unique_id=1040779186]
 visible = false
 mesh = ExtResource("14_afayg")
 surface_material_override/0 = ExtResource("3_2hypj")
-surface_material_override/1 = ExtResource("2_ksr3y")
-surface_material_override/2 = ExtResource("2_ksr3y")
+surface_material_override/1 = ExtResource("3_ksr3y")
+surface_material_override/2 = ExtResource("3_ksr3y")
+surface_material_override/3 = ExtResource("3_ksr3y")
+surface_material_override/4 = ExtResource("3_ksr3y")
+surface_material_override/5 = ExtResource("2_ksr3y")
+surface_material_override/6 = ExtResource("2_ksr3y")
 
 [node name="014Ew" type="MeshInstance3D" parent="." unique_id=1793779497]
 visible = false
 mesh = ExtResource("15_gskxv")
 surface_material_override/0 = ExtResource("3_2hypj")
-surface_material_override/1 = ExtResource("2_ksr3y")
-surface_material_override/2 = ExtResource("2_ksr3y")
+surface_material_override/1 = ExtResource("3_ksr3y")
+surface_material_override/2 = ExtResource("3_ksr3y")
+surface_material_override/3 = ExtResource("3_ksr3y")
+surface_material_override/4 = ExtResource("3_ksr3y")
+surface_material_override/5 = ExtResource("2_ksr3y")
+surface_material_override/6 = ExtResource("2_ksr3y")
 
 [node name="015All" type="MeshInstance3D" parent="." unique_id=947457496]
 visible = false

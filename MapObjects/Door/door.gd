@@ -9,6 +9,7 @@ func _ready() -> void:
 	grid_pos=Vector2i(position.x/2,position.z/2)
 
 func setup(pos):
+	print("Check door rot")
 	if Global.map.get_cell_atlas_coords(pos+Vector2i(-1,0))!=Vector2i(-1,-1):
 		print("Rotate")
 		rotation_degrees.y = 90

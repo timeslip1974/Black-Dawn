@@ -1,9 +1,20 @@
 [gd_scene format=3 uid="uid://bqaq3c3ul257p"]
 
 [ext_resource type="Script" uid="uid://chrn546o22b07" path="res://MapObjects/FloorSwitch/floor_switch.gd" id="1_40nov"]
+[ext_resource type="ArrayMesh" uid="uid://dswf1pcpwlbp0" path="res://MapObjects/FloorSwitch/FloorSwitch.obj" id="2_785u6"]
+[ext_resource type="Material" uid="uid://bncl7md5fagow" path="res://MapObjects/FloorSwitch/FloorSwitchMat.tres" id="3_kovd2"]
+[ext_resource type="ArrayMesh" uid="uid://yld4itsgyenc" path="res://MapObjects/FloorSwitch/FloorBase.obj" id="4_dqnus"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_b41lk"]
 size = Vector3(1, 2, 1)
+
+[sub_resource type="Animation" id="Animation_2pmcj"]
+resource_name = "pressed"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lt3or"]
+_data = {
+&"pressed": SubResource("Animation_2pmcj")
+}
 
 [node name="FloorSwitch" type="Node3D" unique_id=967057673]
 script = ExtResource("1_40nov")
@@ -12,6 +23,19 @@ script = ExtResource("1_40nov")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=565345057]
 shape = SubResource("BoxShape3D_b41lk")
+
+[node name="Switch" type="Node3D" parent="." unique_id=1685534286]
+
+[node name="FloorSwitch" type="MeshInstance3D" parent="Switch" unique_id=149053934]
+mesh = ExtResource("2_785u6")
+surface_material_override/0 = ExtResource("3_kovd2")
+
+[node name="FloorBase" type="MeshInstance3D" parent="Switch" unique_id=1223751722]
+mesh = ExtResource("4_dqnus")
+surface_material_override/0 = ExtResource("3_kovd2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2025140967]
+libraries/ = SubResource("AnimationLibrary_lt3or")
 
 [connection signal="area_shape_entered" from="Area3D" to="." method="_on_area_3d_area_shape_entered"]
 [connection signal="area_shape_exited" from="Area3D" to="." method="_on_area_3d_area_shape_exited"]

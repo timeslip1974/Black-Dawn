@@ -1,6 +1,8 @@
 # Made in Blockbench 5.1.6
-newmtl m_8b4514b2-04ab-8c96-f977-c7373a274124
+newmtl m_0d243a8f-34d3-74b9-6bee-319871bc0d5f
 map_Kd Rooftexture.png
-newmtl m_f1483304-9f8b-5e18-4a5f-d622cdf38494
-map_Kd WallFlatPlaneTexture1.png
+newmtl m_fab3df15-2f02-511a-543a-608a4645ac45
+map_Kd Walltexture1.png
+newmtl m_d0217501-93de-2674-9b20-3339813109fd
+map_Kd PillarTexture1.png
 newmtl none

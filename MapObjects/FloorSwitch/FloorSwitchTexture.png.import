@@ -2,21 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dr7usbl0xodrf"
-path.s3tc="res://.godot/imported/DoorTexture.png-736e276923e2207919b3c3139918a408.s3tc.ctex"
+uid="uid://bbj2irkx88bkj"
+path="res://.godot/imported/FloorSwitchTexture.png-74d620aa10211c9b51e46b81ac980929.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://MapObjects/DoorTexture.png"
-dest_files=["res://.godot/imported/DoorTexture.png-736e276923e2207919b3c3139918a408.s3tc.ctex"]
+source_file="res://MapObjects/FloorSwitch/FloorSwitchTexture.png"
+dest_files=["res://.godot/imported/FloorSwitchTexture.png-74d620aa10211c9b51e46b81ac980929.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
