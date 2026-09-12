@@ -5,9 +5,9 @@ const DOOR=preload("res://MapObjects/Door/door.tscn")
 const MON=preload("res://Monsters/monster.tscn")
 const PILLAR=preload("res://MapObjects/Pillar/pillar.tscn")
 const TUBE=preload("res://MapObjects/Tube/pillar_2.tscn")
-const SWITCH=preload("res://MapObjects/switch.tscn")
+const SWITCH=preload("res://MapObjects/Switch/switch.tscn")
 const SPINLIGHT=preload("res://MapObjects/SpinningLight/spinning_light.tscn")
-const TRAPDOOR=preload("res://MapObjects/trapdoor.tscn")
+const TRAPDOOR=preload("res://MapObjects/Trapdoor/trapdoor.tscn")
 const FLOORSWITCH=preload("res://MapObjects/FloorSwitch/floor_switch.tscn")
 
 const TILE_SCENE_MAP: Dictionary = {

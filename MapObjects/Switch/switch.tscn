@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://bstiwba1utgcj"]
 
-[ext_resource type="Script" uid="uid://yj5fuur4ok4w" path="res://MapObjects/switch.gd" id="1_31w6q"]
+[ext_resource type="Script" uid="uid://c11xlgo5vugyn" path="res://MapObjects/Switch/switch.gd" id="1_31w6q"]
 [ext_resource type="Texture2D" uid="uid://bgc6q32cy2mip" path="res://MapObjects/Switch/Switch_0.png" id="2_31w6q"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_b41lk"]
