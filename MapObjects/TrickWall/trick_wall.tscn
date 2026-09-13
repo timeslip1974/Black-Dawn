@@ -316,6 +316,7 @@ _data = {
 script = ExtResource("1_okpyk")
 
 [node name="blockbench_export" type="Node3D" parent="." unique_id=435697980]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 0, 0)
 
 [node name="Roof" type="MeshInstance3D" parent="blockbench_export" unique_id=92217710]
 mesh = SubResource("ArrayMesh_qk25o")

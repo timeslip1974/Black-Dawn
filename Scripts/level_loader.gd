@@ -7,6 +7,8 @@ var level="res://Maps/Test/test_map.tscn"
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Global.mon_list=preload("res://Data/mon_list.tres")
+	Global.item_list=preload("res://Data/item_list.tres")
+	Global.party_inventories=preload("res://Data/party_inventories.tres")
 	Global.player=$Player
 	load_level()
 	Global.map=$TileMapLayer

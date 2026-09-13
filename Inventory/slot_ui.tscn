@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://cg2fhjiay2mw2"]
+
+[ext_resource type="Script" uid="uid://nfln2l10v8tx" path="res://Inventory/slot_ui.gd" id="1_6gh82"]
+[ext_resource type="Texture2D" uid="uid://dypkxobklwa5t" path="res://Inventory/Items.png" id="2_ijdkb"]
+[ext_resource type="Texture2D" uid="uid://dyn74kw23vvn4" path="res://UI/Images/EmptySlot.png" id="2_tdnbj"]
+
+[node name="SlotUI" type="PanelContainer" unique_id=60271052]
+custom_minimum_size = Vector2(38, 38)
+custom_maximum_size = Vector2(38, 38)
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_6gh82")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1071374625]
+layout_mode = 2
+texture = ExtResource("2_tdnbj")
+
+[node name="graphics" type="Sprite2D" parent="." unique_id=147170510]
+texture_filter = 1
+texture = ExtResource("2_ijdkb")
+offset = Vector2(18, 18)
+hframes = 41
+vframes = 48
+
+[node name="Label" type="Label" parent="." unique_id=2124117142]
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, 12)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+text = "12"
+horizontal_alignment = 2

@@ -1,40 +1,30 @@
-[gd_scene format=4]
+[gd_scene format=4 uid="uid://c0qx6bm7u8aei"]
 
-[ext_resource type="Script" path="res://Maps/Scripts/map_converter.gd" id="1_uhnqy"]
-[ext_resource type="Script" path="res://Scripts/tileaction.gd" id="2_ikvej"]
-[ext_resource type="Texture2D" path="res://Maps/maptiles.png" id="2_uhnqy"]
-[ext_resource type="MeshLibrary" path="res://MapObjects/Walls/Set1/wallset1.meshlib" id="3_w1ep8"]
-[ext_resource type="MeshLibrary" path="res://MapObjects/Floor/Set1/floor1.meshlib" id="4_w1ep8"]
-[ext_resource type="PackedScene" path="res://MapObjects/RoofLight/Light.tscn" id="5_dqm6q"]
-[ext_resource type="Script" path="res://MapObjects/RoofLight/light.gd" id="7_m41r2"]
-[ext_resource type="PackedScene" path="res://MapObjects/HiddenSwitch/hiddenswitch.tscn" id="8_bsevy"]
-[ext_resource type="PackedScene" path="res://MapObjects/Switch/switch.tscn" id="8_lonte"]
-[ext_resource type="Script" path="res://MapObjects/Switch/switch.gd" id="9_1qqam"]
-[ext_resource type="PackedScene" path="res://MapObjects/SpinningLight/spinning_light.tscn" id="10_dceye"]
-[ext_resource type="Script" path="res://MapObjects/Trapdoor/trapdoor.gd" id="11_xhhay"]
-[ext_resource type="PackedScene" path="res://MapObjects/TrickWall/trick_wall.tscn" id="12_bsevy"]
-[ext_resource type="PackedScene" path="res://MapObjects/Door/door.tscn" id="12_dceye"]
-[ext_resource type="PackedScene" path="res://MapObjects/Trapdoor/trapdoor.tscn" id="13_tjpn8"]
-[ext_resource type="PackedScene" path="res://Monsters/monster.tscn" id="13_vyx6i"]
-[ext_resource type="Script" path="res://MapObjects/TrickWall/trick_wall.gd" id="13_x26go"]
-[ext_resource type="PackedScene" path="res://MapObjects/Pillar/pillar.tscn" id="15_xevhy"]
-[ext_resource type="Script" path="res://MapObjects/Door/door.gd" id="17_vu1nr"]
-[ext_resource type="PackedScene" path="res://MapObjects/FloorSwitch/floor_switch.tscn" id="18_amjyb"]
-[ext_resource type="Script" path="res://MapObjects/Teleporter/teleporter.gd" id="19_wv1l5"]
-[ext_resource type="PackedScene" path="res://MapObjects/Shelf/shelf.tscn" id="20_puhhk"]
-[ext_resource type="PackedScene" path="res://MapObjects/Teleporter/teleporter.tscn" id="20_wv1l5"]
-[ext_resource type="Script" path="res://Monsters/monster.gd" id="21_a0d4r"]
-[ext_resource type="PackedScene" path="res://MapObjects/Fan/fan.tscn" id="22_1qqam"]
-[ext_resource type="Script" path="res://MapObjects/FloorSwitch/floor_switch.gd" id="23_h3d2p"]
-[ext_resource type="Script" path="res://MapObjects/Shelf/shelf.gd" id="25_ga0at"]
-[ext_resource type="Script" path="res://MapObjects/Fan/fan.gd" id="27_ycgtm"]
-[ext_resource type="Script" path="res://MapObjects/HiddenSwitch/hiddenswitch.gd" id="29_05tia"]
+[ext_resource type="Script" uid="uid://b5gdbtkqtof8t" path="res://Maps/Scripts/map_converter.gd" id="1_uhnqy"]
+[ext_resource type="Script" uid="uid://3u3t6u20eoal" path="res://Scripts/tileaction.gd" id="2_ikvej"]
+[ext_resource type="Texture2D" uid="uid://ceia73gf8owe" path="res://Maps/maptiles.png" id="2_uhnqy"]
+[ext_resource type="MeshLibrary" uid="uid://cgxypptbfjxw" path="res://MapObjects/Walls/Set1/wallset1.meshlib" id="3_w1ep8"]
+[ext_resource type="MeshLibrary" uid="uid://ba2tcx4fkdbp1" path="res://MapObjects/Floor/Set1/floor1.meshlib" id="4_w1ep8"]
+[ext_resource type="PackedScene" uid="uid://bkyivl46yahia" path="res://MapObjects/RoofLight/Light.tscn" id="5_dqm6q"]
+[ext_resource type="PackedScene" uid="uid://bfn6oregg22e5" path="res://MapObjects/HiddenSwitch/hiddenswitch.tscn" id="8_bsevy"]
+[ext_resource type="PackedScene" uid="uid://bstiwba1utgcj" path="res://MapObjects/Switch/switch.tscn" id="8_lonte"]
+[ext_resource type="PackedScene" uid="uid://dv8ihy57gay77" path="res://MapObjects/SpinningLight/spinning_light.tscn" id="10_dceye"]
+[ext_resource type="PackedScene" uid="uid://sx6oy5uua7nm" path="res://MapObjects/TrickWall/trick_wall.tscn" id="12_bsevy"]
+[ext_resource type="PackedScene" uid="uid://kqgbouisdbqt" path="res://MapObjects/Door/door.tscn" id="12_dceye"]
+[ext_resource type="PackedScene" uid="uid://dvh044ice2h1n" path="res://MapObjects/Trapdoor/trapdoor.tscn" id="13_tjpn8"]
+[ext_resource type="PackedScene" uid="uid://b5dgibopxp6nj" path="res://Monsters/monster.tscn" id="13_vyx6i"]
+[ext_resource type="PackedScene" uid="uid://cnp61lm8xq2vk" path="res://MapObjects/Pillar/pillar.tscn" id="15_xevhy"]
+[ext_resource type="PackedScene" uid="uid://bqaq3c3ul257p" path="res://MapObjects/FloorSwitch/floor_switch.tscn" id="18_amjyb"]
+[ext_resource type="PackedScene" uid="uid://desa7buvoiwe6" path="res://MapObjects/Shelf/shelf.tscn" id="20_puhhk"]
+[ext_resource type="PackedScene" uid="uid://cbl2gvlkqmo3n" path="res://MapObjects/Teleporter/teleporter.tscn" id="20_wv1l5"]
+[ext_resource type="PackedScene" uid="uid://3x5etjf48pkg" path="res://MapObjects/Fan/fan.tscn" id="22_1qqam"]
 
 [sub_resource type="Resource" id="Resource_548t5"]
 script = ExtResource("2_ikvej")
 trigger_coord = Vector2i(5, 7)
 target_coords = Array[Vector2i]([Vector2i(7, 8)])
 time = 3.0
+loop = true
 metadata/_custom_type_script = "uid://3u3t6u20eoal"
 
 [sub_resource type="Resource" id="Resource_rjwrj"]
@@ -185,99 +175,81 @@ environment = SubResource("Environment_n2r1a")
 
 [node name="Lights" type="Node3D" parent="." unique_id=1194574503]
 
-[node name="Light" type="Node3D" parent="Lights" unique_id=1682209190 instance=ExtResource("5_dqm6q")]
+[node name="Light" parent="Lights" unique_id=1682209190 instance=ExtResource("5_dqm6q")]
 transform = Transform3D(0.6, 0, 0, 0, -0.6, 5.2453668e-08, 0, -5.2453668e-08, -0.6, 13.014, 3.171837, 16.969)
-script = ExtResource("7_m41r2")
 light_col = Color(1, 0.4117647, 0, 1)
 
-[node name="Light2" type="Node3D" parent="Lights" unique_id=1901892543 instance=ExtResource("5_dqm6q")]
+[node name="Light2" parent="Lights" unique_id=1901892543 instance=ExtResource("5_dqm6q")]
 transform = Transform3D(0.6, 0, 0, 0, -0.6, 5.2453668e-08, 0, -5.2453668e-08, -0.6, 21.005856, 3.171837, 16.969)
-script = ExtResource("7_m41r2")
 light_col = Color(0, 1, 0, 1)
 
-[node name="Light3" type="Node3D" parent="Lights" unique_id=1473181977 instance=ExtResource("5_dqm6q")]
+[node name="Light3" parent="Lights" unique_id=1473181977 instance=ExtResource("5_dqm6q")]
 transform = Transform3D(0.6, 0, 0, 0, -0.6, 5.2453668e-08, 0, -5.2453668e-08, -0.6, 13.014, 3.171837, 24.995106)
-script = ExtResource("7_m41r2")
 light_col = Color(1, 0, 0, 1)
 
-[node name="Light4" type="Node3D" parent="Lights" unique_id=1681573426 instance=ExtResource("5_dqm6q")]
+[node name="Light4" parent="Lights" unique_id=1681573426 instance=ExtResource("5_dqm6q")]
 transform = Transform3D(0.6, 0, 0, 0, -0.6, 5.2453668e-08, 0, -5.2453668e-08, -0.6, 21.075428, 3.171837, 31.010485)
-script = ExtResource("7_m41r2")
 light_col = Color(1, 0, 1, 1)
 
-[node name="Light6" type="Node3D" parent="Lights" unique_id=1869876788 instance=ExtResource("5_dqm6q")]
+[node name="Light6" parent="Lights" unique_id=1869876788 instance=ExtResource("5_dqm6q")]
 transform = Transform3D(0.6, 0, 0, 0, -0.6, 5.2453668e-08, 0, -5.2453668e-08, -0.6, 28.997066, 3.171837, 20.94535)
-script = ExtResource("7_m41r2")
 light_col = Color(0, 0.4117647, 1, 1)
 
 [node name="Elements" type="Node3D" parent="." unique_id=595750941]
 
-[node name="switch__5_7" type="Node3D" parent="Elements" unique_id=1921786840 instance=ExtResource("8_lonte")]
+[node name="switch__5_7" parent="Elements" unique_id=1921786840 instance=ExtResource("8_lonte")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 1, 15)
-script = ExtResource("9_1qqam")
 
-[node name="trap1__5_9" type="Node3D" parent="Elements" unique_id=749586305 instance=ExtResource("13_tjpn8")]
+[node name="trap1__5_9" parent="Elements" unique_id=749586305 instance=ExtResource("13_tjpn8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 1, 19)
-script = ExtResource("11_xhhay")
 
-[node name="trickwall__7_8" type="Node3D" parent="Elements" unique_id=1262487225 instance=ExtResource("12_bsevy")]
+[node name="trickwall__7_8" parent="Elements" unique_id=1262487225 instance=ExtResource("12_bsevy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 1, 17)
-script = ExtResource("13_x26go")
 
-[node name="spinlight1__10_7" type="Node3D" parent="Elements" unique_id=1459078865 instance=ExtResource("10_dceye")]
+[node name="spinlight1__10_7" parent="Elements" unique_id=1459078865 instance=ExtResource("10_dceye")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 1, 15)
 
-[node name="switch__11_11" type="Node3D" parent="Elements" unique_id=65939910 instance=ExtResource("15_xevhy")]
+[node name="switch__11_11" parent="Elements" unique_id=65939910 instance=ExtResource("15_xevhy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23, 1, 23)
 
-[node name="switch__14_10" type="Node3D" parent="Elements" unique_id=1325889265 instance=ExtResource("8_lonte")]
+[node name="switch__14_10" parent="Elements" unique_id=1325889265 instance=ExtResource("8_lonte")]
 transform = Transform3D(1.1924881e-08, 0, -1, 0, 1, 0, 1, 0, 1.1924881e-08, 29, 1, 21)
-script = ExtResource("9_1qqam")
 
-[node name="Door__15_9" type="Node3D" parent="Elements" unique_id=1840790086 instance=ExtResource("12_dceye")]
+[node name="Door__15_9" parent="Elements" unique_id=1840790086 instance=ExtResource("12_dceye")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 31, 1, 19)
-script = ExtResource("17_vu1nr")
 
-[node name="Door__15_11" type="Node3D" parent="Elements" unique_id=817203669 instance=ExtResource("12_dceye")]
+[node name="Door__15_11" parent="Elements" unique_id=817203669 instance=ExtResource("12_dceye")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 31, 1, 23)
-script = ExtResource("17_vu1nr")
 
-[node name="spinlight1__8_10" type="Node3D" parent="Elements" unique_id=963843689 instance=ExtResource("10_dceye")]
+[node name="spinlight1__8_10" parent="Elements" unique_id=963843689 instance=ExtResource("10_dceye")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 1, 21)
 
-[node name="Teleporter__8_11" type="Node3D" parent="Elements" unique_id=606962105 instance=ExtResource("20_wv1l5")]
+[node name="Teleporter__8_11" parent="Elements" unique_id=606962105 instance=ExtResource("20_wv1l5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 1, 23)
-script = ExtResource("19_wv1l5")
 
-[node name="mon1__7_13" type="Node3D" parent="Elements" unique_id=362774689 groups=["enemy"] instance=ExtResource("13_vyx6i")]
+[node name="mon1__7_13" parent="Elements" unique_id=362774689 instance=ExtResource("13_vyx6i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 1, 27)
-script = ExtResource("21_a0d4r")
 
-[node name="switch__6_11" type="Node3D" parent="Elements" unique_id=1328889672 instance=ExtResource("15_xevhy")]
+[node name="switch__6_11" parent="Elements" unique_id=1328889672 instance=ExtResource("15_xevhy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 1, 23)
 
-[node name="switch__10_16" type="Node3D" parent="Elements" unique_id=1414096650 instance=ExtResource("15_xevhy")]
+[node name="switch__10_16" parent="Elements" unique_id=1414096650 instance=ExtResource("15_xevhy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 1, 33)
 
-[node name="switch__16_10" type="Node3D" parent="Elements" unique_id=798695234 instance=ExtResource("15_xevhy")]
+[node name="switch__16_10" parent="Elements" unique_id=798695234 instance=ExtResource("15_xevhy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33, 1, 21)
 
-[node name="floorswitch__5_10" type="Node3D" parent="Elements" unique_id=967057673 instance=ExtResource("18_amjyb")]
+[node name="floorswitch__5_10" parent="Elements" unique_id=967057673 instance=ExtResource("18_amjyb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 1, 21)
-script = ExtResource("23_h3d2p")
 
-[node name="shelf__4_11" type="Node3D" parent="Elements" unique_id=1562954742 instance=ExtResource("20_puhhk")]
+[node name="shelf__4_11" parent="Elements" unique_id=1562954742 instance=ExtResource("20_puhhk")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 9, 1, 23)
-script = ExtResource("25_ga0at")
 
-[node name="fan__4_10" type="Node3D" parent="Elements" unique_id=1297501008 instance=ExtResource("22_1qqam")]
+[node name="fan__4_10" parent="Elements" unique_id=1297501008 instance=ExtResource("22_1qqam")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 1, 21)
-script = ExtResource("27_ycgtm")
 
-[node name="fan__4_8" type="Node3D" parent="Elements" unique_id=1687304873 instance=ExtResource("22_1qqam")]
+[node name="fan__4_8" parent="Elements" unique_id=1687304873 instance=ExtResource("22_1qqam")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 1, 17)
-script = ExtResource("27_ycgtm")
 
-[node name="hiddenSwitch__19_10" type="Node3D" parent="Elements" unique_id=1428760394 instance=ExtResource("8_bsevy")]
+[node name="hiddenSwitch__19_10" parent="Elements" unique_id=1428760394 instance=ExtResource("8_bsevy")]
 transform = Transform3D(1.1924881e-08, 0, -1, 0, 1, 0, 1, 0, 1.1924881e-08, 39, 1, 21)
-script = ExtResource("29_05tia")

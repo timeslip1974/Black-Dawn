@@ -2,6 +2,21 @@
 
 [ext_resource type="PackedScene" uid="uid://backu44p10xy3" path="res://UI/character_ui.tscn" id="1_2fwl4"]
 [ext_resource type="Script" uid="uid://0q67qdogj2k7" path="res://UI/ui.gd" id="1_dajm1"]
+[ext_resource type="PackedScene" uid="uid://b7fmw2d425hh2" path="res://Inventory/inventory_ui.tscn" id="3_e6gg6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e6gg6"]
+bg_color = Color(0.13333334, 0.14509805, 0.16470589, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.3529412, 0.3764706, 0.41568628, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+shadow_color = Color(0, 0, 0, 0.6666667)
+shadow_size = 4
 
 [node name="UI" type="Control" unique_id=551842505]
 layout_mode = 3
@@ -25,12 +40,14 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -244.0
-offset_top = -172.0
+offset_left = -243.0
+offset_top = -171.0
+offset_right = 1.0
+offset_bottom = 1.0
 grow_horizontal = 0
 grow_vertical = 0
 offset_transform_enabled = true
-offset_transform_position = Vector2(-10, -10)
+offset_transform_position = Vector2(-5, -10)
 theme_override_constants/h_separation = 16
 theme_override_constants/v_separation = 16
 columns = 2
@@ -46,3 +63,22 @@ layout_mode = 2
 
 [node name="CharacterUI4" parent="GridContainer" unique_id=274397558 instance=ExtResource("1_2fwl4")]
 layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1413012404]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -225.0
+offset_bottom = 180.0
+grow_horizontal = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer" unique_id=1008655711]
+custom_minimum_size = Vector2(210, 700)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_e6gg6")
+
+[node name="InventoryUI" parent="VBoxContainer" unique_id=1005508127 instance=ExtResource("3_e6gg6")]
+custom_minimum_size = Vector2(225, 180)
+layout_mode = 2
+offset_transform_position = Vector2(-116.485, 14.62)
