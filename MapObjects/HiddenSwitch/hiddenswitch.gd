@@ -1,0 +1,31 @@
+extends Node3D
+
+var grid_pos
+
+func _ready() -> void:
+	grid_pos=Vector2i(position.x/2,position.z/2)
+	await get_tree().process_frame
+	setup(grid_pos)
+
+func setup(pos):
+
+	if Global.map.get_cell_atlas_coords(pos+Vector2i(0,-1))!=Vector2i(-1,-1):
+		print("hiddenswitch check")
+		if Global.map.get_cell_atlas_coords(pos+Vector2i(1,0))==Vector2i(-1,-1):
+			print("Rot90hIDDEN")
+			rotation_degrees.y = 270
+		elif Global.map.get_cell_atlas_coords(pos+Vector2i(0,1))==Vector2i(-1,-1):
+			print("Rot180hide")
+			rotation_degrees.y = 180
+		elif Global.map.get_cell_atlas_coords(pos+Vector2i(-1,0))==Vector2i(-1,-1):
+			print("Rot270hide")
+			rotation_degrees.y = 90
+
+
+#Make sire to connect the Staticbody of the switch to the main switch in Signals for it to work
+func _on_static_body_3d_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		$AnimationPlayer.play("press")
+		
+		# 2. Tell the Global system to trigger whatever is linked to this tile coordinate!
+		Global.trigger_tile_action(grid_pos)

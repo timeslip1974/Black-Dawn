@@ -21,11 +21,11 @@ func setup(t):
 			type=switch_type.NORMAL
 
 
-func _on_area_3d_area_shape_entered(area_rid: RID, area: Area3D, area_shape_index: int, local_shape_index: int) -> void:
+func _on_area_3d_area_shape_entered(_area_rid: RID, _area: Area3D, _area_shape_index: int, _local_shape_index: int) -> void:
 	Global.trigger_tile_action(grid_pos)
 
 
 
-func _on_area_3d_area_shape_exited(area_rid: RID, area: Area3D, area_shape_index: int, local_shape_index: int) -> void:
+func _on_area_3d_area_shape_exited(_area_rid: RID, _area: Area3D, _area_shape_index: int, _local_shape_index: int) -> void:
 	if type==switch_type.PRESSURE:
 		Global.trigger_tile_action(grid_pos)

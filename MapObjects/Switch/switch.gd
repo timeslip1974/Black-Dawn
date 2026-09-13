@@ -8,21 +8,20 @@ func _ready() -> void:
 	setup(grid_pos)
 
 func setup(pos):
-	print(Global.map.get_cell_atlas_coords(pos)+Vector2i(0,-1))
 	if Global.map.get_cell_atlas_coords(pos+Vector2i(0,-1))!=Vector2i(-1,-1):
-		if Global.map.get_cell_atlas_coords(pos+Vector2i(0,1))==Vector2i(-1,-1):
+		if Global.map.get_cell_atlas_coords(pos+Vector2i(1,0))==Vector2i(-1,-1):
 			print("Rot90")
-			rotation_degrees.y = 90
+			rotation_degrees.y = 270
 		elif Global.map.get_cell_atlas_coords(pos+Vector2i(0,1))==Vector2i(-1,-1):
 			print("Rot180")
 			rotation_degrees.y = 180
 		elif Global.map.get_cell_atlas_coords(pos+Vector2i(-1,0))==Vector2i(-1,-1):
 			print("Rot270")
-			rotation_degrees.y = 270
+			rotation_degrees.y = 90
 
 
 #Make sire to connect the Staticbody of the switch to the main switch in Signals for it to work
-func _on_static_body_3d_input_event(camera: Node, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int) -> void:
+func _on_static_body_3d_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		$AnimationPlayer.play("press")
 		

@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://cbl2gvlkqmo3n"]
+
+[ext_resource type="Script" uid="uid://dtb8baglo3aan" path="res://MapObjects/Teleporter/teleporter.gd" id="1_g5g82"]
+
+[sub_resource type="Curve" id="Curve_r1x0r"]
+_data = [Vector2(0.030201346, 0.026022315), 0.0, 0.0, 0, 0, Vector2(0.59731543, 0.98141265), 0.0, 0.0, 0, 0, Vector2(1, 0.029739857), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_b41lk"]
+curve = SubResource("Curve_r1x0r")
+
+[sub_resource type="Curve" id="Curve_sm1p5"]
+_data = [Vector2(0.033557042, 0.007434964), 0.0, 0.0, 0, 0, Vector2(0.51342285, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_sk4s0"]
+curve = SubResource("Curve_sm1p5")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_r1x0r"]
+emission_shape_scale = Vector3(0.8, 1, 0.8)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+direction = Vector3(0, 1, 0)
+initial_velocity_min = 0.5
+initial_velocity_max = 1.0
+angular_velocity_min = 0.79998386
+angular_velocity_max = 1.1999838
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_sk4s0")
+alpha_curve = SubResource("CurveTexture_b41lk")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d1bjv"]
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_b41lk"]
+material = SubResource("StandardMaterial3D_d1bjv")
+size = Vector2(0.1, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_btos3"]
+size = Vector3(1, 2, 1)
+
+[node name="Teleporter" type="Node3D" unique_id=606962105]
+script = ExtResource("1_g5g82")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=993614927]
+amount = 100
+process_material = SubResource("ParticleProcessMaterial_r1x0r")
+draw_pass_1 = SubResource("QuadMesh_b41lk")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1319702010]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=148061156]
+shape = SubResource("BoxShape3D_btos3")
+
+[connection signal="area_shape_entered" from="Area3D" to="." method="_on_area_3d_area_shape_entered"]

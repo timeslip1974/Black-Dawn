@@ -29,7 +29,7 @@ border_color = Color(0.47843137, 0.50980395, 0.54901963, 1)
 shadow_size = 2
 
 [node name="CharacterUI" type="PanelContainer" unique_id=1106449311]
-custom_maximum_size = Vector2(90, 80)
+custom_maximum_size = Vector2(120, 80)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -60,7 +60,7 @@ mouse_filter = 2
 alignment = 1
 
 [node name="Health" type="TextureProgressBar" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1668887771]
-custom_maximum_size = Vector2(50, 9)
+custom_maximum_size = Vector2(70, 9)
 layout_mode = 2
 value = 50.0
 texture_under = ExtResource("2_kq2i1")
@@ -68,6 +68,7 @@ texture_progress = ExtResource("3_nkkkr")
 tint_progress = Color(0, 1, 0, 1)
 
 [node name="Magic" type="TextureProgressBar" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1034032810]
+custom_maximum_size = Vector2(-1, 70)
 layout_mode = 2
 value = 100.0
 texture_under = ExtResource("2_kq2i1")
@@ -76,11 +77,7 @@ tint_progress = Color(1, 0, 0, 1)
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer" unique_id=1505092633]
 layout_mode = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer2" unique_id=928644565]
-custom_minimum_size = Vector2(4, 0)
-layout_mode = 2
-mouse_filter = 2
+alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer2" unique_id=1481035796]
 layout_mode = 2

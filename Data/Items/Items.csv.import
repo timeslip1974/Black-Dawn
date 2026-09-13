@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://dnrmillberqe2"
+
+[deps]
+
+files=["res://Data/Items/Items.Name.translation", "res://Data/Items/Items.gfx.translation"]
+
+source_file="res://Data/Items/Items.csv"
+dest_files=["res://Data/Items/Items.Name.translation", "res://Data/Items/Items.gfx.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

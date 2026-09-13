@@ -57,6 +57,20 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector3(-1.282, -0.25, 0), Vector3(-0.438, -0.25, 0)]
 }
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.13333334),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"change_tile"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_tv7wu"]
 resource_name = "open"
@@ -84,6 +98,20 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(0.4375, -0.25, 0), Vector3(1.28, -0.25, 0)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"change_tile"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7abnw"]
@@ -255,3 +283,8 @@ mesh = SubResource("ArrayMesh_t6yct")
 [node name="RightDoor" type="MeshInstance3D" parent="blockbench_export" unique_id=258501264]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4375, -0.25, 0)
 mesh = SubResource("ArrayMesh_amblk")
+
+[node name="Deactivate_timer" type="Timer" parent="." unique_id=1232399011]
+one_shot = true
+
+[connection signal="timeout" from="Deactivate_timer" to="." method="_on_deactivate_timer_timeout"]

@@ -1,7 +1,7 @@
-[gd_resource type="Resource" script_class="mon_list" format=3 uid="uid://chuf4utqo2khu"]
+[gd_resource type="Resource" script_class="mon_list" format=3 uid="uid://dsith0purfn0"]
 
 [ext_resource type="Script" uid="uid://dtyxv1kf545py" path="res://Data/Enemies/enemy_stats.gd" id="1_6o2e8"]
-[ext_resource type="Resource" path="res://Data/Enemies/robot.tres" id="2_eb1es"]
+[ext_resource type="Resource" uid="uid://t6u87j5laagh" path="res://Data/Enemies/robot.tres" id="2_eb1es"]
 [ext_resource type="Script" uid="uid://cb0u8sc35uhe" path="res://Data/mon_list.gd" id="2_lxbyk"]
 
 [resource]

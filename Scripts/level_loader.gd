@@ -13,12 +13,12 @@ func _ready() -> void:
 	await get_tree().process_frame
 
 	place_player()
-	
+	Global.level_ready=true
 
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 
@@ -28,6 +28,7 @@ func place_player():
 			if $TileMapLayer.get_cell_atlas_coords(Vector2i(w,h))==Vector2i(2,0):
 				Global.player.set_player(Vector2i(w,h))
 				$TileMapLayer.set_cell(Vector2i(w,h),0,Vector2i(0,0))
+
 
 
 func load_level() -> void:

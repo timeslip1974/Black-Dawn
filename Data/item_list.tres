@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="mon_list" format=3 uid="uid://es3xgufsgdbl"]
+
+[ext_resource type="Script" uid="uid://dtyxv1kf545py" path="res://Data/Enemies/enemy_stats.gd" id="1_mfwre"]
+[ext_resource type="Resource" uid="uid://t6u87j5laagh" path="res://Data/Enemies/robot.tres" id="2_4hwca"]
+[ext_resource type="Script" uid="uid://cb0u8sc35uhe" path="res://Data/mon_list.gd" id="3_igu40"]
+
+[resource]
+script = ExtResource("3_igu40")
+Slots = Array[ExtResource("1_mfwre")]([ExtResource("2_4hwca")])

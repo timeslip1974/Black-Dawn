@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://desa7buvoiwe6"]
+
+[ext_resource type="Script" uid="uid://dl0wm6eadablo" path="res://MapObjects/Shelf/shelf.gd" id="1_wpphm"]
+[ext_resource type="PackedScene" uid="uid://ck1xcdg3nulqx" path="res://MapObjects/Shelf/Shelf.gltf" id="2_wpphm"]
+
+[node name="Shelf" type="Node3D" unique_id=1562954742]
+script = ExtResource("1_wpphm")
+
+[node name="blockbench_export" parent="." unique_id=1842501241 instance=ExtResource("2_wpphm")]

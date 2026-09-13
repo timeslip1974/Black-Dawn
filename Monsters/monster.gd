@@ -43,7 +43,6 @@ func _physics_process(_delta):
 		FlipSprite()
 		
 #Shift Z access of 3D sprite to be closer to player
-	var t=get_tree().get_nodes_in_group("Player")
 	if Global.player.direction==3:
 		$Sprite3D.transform.origin=Vector3(0,spritey,-.8)
 
@@ -55,7 +54,7 @@ func _physics_process(_delta):
 	elif Global.player.direction==2:
 		$Sprite3D.transform.origin=Vector3(-.8,spritey,0)
 func move_monster():
-
+	if Global.level_ready==false:return
 	if tween!=null:
 		if tween.is_running():
 			return

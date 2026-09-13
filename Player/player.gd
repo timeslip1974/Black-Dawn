@@ -19,7 +19,7 @@ func set_player(mappos) -> void:
 	rotation=Vector3(0,0,0)
 	print("playerSet")
 
-func _process(delta: float):
+func _process(_delta: float):
 	check_input()
 	
 func check_input():
@@ -108,3 +108,8 @@ func update_mappos() -> void:
 	Global.map.set_cell(oldpos,0,pos_map_data)
 	pos_map_data=Global.map.get_cell_atlas_coords(pos)
 	Global.map.set_cell(pos,0,Vector2i(2,0))
+	
+func move_player(p):
+	print(p)
+	self.position=Vector3(p.x*2,.5,p.y*2)+Vector3(1,0,1)
+	

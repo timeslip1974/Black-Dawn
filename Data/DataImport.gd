@@ -1,17 +1,45 @@
 extends Node
 var example_dict = {}
-var no_of_items=79
+var no_of_items=1
 var new_export=true
 @onready var mon_list=preload("res://Data/mon_list.tres")
+@onready var item_list=preload("res://Data/item_list.tres")
 
 func _ready():
 	OS.request_permissions() 
 	import_resources_data()
 
 func import_resources_data():
-	mon_list.Slots.clear()
-	var file = FileAccess.open("res://Data/Enemies/enemy_stats.csv", FileAccess.READ)
+	item_list.Slots.clear()
+	#for c in no_of_items:
+		#item_list.Slots[c].Item=Item.new()
+
+	var file = FileAccess.open("res://Data/Items/Items.csv", FileAccess.READ)
 	var c=0
+	
+	while !file.eof_reached():
+			var data_set = Array(file.get_csv_line())
+			if file.file_exists("res://Data/Items/"+str(data_set[0])+".tres"):
+				print(data_set[0])
+				var res=load("res://Data/Items/"+str(data_set[0])+".tres")
+				res.file_name=data_set[0]
+				res.name=data_set[1]
+				var parts=data_set[2].split(",")
+				res.gfx_frame=Vector2i(parts[0].strip_edges().to_float(),parts[1].strip_edges().to_float())
+
+				
+				item_list.Slots.insert(c,res)
+				c+=1
+				ResourceSaver.save(res,"res://Data/Items/"+str(data_set[0])+".tres")
+			ResourceSaver.save(mon_list,"res://Data/item_list.tres")
+	file.close()
+	
+	
+	
+	
+	mon_list.Slots.clear()
+	file = FileAccess.open("res://Data/Enemies/enemy_stats.csv", FileAccess.READ)
+	c=0
 	
 	while !file.eof_reached():
 		var data_set = Array(file.get_csv_line())

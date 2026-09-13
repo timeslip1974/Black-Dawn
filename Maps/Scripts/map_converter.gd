@@ -1,14 +1,19 @@
 @tool # 👈 Keeps the visual lines drawing live in the editor
 extends Node3D
 
-const DOOR=preload("res://MapObjects/Door/door.tscn")
-const MON=preload("res://Monsters/monster.tscn")
-const PILLAR=preload("res://MapObjects/Pillar/pillar.tscn")
-const TUBE=preload("res://MapObjects/Tube/pillar_2.tscn")
-const SWITCH=preload("res://MapObjects/Switch/switch.tscn")
-const SPINLIGHT=preload("res://MapObjects/SpinningLight/spinning_light.tscn")
-const TRAPDOOR=preload("res://MapObjects/Trapdoor/trapdoor.tscn")
-const FLOORSWITCH=preload("res://MapObjects/FloorSwitch/floor_switch.tscn")
+const DOOR = preload("res://MapObjects/Door/door.tscn")
+const MON = preload("res://Monsters/monster.tscn")
+const PILLAR = preload("res://MapObjects/Pillar/pillar.tscn")
+const TUBE = preload("res://MapObjects/Tube/pillar_2.tscn")
+const SWITCH = preload("res://MapObjects/Switch/switch.tscn")
+const SPINLIGHT = preload("res://MapObjects/SpinningLight/spinning_light.tscn")
+const TRAPDOOR = preload("res://MapObjects/Trapdoor/trapdoor.tscn")
+const FLOORSWITCH = preload("res://MapObjects/FloorSwitch/floor_switch.tscn")
+const SHELF = preload("res://MapObjects/Shelf/shelf.tscn")
+const FAN = preload("res://MapObjects/Fan/fan.tscn")
+const TRICKWALL = preload("res://MapObjects/TrickWall/trick_wall.tscn")
+const HIDDENSWITCH = preload("res://MapObjects/HiddenSwitch/hiddenswitch.tscn")
+const TELEPORTER = preload("res://MapObjects/Teleporter/teleporter.tscn")
 
 const TILE_SCENE_MAP: Dictionary = {
 	Vector2i(3, 0): {"scene": DOOR, "prefix": "Door_"},
@@ -22,6 +27,11 @@ const TILE_SCENE_MAP: Dictionary = {
 	Vector2i(0, 1): {"scene": MON, "prefix": "mon1_"},
 	Vector2i(1, 0): {"scene": SWITCH, "prefix": "switch_"},
 	Vector2i(5, 0): {"scene": PILLAR, "prefix": "switch_"},
+	Vector2i(14, 0): {"scene": SHELF, "prefix": "shelf_"},
+	Vector2i(15, 0): {"scene": FAN, "prefix": "fan_"},
+	Vector2i(16, 0): {"scene": TRICKWALL, "prefix": "trickwall_"},
+	Vector2i(17, 0): {"scene": HIDDENSWITCH, "prefix": "hiddenSwitch_"},
+	Vector2i(18, 0): {"scene": TELEPORTER, "prefix": "Teleporter_"},
 }
 
 # 4-Bit Cardinal weights representing OPEN PATHS in your 2D TileMap
@@ -32,37 +42,35 @@ const W = 8  # 1000
 
 # 1-to-1 Explicit asset lookup matching your exact architecture specifications
 const WALLS = {
-	# Mask value (Bit Sum of open paths): MeshLib ID -> Asset Name
-	0:  -1,      # Isolated tile (No open paths)  -> ID 0: 00-NONE
-	15: 15,     # 4-Way Crossroad (Open all sides) -> Clear cell space
+	0:  -1,     # Isolated tile
+	15: 15,     # 4-Way Crossroad
 	
-	# --- SINGLE OPEN PATH CONNECTIONS (DEAD ENDS) ---
-	1:  12,     # Open North only -> ID 12: 12-N
-	2:  11,     # Open East only  -> ID 11: 11-E
-	4:  10,     # Open South only -> ID 10: 10-S
-	8:  9,      # Open West only  -> ID 9:  09-W
+	# --- SINGLE OPEN PATH CONNECTIONS ---
+	1:  12,     # Open North only
+	2:  11,     # Open East only
+	4:  10,     # Open South only
+	8:  9,      # Open West only
 	
 	# --- TWO-WAY STRAIGHT LINES ---
-	5:  13,     # Open North + South (Vertical)   -> ID 13: 13-NS
-	10: 14,     # Open East + West (Horizontal) -> ID 14: 14-EW
+	5:  13,     # Open North + South
+	10: 14,     # Open East + West
 	
 	# --- TWO-WAY CORNER PATHWAYS ---
-	3:  8,      # Open North + East  -> ID 8: 08-NE
-	9:  7,      # Open North + West  -> ID 7: 07-NW
-	6:  6,      # Open East + South  -> ID 6: 06-ES
-	12: 5,      # Open South + West  -> ID 5: 05-SW
+	3:  8,      # Open North + East
+	9:  7,      # Open North + West
+	6:  6,      # Open East + South
+	12: 5,      # Open South + West
 	
 	# --- THREE-WAY T-JUNCTIONS ---
-	7:  4,      # Open North + East + South -> ID 4: 04-NES
-	11: 3,      # Open North + East + West  -> ID 3: 03-NEW
-	13: 2,      # Open North + South + West -> ID 2: 02-NSW
-	14: 1       # Open East + South + West  -> ID 1: 01-ESW
+	7:  4,      # Open North + East + South
+	11: 3,      # Open North + East + West
+	13: 2,      # Open North + South + West
+	14: 1       # Open East + South + West
 }
 
 @export var map_w: int = 40
 @export var map_h: int = 40
 
-# --- RESTORED TO ARRAY SETUP WITH DRAW TRIGGER ---
 @export var level_actions: Array[TileAction] = []:
 	set(val):
 		level_actions = val
@@ -74,53 +82,52 @@ var map: TileMapLayer
 var gridmap: GridMap
 var setup_val
 
+
 func _ready() -> void:
-	Global.mon_list=preload("res://Data/mon_list.tres")
-	map = $TileMapLayer
-	gridmap = $GridMap
+	map = get_node_or_null("TileMapLayer")
+	gridmap = get_node_or_null("Map")
 	
-	# --- FIX: Only assign to Global when the game is actually running ---
 	if not Engine.is_editor_hint():
-		Global.map = $TileMapLayer
+		Global.level_ready = false # FIX: Fixed syntax assignment from == to =
+		Global.mon_list = preload("res://Data/mon_list.tres")
+		Global.map = map
 		
-	# Connect the drawing signal so the TileMapLayer handles the rendering
-	if Engine.is_editor_hint() and map:
-		if not map.draw.is_connected(_on_tilemap_draw):
-			map.draw.connect(_on_tilemap_draw)
-	
-	# Only execute full generation and bakes when playing the actual game
-	if not Engine.is_editor_hint():
-		$Map.clear() 
-		$Floor.clear()
-		for child in $Elements.get_children():
-			child.free()
+		if gridmap: gridmap.clear() 
+		var floor_node = get_node_or_null("Floor")
+		if floor_node: floor_node.clear()
+		
+		var elements = get_node_or_null("Elements")
+		if elements:
+			for child in elements.get_children():
+				child.free()
 		map_load()
+	else:
+		_connect_tilemap_draw()
+
+func _connect_tilemap_draw() -> void:
+	if map and not map.draw.is_connected(_on_tilemap_draw):
+		map.draw.connect(_on_tilemap_draw)
 
 func map_load() -> void:
 	$Elements.owner = self
 	floor_and_roof()
-	# Loop through all populated tile coordinates directly
-	for coord in map.get_used_cells(): # Replace 0 with your TileMap layer index if needed
+	
+	for coord in map.get_used_cells():
 		var tile = map.get_cell_atlas_coords(coord)
 		
-		# Handle walls for non-empty tiles
-		if tile != Vector2i(-1, -1):
+		if tile != Vector2i(-1, -1) or map.get_cell_tile_data(coord).get_custom_data("add_walls") == true:
 			calculate_and_place_3d_wall(coord)
 		
-		# Handle element spawning
 		var scene_to_instantiate: PackedScene = null
 		var name_prefix := ""
 		
 		if tile in TILE_SCENE_MAP:
 			scene_to_instantiate = TILE_SCENE_MAP[tile]["scene"]
 			name_prefix = TILE_SCENE_MAP[tile]["prefix"]
-			# Safely get setup_val if it exists, otherwise fall back to null
 			setup_val = TILE_SCENE_MAP[tile].get("setup_val", null)
 
-		# Spawn and configure the object if matched
 		if scene_to_instantiate:
 			_spawn_element(scene_to_instantiate, name_prefix, coord)
-
 
 	overwrite_current_scene()
 
@@ -132,7 +139,6 @@ func _spawn_element(scene: PackedScene, prefix: String, coord: Vector2i) -> void
 	instance.position = Vector3(coord.x * 2 + 1, 1, coord.y * 2 + 1)
 	instance.owner = self
 	
-	# Call setup if the node script supports it
 	if instance.has_method("setup"):
 		if setup_val != null:
 			instance.setup(setup_val)
@@ -142,7 +148,7 @@ func _spawn_element(scene: PackedScene, prefix: String, coord: Vector2i) -> void
 func floor_and_roof():
 	for y in range(0, map_h):
 		for x in range(0, map_w):
-			if map.get_cell_atlas_coords(Vector2i(x,y))!=Vector2i(-1,-1):
+			if map.get_cell_atlas_coords(Vector2i(x,y)) != Vector2i(-1,-1):
 				if map.get_cell_tile_data(Vector2i(x,y)).get_custom_data("add_floor") == true:
 					$Floor.set_cell_item(Vector3i(x, 0, y), randi_range(0,2), 0)
 
@@ -160,18 +166,12 @@ func calculate_and_place_3d_wall(pos: Vector2i) -> void:
 	if WALLS.has(mask):
 		var target_mesh_id = WALLS[mask]
 		if target_mesh_id != -1:
-			#if randi_range(0,8)==1:
-				#if randi_range(0,1)==1:target_mesh_id+=15
-				#else:target_mesh_id+=30
 			$Map.set_cell_item(Vector3i(pos.x, 0, pos.y), target_mesh_id, 0)
-
 
 func overwrite_current_scene() -> void:
 	$Map.owner = self
 	$Floor.owner = self
 	
-	# --- ADD THIS LINE TO SECURE THE ARRAY ---
-	# This forces the engine to remember the resource modifications you did in the inspector
 	for action in level_actions:
 		if action: action.changed.emit() 
 	
@@ -180,12 +180,24 @@ func overwrite_current_scene() -> void:
 		ResourceSaver.save(packed_scene, scene_file_path)
 		print("🎉 Clean open corridors, doors, and action maps generated successfully!")
 
-
 func _process(_delta: float) -> void:
-	if Engine.is_editor_hint() and is_instance_valid(map):
+	if Engine.is_editor_hint():
+		if not map:
+			map = get_node_or_null("TileMapLayer")
+		if map:
+			_connect_tilemap_draw()
+			map.queue_redraw()
+
+# Creates a clickable button in the Godot Inspector
+@export_tool_button("Redraw Lines", "Draw") 
+var redraw_button = _on_redraw_button_pressed
+
+func _on_redraw_button_pressed() -> void:
+	map = get_node_or_null("TileMapLayer")
+	if map:
+		_connect_tilemap_draw()
 		map.queue_redraw()
-
-
+		print("🎨 Redrew TileMap editor lines!")
 
 func _on_tilemap_draw() -> void:
 	if not Engine.is_editor_hint() or not map or not map.tile_set:
@@ -193,42 +205,44 @@ func _on_tilemap_draw() -> void:
 
 	var cell_size = map.tile_set.tile_size
 	
-	# Safe lookup for the engine's built-in default font
-	var control_node = Control.new()
-	var default_font = control_node.get_theme_default_font()
-	control_node.free() 
+	# --- ADJUST FONT SIZE HERE ---
+	var default_font = ThemeDB.fallback_font
+	var font_size = 4 # Reduced from 18/14 down to 10 for a compact footprint
 	
-	var font_size = 18 # Made slightly larger to stand out on the line
-	
-	# Track 'action_index' to match the main Level Actions array positions (= 0, = 1, etc.)
 	for action_index in range(level_actions.size()):
 		var action = level_actions[action_index]
-		if not action is TileAction: continue
+		if not is_instance_valid(action) or not action is TileAction: 
+			continue
 		
 		var trigger_center = map.map_to_local(action.trigger_coord)
 		map.draw_circle(trigger_center, cell_size.x * 0.25, Color.YELLOW)
 		
+		var action_type_name = action.get_script().get_global_name()
+		if action_type_name.is_empty():
+			action_type_name = "TileAction"
+			
+		var extra_info = action.get("action_type")
+		var tooltip_info = ""
+		if extra_info != null:
+			tooltip_info = " (%s)" % str(extra_info)
+
+		var label_text = "[#%d] %s%s" % [action_index, action_type_name, tooltip_info]
+
 		var targets = action.get("target_coords")
 		if targets and targets is Array:
 			for target in targets:
 				if target is Vector2i:
 					var target_center = map.map_to_local(target)
 					
-					# 1. Draw the vector connection route path line
-					map.draw_line(trigger_center, target_center, Color.GREEN, 4.0)
+					map.draw_line(trigger_center, target_center, Color.GREEN, 2.0) # Thinner 2.0 line
 					map.draw_circle(target_center, cell_size.x * 0.15, Color.RED)
 					
-					# 2. Calculate the exact midpoint of the line to place the number
 					var line_midpoint = trigger_center.lerp(target_center, 0.5)
 					
-					# Convert the main level_actions index to text
-					var label_text = str(action_index)
+					# Tighter offset suited for font_size 10
+					var text_pos = line_midpoint + Vector2(-12, -2)
 					
-					# Center the text over the calculated line midpoint
-					# (Offsetting upward slightly by half font size so it sits balanced right on top of the line)
-					var text_pos = line_midpoint + Vector2(-6, -4)
-					
-					# 3. Draw a tiny dark shadow behind the text so it's readable over the green lines
+					# Shadow Text
 					map.draw_string(
 						default_font,
 						text_pos + Vector2(1, 1),
@@ -239,7 +253,7 @@ func _on_tilemap_draw() -> void:
 						Color.BLACK
 					)
 					
-					# 4. Render the white level action index value directly on the line
+					# Main Text
 					map.draw_string(
 						default_font,
 						text_pos,
@@ -247,5 +261,5 @@ func _on_tilemap_draw() -> void:
 						HORIZONTAL_ALIGNMENT_LEFT,
 						-1,
 						font_size,
-						Color.WHITE
+						Color.YELLOW
 					)

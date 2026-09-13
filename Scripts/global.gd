@@ -3,6 +3,7 @@ extends Node
 var player
 var map
 var mon_list
+var item_list
 var level_actions: Array[TileAction] = []
 var level_ready=false
 
@@ -19,3 +20,5 @@ func trigger_tile_action(action_coord: Vector2i):
 				if "grid_pos" in child and child.grid_pos in action.target_coords:
 					if child.has_method("activate"):
 						child.activate()
+						if action.time!=0.0:
+							child.deactivate(action.time)

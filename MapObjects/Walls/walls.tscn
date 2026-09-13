@@ -34,6 +34,7 @@ pillar_material = ExtResource("3_ksr3y")
 walls_material = ExtResource("2_ksr3y")
 
 [node name="000None" type="MeshInstance3D" parent="." unique_id=818700080]
+visible = false
 mesh = ExtResource("1_eyn74")
 surface_material_override/0 = ExtResource("3_2hypj")
 surface_material_override/1 = ExtResource("3_ksr3y")
@@ -154,7 +155,6 @@ surface_material_override/6 = ExtResource("2_ksr3y")
 surface_material_override/7 = ExtResource("2_ksr3y")
 
 [node name="012N" type="MeshInstance3D" parent="." unique_id=1280361919]
-visible = false
 mesh = ExtResource("13_w2gy8")
 surface_material_override/0 = ExtResource("3_2hypj")
 surface_material_override/1 = ExtResource("3_ksr3y")
