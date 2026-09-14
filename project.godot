@@ -24,6 +24,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Global="*uid://b1bccymkw8ys7"
+SignalManager="*uid://n6g3r11kbsdx"
 
 [display]
 

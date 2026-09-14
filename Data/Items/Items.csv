@@ -1,2 +1,6 @@
 FileName,Name,gfx_frame,Unidentified Name,Description,Type,Type Type,Base Strength,Buff,Health Recover,satiate,Charges,Charge Speed,Minimum Hit,Max Hit,Accuracy,Armour Class,Fire Range,Rarity,Cost,Upgradable
 test,test,"0,0",,,,,,,,,,,,,,,,,,
+melee1,Sword,"21,10",,,,,,,,,,,,,,,,,,
+ranged1,Bow,"21,11",,,,,,,,,,,,,,,,,,
+potion1,Potion,"22,34",,,,,,,,,,,,,,,,,,
+apple,Apple,"9,30",,,,,,,,,,,,,,,,,,

@@ -1,9 +1,13 @@
-[gd_resource type="Resource" script_class="mon_list" format=3 uid="uid://es3xgufsgdbl"]
+[gd_resource type="Resource" script_class="item_list" format=3 uid="uid://ed646o53aknk"]
 
-[ext_resource type="Script" uid="uid://dtyxv1kf545py" path="res://Data/Enemies/enemy_stats.gd" id="1_mfwre"]
-[ext_resource type="Resource" uid="uid://t6u87j5laagh" path="res://Data/Enemies/robot.tres" id="2_4hwca"]
-[ext_resource type="Script" uid="uid://cb0u8sc35uhe" path="res://Data/mon_list.gd" id="3_igu40"]
+[ext_resource type="Script" uid="uid://c733mqt3l4ius" path="res://Inventory/Resources/Item.gd" id="1_a3vas"]
+[ext_resource type="Script" uid="uid://b8dltcrjfqefi" path="res://Data/item_list.gd" id="2_mfwre"]
+[ext_resource type="Resource" path="res://Data/Items/test.tres" id="3_mfwre"]
+[ext_resource type="Resource" path="res://Data/Items/melee1.tres" id="4_4hwca"]
+[ext_resource type="Resource" path="res://Data/Items/ranged1.tres" id="5_igu40"]
+[ext_resource type="Resource" path="res://Data/Items/potion1.tres" id="6_qc3vs"]
+[ext_resource type="Resource" path="res://Data/Items/apple.tres" id="7_1p5ku"]
 
 [resource]
-script = ExtResource("3_igu40")
-Slots = Array[ExtResource("1_mfwre")]([ExtResource("2_4hwca")])
+script = ExtResource("2_mfwre")
+slots = Array[ExtResource("1_a3vas")]([ExtResource("3_mfwre"), ExtResource("4_4hwca"), ExtResource("5_igu40"), ExtResource("6_qc3vs"), ExtResource("7_1p5ku")])

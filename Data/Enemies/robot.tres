@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="EnemyStats" format=3 uid="uid://t6u87j5laagh"]
+[gd_resource type="Resource" script_class="EnemyStats" format=3 uid="uid://b72efws8g2eir"]
 
 [ext_resource type="Script" uid="uid://dtyxv1kf545py" path="res://Data/Enemies/enemy_stats.gd" id="1_7mohk"]
 

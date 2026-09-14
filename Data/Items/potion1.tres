@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://buvxyyrd0up1i"]
+
+[ext_resource type="Script" uid="uid://c733mqt3l4ius" path="res://Inventory/Resources/Item.gd" id="1_3jktt"]
+
+[resource]
+script = ExtResource("1_3jktt")
+file_name = "potion1"
+name = "Potion"
+gfx_frame = Vector2i(22, 34)
+metadata/_custom_type_script = "uid://c733mqt3l4ius"

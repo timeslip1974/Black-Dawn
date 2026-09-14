@@ -11,3 +11,4 @@ texture_filter = 0
 texture = ExtResource("1_pwi4r")
 hframes = 41
 vframes = 48
+frame = 431

@@ -1,0 +1,169 @@
+[gd_resource type="Resource" script_class="character_list" format=3 uid="uid://ctr8ggqml8kc8"]
+
+[ext_resource type="Script" uid="uid://d4cxdf8037li0" path="res://Inventory/Resources/CharacterEquipment.gd" id="1_soxu2"]
+[ext_resource type="Script" uid="uid://c000gwinfoemr" path="res://Inventory/Resources/InventorySlot.gd" id="2_uujtw"]
+[ext_resource type="Script" uid="uid://dneuearn6qerm" path="res://Data/characters_list.gd" id="3_toltx"]
+
+[sub_resource type="Resource" id="Resource_onv7q"]
+script = ExtResource("2_uujtw")
+metadata/_custom_type_script = "uid://c000gwinfoemr"
+
+[sub_resource type="Resource" id="Resource_7g3k4"]
+script = ExtResource("2_uujtw")
+metadata/_custom_type_script = "uid://c000gwinfoemr"
+
+[sub_resource type="Resource" id="Resource_ayfcl"]
+script = ExtResource("2_uujtw")
+metadata/_custom_type_script = "uid://c000gwinfoemr"
+
+[sub_resource type="Resource" id="Resource_e6gg6"]
+script = ExtResource("2_uujtw")
+metadata/_custom_type_script = "uid://c000gwinfoemr"
+
+[sub_resource type="Resource" id="Resource_hat8c"]
+script = ExtResource("2_uujtw")
+metadata/_custom_type_script = "uid://c000gwinfoemr"
+
+[sub_resource type="Resource" id="Resource_3sbvi"]
+script = ExtResource("2_uujtw")
+metadata/_custom_type_script = "uid://c000gwinfoemr"
+
+[sub_resource type="Resource" id="Resource_nm1m0"]
+script = ExtResource("2_uujtw")
+metadata/_custom_type_script = "uid://c000gwinfoemr"
+
+[sub_resource type="Resource" id="Resource_c7tqi"]
+script = ExtResource("2_uujtw")
+metadata/_custom_type_script = "uid://c000gwinfoemr"
+
+[sub_resource type="Resource" id="Resource_cbfhl"]
+script = ExtResource("2_uujtw")
+metadata/_custom_type_script = "uid://c000gwinfoemr"
+
+[sub_resource type="Resource" id="Resource_4fiuh"]
+script = ExtResource("2_uujtw")
+metadata/_custom_type_script = "uid://c000gwinfoemr"
+
+[sub_resource type="Resource" id="Resource_h81ot"]
+script = ExtResource("2_uujtw")
+metadata/_custom_type_script = "uid://c000gwinfoemr"
+
+[sub_resource type="Resource" id="Resource_6rr40"]
+script = ExtResource("2_uujtw")
+metadata/_custom_type_script = "uid://c000gwinfoemr"
+
+[sub_resource type="Resource" id="Resource_0w6e5"]
+script = ExtResource("2_uujtw")
+metadata/_custom_type_script = "uid://c000gwinfoemr"
+
+[sub_resource type="Resource" id="Resource_o2jkc"]
+script = ExtResource("2_uujtw")
+metadata/_custom_type_script = "uid://c000gwinfoemr"
+
+[sub_resource type="Resource" id="Resource_2qbci"]
+script = ExtResource("2_uujtw")
+metadata/_custom_type_script = "uid://c000gwinfoemr"
+
+[sub_resource type="Resource" id="Resource_ow1yt"]
+script = ExtResource("2_uujtw")
+metadata/_custom_type_script = "uid://c000gwinfoemr"
+
+[sub_resource type="Resource" id="Resource_o2t6a"]
+script = ExtResource("2_uujtw")
+metadata/_custom_type_script = "uid://c000gwinfoemr"
+
+[sub_resource type="Resource" id="Resource_8gukh"]
+script = ExtResource("2_uujtw")
+metadata/_custom_type_script = "uid://c000gwinfoemr"
+
+[sub_resource type="Resource" id="Resource_8gkfd"]
+script = ExtResource("2_uujtw")
+metadata/_custom_type_script = "uid://c000gwinfoemr"
+
+[sub_resource type="Resource" id="Resource_0tr35"]
+script = ExtResource("2_uujtw")
+metadata/_custom_type_script = "uid://c000gwinfoemr"
+
+[sub_resource type="Resource" id="Resource_7j5ik"]
+script = ExtResource("2_uujtw")
+metadata/_custom_type_script = "uid://c000gwinfoemr"
+
+[sub_resource type="Resource" id="Resource_i1yd8"]
+script = ExtResource("2_uujtw")
+metadata/_custom_type_script = "uid://c000gwinfoemr"
+
+[sub_resource type="Resource" id="Resource_j5i65"]
+script = ExtResource("2_uujtw")
+metadata/_custom_type_script = "uid://c000gwinfoemr"
+
+[sub_resource type="Resource" id="Resource_awqy2"]
+script = ExtResource("2_uujtw")
+metadata/_custom_type_script = "uid://c000gwinfoemr"
+
+[sub_resource type="Resource" id="Resource_xe7dh"]
+script = ExtResource("2_uujtw")
+metadata/_custom_type_script = "uid://c000gwinfoemr"
+
+[sub_resource type="Resource" id="Resource_how34"]
+script = ExtResource("2_uujtw")
+metadata/_custom_type_script = "uid://c000gwinfoemr"
+
+[sub_resource type="Resource" id="Resource_rebkf"]
+script = ExtResource("2_uujtw")
+metadata/_custom_type_script = "uid://c000gwinfoemr"
+
+[sub_resource type="Resource" id="Resource_soxu2"]
+script = ExtResource("1_soxu2")
+character_name = "bob"
+inventory = Array[ExtResource("2_uujtw")]([SubResource("Resource_e6gg6"), SubResource("Resource_hat8c"), SubResource("Resource_3sbvi"), SubResource("Resource_nm1m0"), SubResource("Resource_c7tqi"), SubResource("Resource_cbfhl"), SubResource("Resource_4fiuh"), SubResource("Resource_h81ot"), SubResource("Resource_6rr40"), SubResource("Resource_0w6e5"), SubResource("Resource_o2jkc"), SubResource("Resource_2qbci"), SubResource("Resource_ow1yt"), SubResource("Resource_o2t6a"), SubResource("Resource_8gukh"), SubResource("Resource_8gkfd"), SubResource("Resource_0tr35"), SubResource("Resource_7j5ik"), SubResource("Resource_i1yd8"), SubResource("Resource_j5i65"), SubResource("Resource_awqy2")])
+head = SubResource("Resource_ayfcl")
+chest = SubResource("Resource_onv7q")
+legs = SubResource("Resource_how34")
+feet = SubResource("Resource_7g3k4")
+left_hand = SubResource("Resource_xe7dh")
+right_hand = SubResource("Resource_rebkf")
+metadata/_custom_type_script = "uid://d4cxdf8037li0"
+
+[sub_resource type="Resource" id="Resource_53635"]
+script = ExtResource("2_uujtw")
+metadata/_custom_type_script = "uid://c000gwinfoemr"
+
+[sub_resource type="Resource" id="Resource_uujtw"]
+script = ExtResource("1_soxu2")
+character_name = "mary-sue"
+inventory = Array[ExtResource("2_uujtw")]([SubResource("Resource_e6gg6"), SubResource("Resource_hat8c"), SubResource("Resource_3sbvi"), SubResource("Resource_nm1m0"), SubResource("Resource_c7tqi"), SubResource("Resource_cbfhl"), SubResource("Resource_4fiuh"), SubResource("Resource_h81ot"), SubResource("Resource_6rr40"), SubResource("Resource_0w6e5"), SubResource("Resource_o2jkc"), SubResource("Resource_2qbci"), SubResource("Resource_ow1yt"), SubResource("Resource_o2t6a"), SubResource("Resource_8gukh"), SubResource("Resource_8gkfd"), SubResource("Resource_0tr35"), SubResource("Resource_7j5ik"), SubResource("Resource_i1yd8"), SubResource("Resource_j5i65"), SubResource("Resource_awqy2")])
+head = SubResource("Resource_53635")
+chest = SubResource("Resource_53635")
+legs = SubResource("Resource_53635")
+feet = SubResource("Resource_53635")
+left_hand = SubResource("Resource_53635")
+right_hand = SubResource("Resource_53635")
+metadata/_custom_type_script = "uid://d4cxdf8037li0"
+
+[sub_resource type="Resource" id="Resource_toltx"]
+script = ExtResource("1_soxu2")
+character_name = "frank"
+inventory = Array[ExtResource("2_uujtw")]([SubResource("Resource_e6gg6"), SubResource("Resource_hat8c"), SubResource("Resource_3sbvi"), SubResource("Resource_nm1m0"), SubResource("Resource_c7tqi"), SubResource("Resource_cbfhl"), SubResource("Resource_4fiuh"), SubResource("Resource_h81ot"), SubResource("Resource_6rr40"), SubResource("Resource_0w6e5"), SubResource("Resource_o2jkc"), SubResource("Resource_2qbci"), SubResource("Resource_ow1yt"), SubResource("Resource_o2t6a"), SubResource("Resource_8gukh"), SubResource("Resource_8gkfd"), SubResource("Resource_0tr35"), SubResource("Resource_7j5ik"), SubResource("Resource_i1yd8"), SubResource("Resource_j5i65"), SubResource("Resource_awqy2")])
+head = SubResource("Resource_53635")
+chest = SubResource("Resource_53635")
+legs = SubResource("Resource_53635")
+feet = SubResource("Resource_53635")
+left_hand = SubResource("Resource_53635")
+right_hand = SubResource("Resource_53635")
+metadata/_custom_type_script = "uid://d4cxdf8037li0"
+
+[sub_resource type="Resource" id="Resource_3lgi7"]
+script = ExtResource("1_soxu2")
+character_name = "jim-bob"
+inventory = Array[ExtResource("2_uujtw")]([SubResource("Resource_e6gg6"), SubResource("Resource_hat8c"), SubResource("Resource_3sbvi"), SubResource("Resource_nm1m0"), SubResource("Resource_c7tqi"), SubResource("Resource_cbfhl"), SubResource("Resource_4fiuh"), SubResource("Resource_h81ot"), SubResource("Resource_6rr40"), SubResource("Resource_0w6e5"), SubResource("Resource_o2jkc"), SubResource("Resource_2qbci"), SubResource("Resource_ow1yt"), SubResource("Resource_o2t6a"), SubResource("Resource_8gukh"), SubResource("Resource_8gkfd"), SubResource("Resource_0tr35"), SubResource("Resource_7j5ik"), SubResource("Resource_i1yd8"), SubResource("Resource_j5i65"), SubResource("Resource_awqy2")])
+head = SubResource("Resource_j5i65")
+chest = SubResource("Resource_j5i65")
+legs = SubResource("Resource_j5i65")
+feet = SubResource("Resource_j5i65")
+left_hand = SubResource("Resource_j5i65")
+right_hand = SubResource("Resource_j5i65")
+metadata/_custom_type_script = "uid://d4cxdf8037li0"
+
+[resource]
+script = ExtResource("3_toltx")
+character = Array[ExtResource("1_soxu2")]([SubResource("Resource_soxu2"), SubResource("Resource_uujtw"), SubResource("Resource_toltx"), SubResource("Resource_3lgi7")])

@@ -1,6 +1,6 @@
 extends Node
 var example_dict = {}
-var no_of_items=1
+
 var new_export=true
 @onready var mon_list=preload("res://Data/mon_list.tres")
 @onready var item_list=preload("res://Data/item_list.tres")
@@ -10,7 +10,7 @@ func _ready():
 	import_resources_data()
 
 func import_resources_data():
-	item_list.Slots.clear()
+	item_list.slots.clear()
 	#for c in no_of_items:
 		#item_list.Slots[c].Item=Item.new()
 
@@ -28,10 +28,10 @@ func import_resources_data():
 				res.gfx_frame=Vector2i(parts[0].strip_edges().to_float(),parts[1].strip_edges().to_float())
 
 				
-				item_list.Slots.insert(c,res)
+				item_list.slots.insert(c,res)
 				c+=1
 				ResourceSaver.save(res,"res://Data/Items/"+str(data_set[0])+".tres")
-			ResourceSaver.save(mon_list,"res://Data/item_list.tres")
+			ResourceSaver.save(item_list,"res://Data/item_list.tres")
 	file.close()
 	
 	

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://76bhidblq8b2"]
+
+[ext_resource type="Script" uid="uid://c733mqt3l4ius" path="res://Inventory/Resources/Item.gd" id="1_i0kyi"]
+
+[resource]
+script = ExtResource("1_i0kyi")
+file_name = "ranged1"
+name = "Bow"
+gfx_frame = Vector2i(21, 11)
+metadata/_custom_type_script = "uid://c733mqt3l4ius"

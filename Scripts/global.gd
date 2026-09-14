@@ -4,10 +4,11 @@ var player
 var map
 var mon_list
 var item_list
-var party_inventories
+var character_list
 var active_character=0
 var level_actions: Array[TileAction] = []
 var level_ready=false
+var no_of_items=5
 
 
 

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://biin7qsrcalu6"]
+
+[ext_resource type="Script" uid="uid://c733mqt3l4ius" path="res://Inventory/Resources/Item.gd" id="1_vuoou"]
+
+[resource]
+script = ExtResource("1_vuoou")
+file_name = "apple"
+name = "Apple"
+gfx_frame = Vector2i(9, 30)
+metadata/_custom_type_script = "uid://c733mqt3l4ius"

@@ -8,7 +8,7 @@ var level="res://Maps/Test/test_map.tscn"
 func _ready() -> void:
 	Global.mon_list=preload("res://Data/mon_list.tres")
 	Global.item_list=preload("res://Data/item_list.tres")
-	Global.party_inventories=preload("res://Data/party_inventories.tres")
+	Global.character_list=preload("res://Data/character_list.tres")
 	Global.player=$Player
 	load_level()
 	Global.map=$TileMapLayer
@@ -16,6 +16,28 @@ func _ready() -> void:
 
 	place_player()
 	Global.level_ready=true
+	await get_tree().process_frame
+	for x in range(4):
+		# Ensure character inventory is unique
+		#Global.character_list.character[x] = Global.character_list.character[x].duplicate(true)
+		
+		for c in range(Global.character_list.character[x].capacity):
+			## Break the shared slot reference!
+			if Global.character_list.character[x].inventory[c]:
+				Global.character_list.character[x].inventory[c] = Global.character_list.character[x].inventory[c].duplicate(true)
+			else:
+				Global.character_list.character[x].inventory[c] = InventorySlot.new()
+				
+			# Assign random item (use capital Item or lowercase item depending on your script export)
+			var random_item = Global.item_list.slots.pick_random()
+			Global.character_list.character[x].inventory[c].item = random_item
+
+		Global.character_list.character[x].head.item=Global.item_list.slots.pick_random()
+		Global.character_list.character[x].chest.item=Global.item_list.slots.pick_random()
+		Global.character_list.character[x].legs.item=Global.item_list.slots.pick_random()
+		Global.character_list.character[x].feet.item=Global.item_list.slots.pick_random()
+		Global.character_list.character[x].left_hand.item=Global.item_list.slots.pick_random()
+		Global.character_list.character[x].right_hand.item=Global.item_list.slots.pick_random()
 
 
 
