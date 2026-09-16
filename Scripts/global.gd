@@ -9,6 +9,7 @@ var active_character=0
 var level_actions: Array[TileAction] = []
 var level_ready=false
 var no_of_items=5
+var holding:InventorySlot
 
 
 

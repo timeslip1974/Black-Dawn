@@ -11,6 +11,7 @@ var pos_map_data:Vector2i
 
 func _ready() -> void:
 	await get_tree().process_frame
+	Global.holding=InventorySlot.new()
 	update_mappos()
 
 func set_player(mappos) -> void:

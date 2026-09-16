@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://b0c5jt07h8jnb" path="res://Scripts/level_loader.gd" id="1_jf4yp"]
 [ext_resource type="PackedScene" uid="uid://b6u52ps5ecwfn" path="res://Player/player.tscn" id="2_r3dyv"]
 [ext_resource type="PackedScene" uid="uid://ccak70hsyrty8" path="res://UI/ui.tscn" id="3_r3dyv"]
+[ext_resource type="Script" uid="uid://comj4f26ftqk" path="res://Inventory/holding.gd" id="4_ttams"]
+[ext_resource type="Texture2D" uid="uid://dypkxobklwa5t" path="res://Inventory/Items.png" id="5_hce5b"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_n2r1a"]
 sky_top_color = Color(0, 0, 0, 1)
@@ -30,3 +32,17 @@ transform = Transform3D(-0.5075384, 0, -0.8616291, 0, 1, 0, 0.8616291, 0, -0.507
 environment = SubResource("Environment_b41lk")
 
 [node name="UI" parent="." unique_id=551842505 instance=ExtResource("3_r3dyv")]
+
+[node name="Holding" type="Control" parent="UI" unique_id=451499040]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+script = ExtResource("4_ttams")
+
+[node name="Holding" type="Sprite2D" parent="UI/Holding" unique_id=2127411739]
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("5_hce5b")
+hframes = 41
+vframes = 48

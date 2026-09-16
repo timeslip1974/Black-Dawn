@@ -4,22 +4,6 @@
 [ext_resource type="Script" uid="uid://c000gwinfoemr" path="res://Inventory/Resources/InventorySlot.gd" id="2_uujtw"]
 [ext_resource type="Script" uid="uid://dneuearn6qerm" path="res://Data/characters_list.gd" id="3_toltx"]
 
-[sub_resource type="Resource" id="Resource_onv7q"]
-script = ExtResource("2_uujtw")
-metadata/_custom_type_script = "uid://c000gwinfoemr"
-
-[sub_resource type="Resource" id="Resource_7g3k4"]
-script = ExtResource("2_uujtw")
-metadata/_custom_type_script = "uid://c000gwinfoemr"
-
-[sub_resource type="Resource" id="Resource_ayfcl"]
-script = ExtResource("2_uujtw")
-metadata/_custom_type_script = "uid://c000gwinfoemr"
-
-[sub_resource type="Resource" id="Resource_e6gg6"]
-script = ExtResource("2_uujtw")
-metadata/_custom_type_script = "uid://c000gwinfoemr"
-
 [sub_resource type="Resource" id="Resource_hat8c"]
 script = ExtResource("2_uujtw")
 metadata/_custom_type_script = "uid://c000gwinfoemr"
@@ -37,6 +21,30 @@ script = ExtResource("2_uujtw")
 metadata/_custom_type_script = "uid://c000gwinfoemr"
 
 [sub_resource type="Resource" id="Resource_cbfhl"]
+script = ExtResource("2_uujtw")
+metadata/_custom_type_script = "uid://c000gwinfoemr"
+
+[sub_resource type="Resource" id="Resource_e6gg6"]
+script = ExtResource("2_uujtw")
+metadata/_custom_type_script = "uid://c000gwinfoemr"
+
+[sub_resource type="Resource" id="Resource_uujtw"]
+script = ExtResource("2_uujtw")
+metadata/_custom_type_script = "uid://c000gwinfoemr"
+
+[sub_resource type="Resource" id="Resource_toltx"]
+script = ExtResource("2_uujtw")
+metadata/_custom_type_script = "uid://c000gwinfoemr"
+
+[sub_resource type="Resource" id="Resource_3lgi7"]
+script = ExtResource("2_uujtw")
+metadata/_custom_type_script = "uid://c000gwinfoemr"
+
+[sub_resource type="Resource" id="Resource_3ym0d"]
+script = ExtResource("2_uujtw")
+metadata/_custom_type_script = "uid://c000gwinfoemr"
+
+[sub_resource type="Resource" id="Resource_sas23"]
 script = ExtResource("2_uujtw")
 metadata/_custom_type_script = "uid://c000gwinfoemr"
 
@@ -100,70 +108,13 @@ metadata/_custom_type_script = "uid://c000gwinfoemr"
 script = ExtResource("2_uujtw")
 metadata/_custom_type_script = "uid://c000gwinfoemr"
 
-[sub_resource type="Resource" id="Resource_xe7dh"]
-script = ExtResource("2_uujtw")
-metadata/_custom_type_script = "uid://c000gwinfoemr"
-
-[sub_resource type="Resource" id="Resource_how34"]
-script = ExtResource("2_uujtw")
-metadata/_custom_type_script = "uid://c000gwinfoemr"
-
-[sub_resource type="Resource" id="Resource_rebkf"]
-script = ExtResource("2_uujtw")
-metadata/_custom_type_script = "uid://c000gwinfoemr"
-
 [sub_resource type="Resource" id="Resource_soxu2"]
 script = ExtResource("1_soxu2")
 character_name = "bob"
-inventory = Array[ExtResource("2_uujtw")]([SubResource("Resource_e6gg6"), SubResource("Resource_hat8c"), SubResource("Resource_3sbvi"), SubResource("Resource_nm1m0"), SubResource("Resource_c7tqi"), SubResource("Resource_cbfhl"), SubResource("Resource_4fiuh"), SubResource("Resource_h81ot"), SubResource("Resource_6rr40"), SubResource("Resource_0w6e5"), SubResource("Resource_o2jkc"), SubResource("Resource_2qbci"), SubResource("Resource_ow1yt"), SubResource("Resource_o2t6a"), SubResource("Resource_8gukh"), SubResource("Resource_8gkfd"), SubResource("Resource_0tr35"), SubResource("Resource_7j5ik"), SubResource("Resource_i1yd8"), SubResource("Resource_j5i65"), SubResource("Resource_awqy2")])
-head = SubResource("Resource_ayfcl")
-chest = SubResource("Resource_onv7q")
-legs = SubResource("Resource_how34")
-feet = SubResource("Resource_7g3k4")
-left_hand = SubResource("Resource_xe7dh")
-right_hand = SubResource("Resource_rebkf")
-metadata/_custom_type_script = "uid://d4cxdf8037li0"
-
-[sub_resource type="Resource" id="Resource_53635"]
-script = ExtResource("2_uujtw")
-metadata/_custom_type_script = "uid://c000gwinfoemr"
-
-[sub_resource type="Resource" id="Resource_uujtw"]
-script = ExtResource("1_soxu2")
-character_name = "mary-sue"
-inventory = Array[ExtResource("2_uujtw")]([SubResource("Resource_e6gg6"), SubResource("Resource_hat8c"), SubResource("Resource_3sbvi"), SubResource("Resource_nm1m0"), SubResource("Resource_c7tqi"), SubResource("Resource_cbfhl"), SubResource("Resource_4fiuh"), SubResource("Resource_h81ot"), SubResource("Resource_6rr40"), SubResource("Resource_0w6e5"), SubResource("Resource_o2jkc"), SubResource("Resource_2qbci"), SubResource("Resource_ow1yt"), SubResource("Resource_o2t6a"), SubResource("Resource_8gukh"), SubResource("Resource_8gkfd"), SubResource("Resource_0tr35"), SubResource("Resource_7j5ik"), SubResource("Resource_i1yd8"), SubResource("Resource_j5i65"), SubResource("Resource_awqy2")])
-head = SubResource("Resource_53635")
-chest = SubResource("Resource_53635")
-legs = SubResource("Resource_53635")
-feet = SubResource("Resource_53635")
-left_hand = SubResource("Resource_53635")
-right_hand = SubResource("Resource_53635")
-metadata/_custom_type_script = "uid://d4cxdf8037li0"
-
-[sub_resource type="Resource" id="Resource_toltx"]
-script = ExtResource("1_soxu2")
-character_name = "frank"
-inventory = Array[ExtResource("2_uujtw")]([SubResource("Resource_e6gg6"), SubResource("Resource_hat8c"), SubResource("Resource_3sbvi"), SubResource("Resource_nm1m0"), SubResource("Resource_c7tqi"), SubResource("Resource_cbfhl"), SubResource("Resource_4fiuh"), SubResource("Resource_h81ot"), SubResource("Resource_6rr40"), SubResource("Resource_0w6e5"), SubResource("Resource_o2jkc"), SubResource("Resource_2qbci"), SubResource("Resource_ow1yt"), SubResource("Resource_o2t6a"), SubResource("Resource_8gukh"), SubResource("Resource_8gkfd"), SubResource("Resource_0tr35"), SubResource("Resource_7j5ik"), SubResource("Resource_i1yd8"), SubResource("Resource_j5i65"), SubResource("Resource_awqy2")])
-head = SubResource("Resource_53635")
-chest = SubResource("Resource_53635")
-legs = SubResource("Resource_53635")
-feet = SubResource("Resource_53635")
-left_hand = SubResource("Resource_53635")
-right_hand = SubResource("Resource_53635")
-metadata/_custom_type_script = "uid://d4cxdf8037li0"
-
-[sub_resource type="Resource" id="Resource_3lgi7"]
-script = ExtResource("1_soxu2")
-character_name = "jim-bob"
-inventory = Array[ExtResource("2_uujtw")]([SubResource("Resource_e6gg6"), SubResource("Resource_hat8c"), SubResource("Resource_3sbvi"), SubResource("Resource_nm1m0"), SubResource("Resource_c7tqi"), SubResource("Resource_cbfhl"), SubResource("Resource_4fiuh"), SubResource("Resource_h81ot"), SubResource("Resource_6rr40"), SubResource("Resource_0w6e5"), SubResource("Resource_o2jkc"), SubResource("Resource_2qbci"), SubResource("Resource_ow1yt"), SubResource("Resource_o2t6a"), SubResource("Resource_8gukh"), SubResource("Resource_8gkfd"), SubResource("Resource_0tr35"), SubResource("Resource_7j5ik"), SubResource("Resource_i1yd8"), SubResource("Resource_j5i65"), SubResource("Resource_awqy2")])
-head = SubResource("Resource_j5i65")
-chest = SubResource("Resource_j5i65")
-legs = SubResource("Resource_j5i65")
-feet = SubResource("Resource_j5i65")
-left_hand = SubResource("Resource_j5i65")
-right_hand = SubResource("Resource_j5i65")
+inventory = Array[ExtResource("2_uujtw")]([SubResource("Resource_e6gg6"), SubResource("Resource_uujtw"), SubResource("Resource_toltx"), SubResource("Resource_3lgi7"), SubResource("Resource_3ym0d"), SubResource("Resource_sas23"), SubResource("Resource_4fiuh"), SubResource("Resource_h81ot"), SubResource("Resource_6rr40"), SubResource("Resource_0w6e5"), SubResource("Resource_o2jkc"), SubResource("Resource_2qbci"), SubResource("Resource_ow1yt"), SubResource("Resource_o2t6a"), SubResource("Resource_8gukh"), SubResource("Resource_8gkfd"), SubResource("Resource_0tr35"), SubResource("Resource_7j5ik"), SubResource("Resource_i1yd8"), SubResource("Resource_j5i65"), SubResource("Resource_awqy2")])
+equipment = Array[ExtResource("2_uujtw")]([SubResource("Resource_hat8c"), SubResource("Resource_3sbvi"), SubResource("Resource_nm1m0"), SubResource("Resource_c7tqi"), SubResource("Resource_cbfhl"), SubResource("Resource_cbfhl")])
 metadata/_custom_type_script = "uid://d4cxdf8037li0"
 
 [resource]
 script = ExtResource("3_toltx")
-character = Array[ExtResource("1_soxu2")]([SubResource("Resource_soxu2"), SubResource("Resource_uujtw"), SubResource("Resource_toltx"), SubResource("Resource_3lgi7")])
+character = Array[ExtResource("1_soxu2")]([SubResource("Resource_soxu2"), SubResource("Resource_soxu2"), SubResource("Resource_soxu2"), SubResource("Resource_soxu2")])
