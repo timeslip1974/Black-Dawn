@@ -3,53 +3,75 @@
 [ext_resource type="PackedScene" uid="uid://cg2fhjiay2mw2" path="res://Inventory/slot_ui.tscn" id="1_gjvfd"]
 [ext_resource type="Script" uid="uid://c6t4ulcfbhkfx" path="res://Inventory/stats_ui.gd" id="1_m5vt5"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m5vt5"]
+bg_color = Color(0.13333334, 0.14509805, 0.16470589, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.3529412, 0.3764706, 0.41568628, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+shadow_color = Color(0, 0, 0, 0.6666667)
+shadow_size = 4
+
 [node name="StatsUI" type="PanelContainer" unique_id=531813096]
-custom_minimum_size = Vector2(400, 170)
+custom_minimum_size = Vector2(300, 350)
 offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(2, 2)
+theme_override_styles/panel = SubResource("StyleBoxFlat_m5vt5")
 script = ExtResource("1_m5vt5")
 
-[node name="GridContainer" type="GridContainer" parent="." unique_id=173449589]
+[node name="GridContainer" type="GridContainer" parent="." unique_id=808070054]
 layout_mode = 2
 size_flags_horizontal = 4
+size_flags_vertical = 4
+columns = 2
+
+[node name="equipment" type="GridContainer" parent="GridContainer" unique_id=173449589]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
 columns = 3
 
-[node name="Blank" type="Control" parent="GridContainer" unique_id=669409631]
+[node name="Blank" type="Control" parent="GridContainer/equipment" unique_id=669409631]
 layout_mode = 2
 
-[node name="head" parent="GridContainer" unique_id=60271052 instance=ExtResource("1_gjvfd")]
+[node name="head" parent="GridContainer/equipment" unique_id=60271052 instance=ExtResource("1_gjvfd")]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Blank2" type="Control" parent="GridContainer" unique_id=533169523]
+[node name="Blank2" type="Control" parent="GridContainer/equipment" unique_id=533169523]
 layout_mode = 2
 
-[node name="left_hand" parent="GridContainer" unique_id=1110814314 instance=ExtResource("1_gjvfd")]
+[node name="left_hand" parent="GridContainer/equipment" unique_id=1110814314 instance=ExtResource("1_gjvfd")]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="chest" parent="GridContainer" unique_id=550186595 instance=ExtResource("1_gjvfd")]
+[node name="chest" parent="GridContainer/equipment" unique_id=550186595 instance=ExtResource("1_gjvfd")]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="right_hand" parent="GridContainer" unique_id=2073260790 instance=ExtResource("1_gjvfd")]
+[node name="right_hand" parent="GridContainer/equipment" unique_id=2073260790 instance=ExtResource("1_gjvfd")]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Blank3" type="Control" parent="GridContainer" unique_id=1538532027]
+[node name="Blank3" type="Control" parent="GridContainer/equipment" unique_id=1538532027]
 layout_mode = 2
 
-[node name="legs" parent="GridContainer" unique_id=681524355 instance=ExtResource("1_gjvfd")]
+[node name="legs" parent="GridContainer/equipment" unique_id=681524355 instance=ExtResource("1_gjvfd")]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Blank4" type="Control" parent="GridContainer" unique_id=652229631]
+[node name="Blank4" type="Control" parent="GridContainer/equipment" unique_id=652229631]
 layout_mode = 2
 
-[node name="Blank5" type="Control" parent="GridContainer" unique_id=1130621275]
+[node name="Blank5" type="Control" parent="GridContainer/equipment" unique_id=1130621275]
 layout_mode = 2
 
-[node name="feet" parent="GridContainer" unique_id=1475284202 instance=ExtResource("1_gjvfd")]
+[node name="feet" parent="GridContainer/equipment" unique_id=1475284202 instance=ExtResource("1_gjvfd")]
 unique_name_in_owner = true
 layout_mode = 2

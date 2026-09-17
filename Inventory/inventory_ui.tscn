@@ -17,8 +17,8 @@ shadow_color = Color(0, 0, 0, 0.6666667)
 shadow_size = 4
 
 [node name="InventoryUI" type="PanelContainer" unique_id=1005508127]
-custom_minimum_size = Vector2(300, 138.1)
-custom_maximum_size = Vector2(300, 138)
+custom_minimum_size = Vector2(130, 300)
+custom_maximum_size = Vector2(130, 300)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -40,4 +40,4 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/h_separation = 4
 theme_override_constants/v_separation = 4
-columns = 7
+columns = 3

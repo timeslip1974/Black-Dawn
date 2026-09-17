@@ -49,29 +49,28 @@ layout_mode = 2
 [node name="CharacterUI4" parent="PartyContainer" unique_id=274397558 instance=ExtResource("1_2fwl4")]
 layout_mode = 2
 
-[node name="MainBar" type="VBoxContainer" parent="." unique_id=1413012404]
-unique_name_in_owner = true
+[node name="MainBar" type="HBoxContainer" parent="." unique_id=725035796]
+visible = false
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -420.0
-offset_top = 115.48
-offset_bottom = 653.48
+offset_left = -434.0
+offset_bottom = 350.0
 grow_horizontal = 0
-alignment = 1
-
-[node name="StatsUI" parent="MainBar" unique_id=531813096 instance=ExtResource("3_hat8c")]
-custom_minimum_size = Vector2(420, 400)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-offset_transform_position = Vector2(0, 204.505)
-offset_transform_scale = Vector2(2, 2)
+scale = Vector2(2, 2)
+pivot_offset = Vector2(434, 0)
 
 [node name="InventoryUI" parent="MainBar" unique_id=1005508127 instance=ExtResource("3_e6gg6")]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(300, 400)
 layout_mode = 2
-offset_transform_position = Vector2(-100.7, 0)
+offset_transform_enabled = true
+
+[node name="StatsUI" parent="MainBar" unique_id=531813096 instance=ExtResource("3_hat8c")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+offset_transform_position = Vector2(0, 204.505)
 offset_transform_scale = Vector2(2, 2)

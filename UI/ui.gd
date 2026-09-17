@@ -50,5 +50,5 @@ func _process(_delta: float) -> void:
 	
 func inventory_toggle():
 	%InventoryUI.setup_slots() # Update inv slots before displaying
-	$MainBar/StatsUI.setup_slots()
-	%MainBar.visible=!%MainBar.visible
+	%StatsUI.setup_slots()
+	$MainBar.visible=!$MainBar.visible
